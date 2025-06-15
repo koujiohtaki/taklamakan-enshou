@@ -989,70 +989,65 @@
     </div>
 
     <script>
-        // 全42枚の完全ギャラリー画像リスト
+        // 正確な42枚の完全ギャラリー画像リスト
         const galleryImages = [
             // 【確認済み】原点文書（1枚）
             { file: 'origin_001_silk_road_bower_document.jpg', caption: 'バウアー文書 - 探検の原点となった歴史的シルクロード文書', icon: '📜', category: 'origin', confirmed: true },
             
             // 【推測】中英計画書（6枚）
-            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同探検計画書表紙 - 1993年国際探検の正式計画文書', icon: '📋', category: 'plans', confirmed: true },
-            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書 - 英国政府の正式承認', icon: '✍️', category: 'plans', confirmed: true },
-            { file: 'plans_cu_003_expedition_details.jpg', caption: '探検詳細計画書 - 中英合同計画の詳細', icon: '📋', category: 'plans', confirmed: false },
-            { file: 'plans_cu_004_route_map.jpg', caption: 'ルート地図 - 砂漠横断の詳細ルート', icon: '🗺️', category: 'plans', confirmed: false },
-            { file: 'plans_cu_005_equipment_list.jpg', caption: '装備リスト - 探検に必要な装備一覧', icon: '🎒', category: 'plans', confirmed: false },
-            { file: 'plans_cu_006_safety_protocol.jpg', caption: '安全プロトコル - 緊急時対応計画', icon: '🚨', category: 'plans', confirmed: false },
+            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同探検計画書表紙', icon: '📋', category: 'plans', confirmed: true },
+            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書', icon: '✍️', category: 'plans', confirmed: true },
+            { file: 'plans_cu_003_expedition_details.jpg', caption: '探検詳細計画書', icon: '📋', category: 'plans', confirmed: false },
+            { file: 'plans_cu_004_route_map.jpg', caption: 'ルート地図', icon: '🗺️', category: 'plans', confirmed: false },
+            { file: 'plans_cu_005_equipment_list.jpg', caption: '装備リスト', icon: '🎒', category: 'plans', confirmed: false },
+            { file: 'plans_cu_006_safety_protocol.jpg', caption: '安全プロトコル', icon: '🚨', category: 'plans', confirmed: false },
             
             // 【推測】中日計画書（10枚）
-            { file: 'plans_jc_001_japanese_cover.jpg', caption: '日本語計画書表紙 - 日中合同探検計画', icon: '📄', category: 'plans', confirmed: false },
-            { file: 'plans_jc_002_team_composition.jpg', caption: 'チーム構成 - 探検メンバー詳細', icon: '👥', category: 'plans', confirmed: false },
-            { file: 'plans_jc_003_budget_plan.jpg', caption: '予算計画 - 探検費用の詳細', icon: '💰', category: 'plans', confirmed: false },
-            { file: 'plans_jc_004_logistics_plan.jpg', caption: 'ロジスティクス計画 - 補給・輸送計画', icon: '🚛', category: 'plans', confirmed: false },
-            { file: 'plans_jc_005_communication_plan.jpg', caption: '通信計画 - 緊急時連絡体制', icon: '📡', category: 'plans', confirmed: false },
-            { file: 'plans_jc_006_medical_support.jpg', caption: '医療サポート - 医師同行・医療体制', icon: '⚕️', category: 'plans', confirmed: false },
-            { file: 'plans_jc_007_weather_analysis.jpg', caption: '気象分析 - 砂漠気候の詳細分析', icon: '🌡️', category: 'plans', confirmed: false },
-            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表 - 77日間の詳細スケジュール', icon: '📅', category: 'plans', confirmed: true },
-            { file: 'plans_jc_009_risk_assessment.jpg', caption: 'リスクアセスメント - 危険要因と対策', icon: '⚠️', category: 'plans', confirmed: false },
-            { file: 'plans_jc_010_permit_documents.jpg', caption: '許可証関連文書 - 中国政府からの正式許可', icon: '📋', category: 'plans', confirmed: false },
+            { file: 'plans_jc_001_japanese_cover.jpg', caption: '日本語計画書表紙', icon: '📄', category: 'plans', confirmed: false },
+            { file: 'plans_jc_002_team_composition.jpg', caption: 'チーム構成', icon: '👥', category: 'plans', confirmed: false },
+            { file: 'plans_jc_003_budget_plan.jpg', caption: '予算計画', icon: '💰', category: 'plans', confirmed: false },
+            { file: 'plans_jc_004_logistics_plan.jpg', caption: 'ロジスティクス計画', icon: '🚛', category: 'plans', confirmed: false },
+            { file: 'plans_jc_005_communication_plan.jpg', caption: '通信計画', icon: '📡', category: 'plans', confirmed: false },
+            { file: 'plans_jc_006_medical_support.jpg', caption: '医療サポート', icon: '⚕️', category: 'plans', confirmed: false },
+            { file: 'plans_jc_007_weather_analysis.jpg', caption: '気象分析', icon: '🌡️', category: 'plans', confirmed: false },
+            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表', icon: '📅', category: 'plans', confirmed: true },
+            { file: 'plans_jc_009_risk_assessment.jpg', caption: 'リスクアセスメント', icon: '⚠️', category: 'plans', confirmed: false },
+            { file: 'plans_jc_010_permit_documents.jpg', caption: '許可証関連文書', icon: '📋', category: 'plans', confirmed: false },
             
             // 【推測】メモ・地図（2枚）
-            { file: 'plans_memo_001_expedition_notes.jpg', caption: '探検メモ - 重要事項の手書きメモ', icon: '📝', category: 'plans', confirmed: false },
-            { file: 'plans_map_001_detailed_route_map.jpg', caption: '詳細ルート地図 - 砂漠横断の正確なルート', icon: '🗺️', category: 'plans', confirmed: false },
+            { file: 'plans_memo_001_expedition_notes.jpg', caption: '探検メモ', icon: '📝', category: 'plans', confirmed: false },
+            { file: 'plans_map_001_detailed_route_map.jpg', caption: '詳細ルート地図', icon: '🗺️', category: 'plans', confirmed: false },
             
             // 【推測】報道記録（1枚）
-            { file: 'news_001_japan_times_article.jpg', caption: 'Japan Times記事 - 国際的な報道記録', icon: '📰', category: 'news', confirmed: false },
+            { file: 'news_001_japan_times_article.jpg', caption: 'Japan Times記事', icon: '📰', category: 'news', confirmed: false },
             
             // 【推測】エリザベス女王関連（2枚）
-            { file: 'royal_001_queen_support_document.jpg', caption: 'エリザベス女王2世支援文書 - 王室からの公式支援', icon: '👑', category: 'royal', confirmed: false },
-            { file: 'royal_002_congratulation_telegram.jpg', caption: '祝電記録 - ロンドンからウルムチへの祝電', icon: '📧', category: 'royal', confirmed: false },
+            { file: 'royal_001_queen_support_document.jpg', caption: 'エリザベス女王2世支援文書', icon: '👑', category: 'royal', confirmed: false },
+            { file: 'royal_002_congratulation_telegram.jpg', caption: '祝電記録', icon: '📧', category: 'royal', confirmed: false },
             
             // 【確認済み】実際の探検写真（15枚）
-            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備 - 探検に使用した専門装備', icon: '🎒', category: 'expedition', confirmed: true },
-            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備② - 砂漠探検用機材', icon: '🔧', category: 'expedition', confirmed: true },
-            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧', category: 'expedition', confirmed: true },
-            { file: 'expedition_004_kokusan_marker.jpg', caption: '国産マーカー - 探検ルート標識', icon: '🚩', category: 'expedition', confirmed: true },
-            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 探検隊メンバーの記念撮影', icon: '👥', category: 'expedition', confirmed: true },
-            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源確保のための詳細調査', icon: '🔍', category: 'expedition', confirmed: true },
-            { file: 'expedition_007_exploration_vehicle.jpg', caption: '探検車両 - 砂漠横断に使用した専用車両', icon: '🚗', category: 'expedition', confirmed: true },
-            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木博士への追悼', icon: '🏛️', category: 'expedition', confirmed: true },
-            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での敬意表明', icon: '🏛️', category: 'expedition', confirmed: true },
-            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者ポートレート - 探検に参加した地質学者', icon: '👤', category: 'expedition', confirmed: true },
-            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側探検隊員', icon: '👥', category: 'expedition', confirmed: true },
-            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際探検を支えた通訳スタッフ', icon: '🗣️', category: 'expedition', confirmed: true },
-            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断のラクダ隊', icon: '🐪', category: 'expedition', confirmed: true },
-            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠での扇子休憩 - 暑さ対策の様子', icon: '🌞', category: 'expedition', confirmed: true },
-            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャー・カラオケ - 探検中の息抜き時間', icon: '🎤', category: 'expedition', confirmed: true },
+            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備', icon: '🎒', category: 'expedition', confirmed: true },
+            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備②', icon: '🔧', category: 'expedition', confirmed: true },
+            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見', icon: '💧', category: 'expedition', confirmed: true },
+            { file: 'expedition_004_kokusan_marker.jpg', caption: '国産マーカー', icon: '🚩', category: 'expedition', confirmed: true },
+            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真', icon: '👥', category: 'expedition', confirmed: true },
+            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査', icon: '🔍', category: 'expedition', confirmed: true },
+            { file: 'expedition_007_exploration_vehicle.jpg', caption: '探検車両', icon: '🚗', category: 'expedition', confirmed: true },
+            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑①', icon: '🏛️', category: 'expedition', confirmed: true },
+            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑②', icon: '🏛️', category: 'expedition', confirmed: true },
+            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者ポートレート', icon: '👤', category: 'expedition', confirmed: true },
+            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー', icon: '👥', category: 'expedition', confirmed: true },
+            { file: 'expedition_012_interpreter.jpg', caption: '通訳者', icon: '🗣️', category: 'expedition', confirmed: true },
+            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列', icon: '🐪', category: 'expedition', confirmed: true },
+            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠での扇子休憩', icon: '🌞', category: 'expedition', confirmed: true },
+            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャー・カラオケ', icon: '🎤', category: 'expedition', confirmed: true },
             
-            // 【推測】追加探検写真（5枚 - 42枚に到達するため）
-            { file: 'expedition_016_final_celebration.jpg', caption: '探検成功祝賀 - 砂漠横断成功の記念', icon: '🎉', category: 'expedition', confirmed: false },
-            { file: 'expedition_017_mountain_landscape.jpg', caption: '山間部景観 - 壮大な山間部の風景記録', icon: '🏔️', category: 'expedition', confirmed: false },
-            { file: 'expedition_018_canyon_vehicle.jpg', caption: '峡谷車両移動 - 険しい地形での危険な車両移動', icon: '🚗', category: 'expedition', confirmed: false },
-            { file: 'expedition_019_team_meeting.jpg', caption: '隊員会議 - 重要な作戦会議の様子', icon: '🗣️', category: 'expedition', confirmed: false },
-            { file: 'expedition_020_desert_landscape.jpg', caption: '砂漠風景 - タクラマカン砂漠の雄大な風景', icon: '🏜️', category: 'expedition', confirmed: false },
-            
-            // 【推測】その他の資料（3枚）
-            { file: 'others_001_historical_context.jpg', caption: '歴史的背景資料 - 探検の歴史的位置づけ', icon: '📚', category: 'others', confirmed: false },
-            { file: 'others_002_scientific_data.jpg', caption: '科学的データ - 探検で得られた科学的知見', icon: '📊', category: 'others', confirmed: false },
-            { file: 'others_003_legacy_document.jpg', caption: '遺産文書 - 後世に残すべき記録', icon: '📜', category: 'others', confirmed: false }
+            // 【推測】追加探検写真（5枚）- 42枚到達のため
+            { file: 'expedition_016_final_celebration.jpg', caption: '探検成功祝賀', icon: '🎉', category: 'expedition', confirmed: false },
+            { file: 'expedition_017_mountain_landscape.jpg', caption: '山間部景観', icon: '🏔️', category: 'expedition', confirmed: false },
+            { file: 'expedition_018_canyon_vehicle.jpg', caption: '峡谷車両移動', icon: '🚗', category: 'expedition', confirmed: false },
+            { file: 'expedition_019_team_meeting.jpg', caption: '隊員会議', icon: '🗣️', category: 'expedition', confirmed: false },
+            { file: 'expedition_020_desert_landscape.jpg', caption: '砂漠風景', icon: '🏜️', category: 'expedition', confirmed: false }
         ];
 
         // ページ読み込み時にギャラリーを生成
