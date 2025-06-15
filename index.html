@@ -1,1 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1993年タクラマカン砂漠探検記録 - 成田正次 | 日中英国際探検プロジェクト</title>
+    <meta name="description" content="1993年、エリザベス女王2世の支援を受けた歴史的な日中英合同タクラマカン砂漠探検記録。計画実行総責任者・成田正次による77日間、1,070kmの国際探検プロジェクトの貴重な記録。">
+    <meta name="keywords" content="タクラマカン砂漠,探検,成田正次,1993年,日中英,国際探検,Peng Jiamu,エリザベス女王,Charles Blackmore">
+    <meta property="og:title" content="1993年タクラマカン砂漠探検記録 - 成田正次">
+    <meta property="og:description" content="エリザベス女王2世支援による歴史的な日中英合同国際探検の記録">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./final/large/team-group-photo.jpg">
+    <link rel="canonical" href="https://taklamakan-journey.com">
+    
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #A0522D;
+            --accent-color: #DAA520;
+            --bg-gradient: linear-gradient(135deg, #f5f1eb 0%, #e8dcc0 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-primary: #333;
+            --text-secondary: #666;
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.18);
+            --transition: all 0.3s ease;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* メインヘッダー */
+        .main-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 50px 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+
+        .main-title {
+            font-size: clamp(2.2em, 5vw, 3.2em);
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .explorer-name {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+            padding: 20px;
+            background: rgba(255, 248, 220, 0.7);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* ナビゲーション */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: var(--shadow-light);
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 15px 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 5px;
+            transition: var(--transition);
+            font-size: 1em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: rgba(139, 69, 19, 0.1);
+            color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        /* タブコンテンツ */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* セクションカード */
+        .section-card {
+            background: var(--card-bg);
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition);
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .section-content {
+            padding: 30px;
+        }
+
+        .section-text {
+            font-size: 1.1em;
+            line-height: 2;
+            color: #444;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* 特別な強調ボックス */
+        .highlight-box {
+            background: linear-gradient(135deg, #FFF8DC 0%, #F0E68C 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '🔍';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #FFF8DC;
+            padding: 0 10px;
+            font-size: 1.5em;
+        }
+
+        .highlight-title {
+            color: #B8860B;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .highlight-text {
+            color: #8B7355;
+            line-height: 1.8;
+        }
+
+        /* 年表スタイル */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .timeline-year {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .timeline-desc {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* 特徴リスト */
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list strong {
+            color: var(--primary-color);
+        }
+
+        /* 数値ハイライト */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 2px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* 引用ボックス */
+        .quote-box {
+            background: linear-gradient(135deg, #f8f4e6 0%, #f0e6d2 100%);
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 15px 15px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4em;
+            color: var(--accent-color);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.3;
+        }
+
+        /* 画像ギャラリースタイル */
+        .gallery-container {
+            margin: 20px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: var(--primary-color);
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* モーダルスタイル */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-caption {
+            padding: 20px;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10001;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* スクロールトップボタン */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .main-title {
+                font-size: 2.2em;
+                letter-spacing: 1px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                width: 100%;
+                margin: 2px 0;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8em;
+            }
+
+            .timeline {
+                padding-left: 15px;
+            }
+        }
+
+        /* アニメーション */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .footer-quote {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        /* 読み込み中表示 */
+        .loading {
+            opacity: 0.5;
+        }
+
+        .error-message {
+            color: #999;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- メインヘッダー -->
+        <header class="main-header">
+            <h1 class="main-title">1993年タクラマカン砂漠探検記録</h1>
+            <p class="subtitle">日中組・中英組による国際探検プロジェクト</p>
+            <p class="explorer-name">計画実行総責任者　成田正次（1950年1月18日生まれ）</p>
+            <div class="intro-text">
+                1980年、中国の科学者Peng Jiamu（彭加木）博士がタクラマカン砂漠で失踪した事件に深い関心を抱き、
+                1993年にエリザベス女王2世の支援を受けた歴史的な日中組・中英組による国際探検を実施。
+                Japan Timesでも報道された2組編成による国際探検プロジェクトの貴重な記録をここに残します。
+            </div>
+        </header>
+
+        <!-- ナビゲーション -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">探検概要</button>
+            <button class="nav-tab" onclick="showTab('peng-jiamu')">Peng Jiamu への関心</button>
+            <button class="nav-tab" onclick="showTab('timeline')">探検年表</button>
+            <button class="nav-tab" onclick="showTab('international')">国際協力</button>
+            <button class="nav-tab" onclick="showTab('gallery')">写真ギャラリー</button>
+        </nav>
+
+        <main>
+            <!-- 探検概要タブ -->
+            <div id="overview" class="tab-content active">
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">1993年探検概要</h2>
+                        <p class="section-subtitle">日中組・中英組による2組編成国際探検</p>
+                    </div>
+                    <div class="section-content">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">77</span>
+                                <span class="stat-label">日間</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">組（日中・中英）</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1,070</span>
+                                <span class="stat-label">km砂漠移動</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">60</span>
+                                <span class="stat-label">日間砂漠移動</span>
+                            </div>
+                        </div>
+
+                        <p class="section-text">
+                            成田正次氏（1950年1月18日生まれ）は、1980年のPeng Jiamu博士失踪事件に深い関心を抱き、1993年に歴史的な日中組・中英組による国際探検を計画・実行した。この探検は単なる冒険ではなく、失踪の謎を解明し、砂漠の真の姿を記録に残すという明確な使命を持った国際的な学術探検であった。
+                        </p>
+
+                        <div class="highlight-box">
+                            <div class="highlight-title">1993年探検の詳細計画</div>
+                            <ul class="feature-list">
+                                <li><strong>正式名称：</strong>中一英一九九三年穿越塔克拉玛干沙漠联合探险队</li>
+                                <li><strong>英語名称：</strong>JOINT BRITISH-CHINESE TAKLAMAKAN DESERT CROSSING EXPEDITION 1993</li>
+                                <li><strong>実施期間：</strong>1993年10月7日〜12月23日（77日間）</li>
+                                <li><strong>砂漠移動距離：</strong>約1,070km（60日間）</li>
+                                <li><strong>隊長検索：</strong>Charles Blackmore博士、趙子允氏</li>
+                                <li><strong>英国・中国：</strong>両国政府の正式承認</li>
+                                <li><strong>中国側協力：</strong>新疆大自然旅行社（総経理：王衛平）</li>
+                                <li><strong>探検家：</strong>趙希林氏、成田正次氏ほか</li>
+                            </ul>
+                        </div>
+
+                        <div class="quote-box">
+                            「この探検は観光や趣味ではない。Peng Jiamu博士への敬意と、砂漠の真実を後世に伝える使命感に基づく、真の国際探検活動である。」
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Peng Jiamu への関心タブ -->
+            <div id="peng-jiamu" class="tab-content">
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Peng Jiamu博士への関心</h2>
+                        <p class="section-subtitle">探検の原点となった科学者失踪の謎</p>
+                    </div>
+                    <div class="section-content">
+                        <p class="section-text">
+                            1980年6月17日、中国科学院新疆分院副院長のPeng Jiamu（彭加木）博士が、ロプノール学術調査中にタクラマカン砂漠で消息を絶った。この事件は中国国内で大きな衝撃を与え、大規模な捜索活動が行われたものの、現在に至るまで行方は分からないままである。
+                        </p>
+
+                        <div class="highlight-box">
+                            <div class="highlight-title">1993年探検での記念碑訪問</div>
+                            <div class="highlight-text">
+                                <strong>実際の記録：</strong>1993年の探検で、成田氏は実際にPeng Jiamu博士の記念碑（彭加木记念碑）を訪問し、敬意を表して花を供えた。<br><br>
+                                <strong>記念碑の場所：</strong>タクラマカン砂漠内、ロプノール地域<br>
+                                <strong>記録の刻印：</strong>岩壁に「1993.6.12 成田正次」「SHOJI」の文字を刻印し、歴史的探検の証拠として永続保存<br>
+                                <strong>探検の意義：</strong>Peng Jiamu博士への深い敬意と、失踪の謎への真摯な取り組みを物語る
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <div class="highlight-title">Peng Jiamu博士について</div>
+                            <div class="highlight-text">
+                                <strong>本名：</strong>彭加木（1925年5月19日生まれ）<br>
+                                <strong>専門：</strong>生物化学者、植物病理学者<br>
+                                <strong>経歴：</strong>中国科学院新疆分院副院長<br>
+                                <strong>功績：</strong>ロプノール地域の総合学術調査を指揮<br>
+                                <strong>失踪：</strong>1980年6月17日午前10時、調査隊を離れ単独行動中に消息を絶つ
+                            </div>
+                        </div>
+
+                        <p class="section-text">
+                            成田氏がこの事件に深い関心を抱いた理由は、バウアー文書に記された「一切の生を拒否する、死の海、タクラマカン砂漠」という表現に象徴される砂漠の謎と直結している。なぜ経験豊富な科学者が、危険を承知でチームを離れ単独行動を取ったのか。その真相を自らの目で確かめるため、タクラマカン砂漠への探検を決意した。
+                        </p>
+
+                        <div class="quote-box">
+                            「バウアー文書が示した西域探検の歴史的意義と、Peng Jiamu博士の謎。この2つの線が交差する点に、私の使命がある。」
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 探検年表タブ -->
+            <div id="timeline" class="tab-content">
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">探検年表</h2>
+                        <p class="section-subtitle">1990年〜1993年の記録</p>
+                    </div>
+                    <div class="section-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">1990年6月</div>
+                                <div class="timeline-title">タクラマカン砂漠一周の旅</div>
+                                <div class="timeline-desc">
+                                    パミール高原・ムスターグ・アタ山（標高7,509m）雪渓5,000mまで到達。和田（ホータン）からラクダで民豊県（ニヤ）まで約250km移動。アルティン山脈内で一泊後、敦煌へ。男性6名、女性7名による探検。
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-year">1991年</div>
+                                <div class="timeline-title">自転車探検</div>
+                                <div class="timeline-desc">
+                                    自転車同好会主催で満州里（マンジョウリー）から大興安嶺山脈を越えて丹東（ダンドン）まで2,000kmをマウンテンバイクで走破。
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-year">1992年</div>
+                                <div class="timeline-title">マウンテンバイクと列車でロシア国境探検</div>
+                                <div class="timeline-desc">
+                                    満州里からの大興安嶺山脈越えを実施。
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-year">1993年</div>
+                                <div class="timeline-title">日中英合同国際探検（メインプロジェクト）</div>
+                                <div class="timeline-desc">
+                                    <strong>第1回記録歩行 クムターグ砂漠、内モンゴルのバダインジャラン砂漠走破。エリザベス女王2世の支援を受けた歴史的な国際探検プロジェクト。Japan Timesで報道され、国際的な注目を集めた。</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 国際協力タブ -->
+            <div id="international" class="tab-content">
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">エリザベス女王2世の支援</h2>
+                        <p class="section-subtitle">英国王室が支援した国際プロジェクト</p>
+                    </div>
+                    <div class="section-content">
+                        <p class="section-text">
+                            今世紀初のタクラマカン砂漠横断探検にエリザベス女王2世が強い関心を示し、各方面に働きかけを行った。英国陸軍将校ドクター・チャールズ・ブラックモア氏は周辺砂漠の調査に5年を費やし、探検成功後、エリザベス女王2世はロンドンからウルムチに祝電を送信。中国政府はこれを記念して記念切手を発行した。
+                        </p>
+
+                        <div class="highlight-box">
+                            <div class="highlight-title">Charles Blackmore博士と英国の関与</div>
+                            <div class="highlight-text">
+                                <strong>Charles Blackmore博士：</strong>英国陸軍将校、地質学者<br>
+                                <strong>探検準備：</strong>周辺砂漠の調査に5年を費やす<br>
+                                <strong>正式承認：</strong>手書き署名入りの承認書（計画書に収録）<br>
+                                <strong>国際協力：</strong>英国政府からの公式支援<br>
+                                <strong>成果：</strong>エリザベス女王2世からロンドン→ウルムチに祝電<br>
+                                <strong>記念：</strong>中国政府による記念切手発行
+                            </div>
+                        </div>
+
+                        <div class="quote-box">
+                            「英国探検に参加した中国メンバーは、私が以前クムターグ砂漠で決死の脱出を図った際に苦労を共にした人々であった。我々の探検は6月15日、英国隊は9月であった。」
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">中国当局との交渉</h2>
+                        <p class="section-subtitle">国際探検実現への険しい道のり</p>
+                    </div>
+                    <div class="section-content">
+                        <p class="section-text">
+                            タクラマカン砂漠での国際探検を実現するためには、中国政府の正式な許可が必要不可欠であった。特に外国人による砂漠探検は、政治的・安全保障的観点から極めて厳しい制限が設けられており、許可取得は困難を極めた。
+                        </p>
+
+                        <div class="highlight-box">
+                            <div class="highlight-title">日中合同探検チーム</div>
+                            <ul class="feature-list">
+                                <li><strong>計画実行総責任者：</strong>成田正次（1950年1月18日生まれ）</li>
+                                <li><strong>中国側総経理：</strong>鄭穂（ていほ）氏（CYTS社長）</li>
+                                <li><strong>中国側部長：</strong>王星（わんしん）氏（CYTS部長）</li>
+                                <li><strong>安全対策：</strong>緊急時救助用新疆軍航空部ヘリコプター（24人乗り）待機</li>
+                                <li><strong>補給体制：</strong>給水容器40リットル入×24個（ミネラルウォーター限定）</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <div class="highlight-title">新疆大自然旅行社との正式協定</div>
+                            <ul class="feature-list">
+                                <li><strong>協力機関：</strong>新疆大自然旅行社（XINJIANG NATURE TRAVEL SERVICE）</li>
+                                <li><strong>総経理（社長）：</strong>王衛平氏</li>
+                                <li><strong>副総経理：</strong>探検家・趙希林氏</li>
+                                <li><strong>主管：</strong>（日本語通訳）</li>
+                                <li><strong>所在地：</strong>ウルムチ市東風路64号</li>
+                                <li><strong>正式協定：</strong>1993年4月14日〜1993年6月2日期間で締結</li>
+                                <li><strong>安全保障：</strong>緊急時救助体制、医師同行</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 写真ギャラリータブ -->
+            <div id="gallery" class="tab-content">
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">📸 1993年探検写真ギャラリー</h2>
+                        <p class="section-subtitle">22枚の貴重な探検記録</p>
+                    </div>
+                    <div class="section-content">
+                        <div class="gallery-container">
+                            <div class="gallery-grid" id="photo-gallery">
+                                <!-- 写真は JavaScript で動的に読み込まれます -->
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <div class="highlight-title">写真について</div>
+                            <div class="highlight-text">
+                                これらの写真は1993年の日中英合同タクラマカン砂漠探検の実際の記録です。Peng Jiamu博士への追悼、岩壁への刻印記録、中国軍要人との公式会議、大規模ラクダ隊列による砂漠横断など、77日間にわたる歴史的探検の全容を物語っています。
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <p class="footer-quote">
+                "砂漠は我々に謙虚さを教え、自然の偉大さを実感させてくれる。<br>
+                Peng Jiamu博士への敬意と共に、この記録を後世に残す。"
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                1993年　日中組・中英組による国際探検記録<br>
+                計画実行総責任者　成田正次
+            </p>
+        </footer>
+    </div>
+
+    <!-- スクロールトップボタン -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+    <!-- 画像モーダル -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <script>
+        // 実際のファイル名に基づく画像リスト
+        const expeditionImages = [
+            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備確認 - 探検準備の重要な装備確認作業', icon: '🎒' },
+            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備記録 - 砂漠探検に必要な装備の詳細記録', icon: '🎒' },
+            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧' },
+            { file: 'expedition_004_kokusan_marker.jpg', caption: '黒山口マーカー - 重要な地理的目標点の記録', icon: '📍' },
+            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 探検隊メンバーの記念撮影', icon: '👥' },
+            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源調査活動の詳細記録', icon: '🔍' },
+            { file: 'expedition_007_exploration_vehicle.jpg', caption: '探検車両 - 砂漠横断に使用した重要な車両', icon: '🚗' },
+            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木记念碑での敬意表明', icon: '🏛️' },
+            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での追悼活動記録', icon: '🏛️' },
+            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者肖像 - 地質調査専門家の記録', icon: '👨‍🔬' },
+            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側探検隊員の記録', icon: '👥' },
+            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際探検に不可欠な通訳担当者', icon: '🗣️' },
+            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断の主要交通手段', icon: '🐪' },
+            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠休憩（扇子） - 砂漠での暑さしのぎ', icon: '🏜️' },
+            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャータイム - 探検中の貴重な息抜き時間', icon: '🎤' },
+            { file: 'expedition_016_map_consultation.jpg', caption: '地図相談 - ルート確認の重要な協議', icon: '🗺️' },
+            { file: 'expedition_017_local_bike.jpg', caption: '現地バイク - 機動的移動手段としての活用', icon: '🏍️' },
+            { file: 'expedition_018_night_road.jpg', caption: '夜間道路 - 夜間移動時の貴重な記録', icon: '🌙' },
+            { file: 'expedition_019_team_group_photo.jpg', caption: '探検隊全員集合 - 全メンバーでの記念撮影', icon: '👥' },
+            { file: 'expedition_020_landcruiser_desert.jpg', caption: 'ランドクルーザー砂漠走行 - 砂漠での車両性能記録', icon: '🚗' },
+            { file: 'expedition_021_camel_caravan_desert.jpg', caption: '砂漠ラクダ隊列 - 砂丘でのラクダ隊列移動', icon: '🐪' },
+            { file: 'expedition_022_mountain_landscape.jpg', caption: '山間部景観 - 壮大な山間部の風景記録', icon: '🏔️' }
+        ];
+
+        // その他の重要文書
+        const additionalFiles = [
+            { file: 'news_001_japan_times_2002.jpg', caption: 'Japan Times報道記事 - 国際的な注目を集めた探検の報道', icon: '📰', category: 'news' },
+            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'シルクロード・バウアー文書 - 探検の原点となった歴史的文書', icon: '📜', category: 'origin' }
+        ];
+
+        // 自動検出された全画像ファイルリスト
+        let detectedImages = [];
+
+        // ページ読み込み時にギャラリー生成
+        document.addEventListener('DOMContentLoaded', function() {
+            generateActualGallery();
+        });
+
+        // 実際のファイル名でギャラリーを生成
+        function generateActualGallery() {
+            console.log('🔍 実際のファイル名でギャラリーを生成...');
+            const gallery = document.getElementById('photo-gallery');
+            gallery.innerHTML = '';
+
+            // メイン探検写真を追加
+            expeditionImages.forEach((image) => {
+                detectedImages.push(image);
+            });
+
+            console.log(`🖼️ ${detectedImages.length}個の探検写真でギャラリーを生成`);
+
+            detectedImages.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.onclick = () => openModal(image.file, image.caption);
+
+                galleryItem.innerHTML = `
+                    <img class="gallery-image" 
+                         src="./final/medium/${image.file}" 
+                         alt="${image.caption}"
+                         loading="lazy"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-placeholder" style="display: none;">
+                        ${image.icon}
+                    </div>
+                    <div class="gallery-caption">${image.caption.split(' - ')[0]}</div>
+                `;
+
+                gallery.appendChild(galleryItem);
+            });
+
+            // 成功メッセージ
+            const statusDiv = document.createElement('div');
+            statusDiv.style.cssText = 'grid-column: 1/-1; text-align: center; padding: 20px; background: rgba(139, 69, 19, 0.1); border-radius: 10px; margin-top: 20px; color: #8B4513;';
+            statusDiv.innerHTML = `
+                <h3>✅ 探検写真ギャラリー完成</h3>
+                <p>${detectedImages.length}枚の探検写真を表示中</p>
+                <p style="font-size: 0.9em; margin-top: 5px;">expedition_001 〜 expedition_022</p>
+            `;
+            gallery.appendChild(statusDiv);
+        }
+
+        function openModal(imageName, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            modalImage.src = `./final/large/${imageName}`;
+            modalCaption.textContent = caption;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // 画像読み込みエラー時の処理
+            modalImage.onerror = function() {
+                this.src = `./final/medium/${imageName}`;
+                this.onerror = function() {
+                    modalCaption.textContent = `${caption} - 画像を読み込み中です`;
+                };
+            };
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // タブ切り替え機能
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            const tabButtons = document.querySelectorAll('.nav-tab');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            document.querySelector('.nav-tabs').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        // スクロールトップボタン機能
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // モーダル外クリックで閉じる
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // ESCキーでモーダルを閉じる
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
