@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1993年タクラマカン砂漠探検記録 - 成田正次 | 日中英国際探検プロジェクト</title>
+    <title>タクラマカン砂漠探検記録 - 成田正次 | 日中英国際探検プロジェクト</title>
     <meta name="description" content="1993年、エリザベス女王2世の支援を受けた歴史的な日中英合同タクラマカン砂漠探検記録。計画実行総責任者・成田正次による77日間、1,070kmの国際探検プロジェクトの貴重な記録。">
     <meta name="keywords" content="タクラマカン砂漠,探検,成田正次,1993年,日中英,国際探検,Peng Jiamu,エリザベス女王,Charles Blackmore">
-    <meta property="og:title" content="1993年タクラマカン砂漠探検記録 - 成田正次">
+    <meta property="og:title" content="タクラマカン砂漠探検記録 - 成田正次">
     <meta property="og:description" content="エリザベス女王2世支援による歴史的な日中英合同国際探検の記録">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./final/large/team-group-photo.jpg">
+    <meta property="og:image" content="./final/large/expedition_019_team_group_photo.jpg">
     <link rel="canonical" href="https://taklamakan-journey.com">
     
     <style>
@@ -197,6 +197,64 @@
             color: #444;
             margin-bottom: 25px;
             text-align: justify;
+        }
+
+        /* 記事内画像 */
+        .article-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            margin: 25px auto;
+            display: block;
+            box-shadow: var(--shadow-medium);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .article-image:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .article-image-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .image-gallery-inline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .inline-image-item {
+            text-align: center;
+        }
+
+        .inline-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+        }
+
+        .inline-image:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .inline-caption {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            margin-top: 8px;
         }
 
         /* 特別な強調ボックス */
@@ -554,6 +612,10 @@
                 width: 45px;
                 height: 45px;
             }
+
+            .image-gallery-inline {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -616,13 +678,13 @@
     <div class="container">
         <!-- メインヘッダー -->
         <header class="main-header">
-            <h1 class="main-title">1993年タクラマカン砂漠探検記録</h1>
-            <p class="subtitle">日中組・中英組による国際探検プロジェクト</p>
+            <h1 class="main-title">タクラマカン砂漠探検記録</h1>
+            <p class="subtitle">日中英合同国際探検プロジェクト（1993年）</p>
             <p class="explorer-name">計画実行総責任者　成田正次（1950年1月18日生まれ）</p>
             <div class="intro-text">
                 1980年、中国の科学者Peng Jiamu（彭加木）博士がタクラマカン砂漠で失踪した事件に深い関心を抱き、
-                1993年にエリザベス女王2世の支援を受けた歴史的な日中組・中英組による国際探検を実施。
-                Japan Timesでも報道された2組編成による国際探検プロジェクトの貴重な記録をここに残します。
+                1993年にエリザベス女王2世の支援を受けた歴史的な日中英合同国際探検を実施。
+                Japan Timesでも報道された国際探検プロジェクトの貴重な記録をここに残します。
             </div>
         </header>
 
@@ -641,9 +703,12 @@
                 <section class="section-card">
                     <div class="section-header">
                         <h2 class="section-title">1993年探検概要</h2>
-                        <p class="section-subtitle">日中組・中英組による2組編成国際探検</p>
+                        <p class="section-subtitle">日中英合同国際探検</p>
                     </div>
                     <div class="section-content">
+                        <img class="article-image" src="./final/medium/plans_cu_001_joint_expedition_plan_cover.jpg" alt="日中英合同探検計画書表紙" onclick="openModal('./final/large/plans_cu_001_joint_expedition_plan_cover.jpg', '日中英合同探検計画書表紙 - 1993年国際探検の正式計画文書')">
+                        <p class="article-image-caption">日中英合同探検計画書表紙 - 1993年国際探検の正式計画文書</p>
+
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-number">77</span>
@@ -664,8 +729,19 @@
                         </div>
 
                         <p class="section-text">
-                            成田正次氏（1950年1月18日生まれ）は、1980年のPeng Jiamu博士失踪事件に深い関心を抱き、1993年に歴史的な日中組・中英組による国際探検を計画・実行した。この探検は単なる冒険ではなく、失踪の謎を解明し、砂漠の真の姿を記録に残すという明確な使命を持った国際的な学術探検であった。
+                            成田正次氏（1950年1月18日生まれ）は、1980年のPeng Jiamu博士失踪事件に深い関心を抱き、1993年に歴史的な日中英合同国際探検を計画・実行した。この探検は単なる冒険ではなく、失踪の謎を解明し、砂漠の真の姿を記録に残すという明確な使命を持った国際的な学術探検であった。
                         </p>
+
+                        <div class="image-gallery-inline">
+                            <div class="inline-image-item">
+                                <img class="inline-image" src="./final/medium/plans_jc_008_chronological_schedule_list.jpg" alt="時系列スケジュール表" onclick="openModal('./final/large/plans_jc_008_chronological_schedule_list.jpg', '時系列スケジュール表 - 詳細な探検計画スケジュール')">
+                                <p class="inline-caption">詳細な探検計画スケジュール</p>
+                            </div>
+                            <div class="inline-image-item">
+                                <img class="inline-image" src="./final/medium/origin_001_silk_road_bower_document.jpg" alt="バウアー文書" onclick="openModal('./final/large/origin_001_silk_road_bower_document.jpg', 'バウアー文書 - 探検の原点となった歴史的文書')">
+                                <p class="inline-caption">探検の原点となったバウアー文書</p>
+                            </div>
+                        </div>
 
                         <div class="highlight-box">
                             <div class="highlight-title">1993年探検の詳細計画</div>
@@ -674,7 +750,7 @@
                                 <li><strong>英語名称：</strong>JOINT BRITISH-CHINESE TAKLAMAKAN DESERT CROSSING EXPEDITION 1993</li>
                                 <li><strong>実施期間：</strong>1993年10月7日〜12月23日（77日間）</li>
                                 <li><strong>砂漠移動距離：</strong>約1,070km（60日間）</li>
-                                <li><strong>隊長検索：</strong>Charles Blackmore博士、趙子允氏</li>
+                                <li><strong>隊長：</strong>Charles Blackmore博士、趙子允氏</li>
                                 <li><strong>英国・中国：</strong>両国政府の正式承認</li>
                                 <li><strong>中国側協力：</strong>新疆大自然旅行社（総経理：王衛平）</li>
                                 <li><strong>探検家：</strong>趙希林氏、成田正次氏ほか</li>
@@ -696,17 +772,17 @@
                         <p class="section-subtitle">探検の原点となった科学者失踪の謎</p>
                     </div>
                     <div class="section-content">
+                        <img class="article-image" src="./final/medium/origin_001_silk_road_bower_document.jpg" alt="バウアー文書" onclick="openModal('./final/large/origin_001_silk_road_bower_document.jpg', 'バウアー文書 - 探検の原点となった歴史的文書')">
+                        <p class="article-image-caption">バウアー文書 - 成田氏の探検への関心を奮い立たせた貴重な文書</p>
+
                         <p class="section-text">
                             1980年6月17日、中国科学院新疆分院副院長のPeng Jiamu（彭加木）博士が、ロプノール学術調査中にタクラマカン砂漠で消息を絶った。この事件は中国国内で大きな衝撃を与え、大規模な捜索活動が行われたものの、現在に至るまで行方は分からないままである。
                         </p>
 
                         <div class="highlight-box">
-                            <div class="highlight-title">1993年探検での記念碑訪問</div>
+                            <div class="highlight-title">成田氏とPeng Jiamu博士への深い敬意</div>
                             <div class="highlight-text">
-                                <strong>実際の記録：</strong>1993年の探検で、成田氏は実際にPeng Jiamu博士の記念碑（彭加木记念碑）を訪問し、敬意を表して花を供えた。<br><br>
-                                <strong>記念碑の場所：</strong>タクラマカン砂漠内、ロプノール地域<br>
-                                <strong>記録の刻印：</strong>岩壁に「1993.6.12 成田正次」「SHOJI」の文字を刻印し、歴史的探検の証拠として永続保存<br>
-                                <strong>探検の意義：</strong>Peng Jiamu博士への深い敬意と、失踪の謎への真摯な取り組みを物語る
+                                成田氏がこの事件に深い関心を抱いた理由は、バウアー文書に記された「一切の生を拒否する、死の海、タクラマカン砂漠」という表現に象徴される砂漠の謎と直結している。なぜ経験豊富な科学者が、危険を承知でチームを離れ単独行動を取ったのか。その真相を自らの目で確かめるため、タクラマカン砂漠への探検を決意した。
                             </div>
                         </div>
 
@@ -721,10 +797,6 @@
                             </div>
                         </div>
 
-                        <p class="section-text">
-                            成田氏がこの事件に深い関心を抱いた理由は、バウアー文書に記された「一切の生を拒否する、死の海、タクラマカン砂漠」という表現に象徴される砂漠の謎と直結している。なぜ経験豊富な科学者が、危険を承知でチームを離れ単独行動を取ったのか。その真相を自らの目で確かめるため、タクラマカン砂漠への探検を決意した。
-                        </p>
-
                         <div class="quote-box">
                             「バウアー文書が示した西域探検の歴史的意義と、Peng Jiamu博士の謎。この2つの線が交差する点に、私の使命がある。」
                         </div>
@@ -737,7 +809,7 @@
                 <section class="section-card">
                     <div class="section-header">
                         <h2 class="section-title">探検年表</h2>
-                        <p class="section-subtitle">1990年〜1993年の記録</p>
+                        <p class="section-subtitle">1990年〜2004年の記録</p>
                     </div>
                     <div class="section-content">
                         <div class="timeline">
@@ -772,6 +844,22 @@
                                     <strong>第1回記録歩行 クムターグ砂漠、内モンゴルのバダインジャラン砂漠走破。エリザベス女王2世の支援を受けた歴史的な国際探検プロジェクト。Japan Timesで報道され、国際的な注目を集めた。</strong>
                                 </div>
                             </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-year">2003年</div>
+                                <div class="timeline-title">タクラマカン砂漠探検</div>
+                                <div class="timeline-desc">
+                                    タクラマカン砂漠、西域アルチン山脈、崑崙山脈での野営探検を実施。
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-year">2004年</div>
+                                <div class="timeline-title">完全縦断成功</div>
+                                <div class="timeline-desc">
+                                    73日間、1,200kmの完全縦断に成功。タクラマカン砂漠横断探検（北緯39度線）を計画実行総責任者として成功させた。
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -785,6 +873,9 @@
                         <p class="section-subtitle">英国王室が支援した国際プロジェクト</p>
                     </div>
                     <div class="section-content">
+                        <img class="article-image" src="./final/medium/plans_cu_002_blackmore_signature_document.jpg" alt="ブラックモア博士署名文書" onclick="openModal('./final/large/plans_cu_002_blackmore_signature_document.jpg', 'Charles Blackmore博士署名文書 - 英国政府の正式承認を示す歴史的文書')">
+                        <p class="article-image-caption">Charles Blackmore博士署名文書 - 英国政府の正式承認を示す歴史的文書</p>
+
                         <p class="section-text">
                             今世紀初のタクラマカン砂漠横断探検にエリザベス女王2世が強い関心を示し、各方面に働きかけを行った。英国陸軍将校ドクター・チャールズ・ブラックモア氏は周辺砂漠の調査に5年を費やし、探検成功後、エリザベス女王2世はロンドンからウルムチに祝電を送信。中国政府はこれを記念して記念切手を発行した。
                         </p>
@@ -794,7 +885,7 @@
                             <div class="highlight-text">
                                 <strong>Charles Blackmore博士：</strong>英国陸軍将校、地質学者<br>
                                 <strong>探検準備：</strong>周辺砂漠の調査に5年を費やす<br>
-                                <strong>正式承認：</strong>手書き署名入りの承認書（計画書に収録）<br>
+                                <strong>正式承認：</strong>手書き署名入りの承認書（上記画像に収録）<br>
                                 <strong>国際協力：</strong>英国政府からの公式支援<br>
                                 <strong>成果：</strong>エリザベス女王2世からロンドン→ウルムチに祝電<br>
                                 <strong>記念：</strong>中国政府による記念切手発行
@@ -848,8 +939,8 @@
             <div id="gallery" class="tab-content">
                 <section class="section-card">
                     <div class="section-header">
-                        <h2 class="section-title">📸 1993年探検写真ギャラリー</h2>
-                        <p class="section-subtitle">22枚の貴重な探検記録</p>
+                        <h2 class="section-title">📸 探検記録ギャラリー</h2>
+                        <p class="section-subtitle">42枚の貴重な探検・計画書記録</p>
                     </div>
                     <div class="section-content">
                         <div class="gallery-container">
@@ -859,9 +950,9 @@
                         </div>
                         
                         <div class="highlight-box">
-                            <div class="highlight-title">写真について</div>
+                            <div class="highlight-title">記録について</div>
                             <div class="highlight-text">
-                                これらの写真は1993年の日中英合同タクラマカン砂漠探検の実際の記録です。Peng Jiamu博士への追悼、岩壁への刻印記録、中国軍要人との公式会議、大規模ラクダ隊列による砂漠横断など、77日間にわたる歴史的探検の全容を物語っています。
+                                これらの画像は1993年の日中英合同タクラマカン砂漠探検の実際の記録、計画書、および関連資料です。バウアー文書、詳細な計画書、Charles Blackmore博士の署名文書、実際の探検写真、報道記録など、42枚にわたる歴史的探検の全容を物語っています。
                             </div>
                         </div>
                     </div>
@@ -876,7 +967,7 @@
                 Peng Jiamu博士への敬意と共に、この記録を後世に残す。"
             </p>
             <p style="margin-top: 20px; font-size: 0.9em;">
-                1993年　日中組・中英組による国際探検記録<br>
+                1993年　日中英合同国際探検記録<br>
                 計画実行総責任者　成田正次
             </p>
         </footer>
@@ -895,63 +986,79 @@
     </div>
 
     <script>
-        // 実際のファイル名に基づく画像リスト
-        const expeditionImages = [
-            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備確認 - 探検準備の重要な装備確認作業', icon: '🎒' },
-            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備記録 - 砂漠探検に必要な装備の詳細記録', icon: '🎒' },
-            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧' },
-            { file: 'expedition_004_kokusan_marker.jpg', caption: '黒山口マーカー - 重要な地理的目標点の記録', icon: '📍' },
-            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 探検隊メンバーの記念撮影', icon: '👥' },
-            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源調査活動の詳細記録', icon: '🔍' },
-            { file: 'expedition_007_exploration_vehicle.jpg', caption: '探検車両 - 砂漠横断に使用した重要な車両', icon: '🚗' },
-            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木记念碑での敬意表明', icon: '🏛️' },
-            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での追悼活動記録', icon: '🏛️' },
-            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者肖像 - 地質調査専門家の記録', icon: '👨‍🔬' },
-            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側探検隊員の記録', icon: '👥' },
-            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際探検に不可欠な通訳担当者', icon: '🗣️' },
-            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断の主要交通手段', icon: '🐪' },
-            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠休憩（扇子） - 砂漠での暑さしのぎ', icon: '🏜️' },
-            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャータイム - 探検中の貴重な息抜き時間', icon: '🎤' },
-            { file: 'expedition_016_map_consultation.jpg', caption: '地図相談 - ルート確認の重要な協議', icon: '🗺️' },
-            { file: 'expedition_017_local_bike.jpg', caption: '現地バイク - 機動的移動手段としての活用', icon: '🏍️' },
-            { file: 'expedition_018_night_road.jpg', caption: '夜間道路 - 夜間移動時の貴重な記録', icon: '🌙' },
-            { file: 'expedition_019_team_group_photo.jpg', caption: '探検隊全員集合 - 全メンバーでの記念撮影', icon: '👥' },
-            { file: 'expedition_020_landcruiser_desert.jpg', caption: 'ランドクルーザー砂漠走行 - 砂漠での車両性能記録', icon: '🚗' },
-            { file: 'expedition_021_camel_caravan_desert.jpg', caption: '砂漠ラクダ隊列 - 砂丘でのラクダ隊列移動', icon: '🐪' },
-            { file: 'expedition_022_mountain_landscape.jpg', caption: '山間部景観 - 壮大な山間部の風景記録', icon: '🏔️' }
+        // 実際のギャラリー画像リスト - カテゴリー別に整理
+        const galleryImages = [
+            // バウアー文書・原点資料
+            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'バウアー文書 - 探検の原点となった歴史的シルクロード文書', icon: '📜', category: 'origin' },
+            
+            // 中英計画書（6枚）
+            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同探検計画書表紙 - 1993年国際探検の正式計画文書', icon: '📋', category: 'plans' },
+            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書 - 英国政府の正式承認', icon: '✍️', category: 'plans' },
+            { file: 'plans_cu_003_expedition_details.jpg', caption: '探検詳細計画書 - 中英合同計画の詳細', icon: '📋', category: 'plans' },
+            { file: 'plans_cu_004_route_map.jpg', caption: 'ルート地図 - 砂漠横断の詳細ルート', icon: '🗺️', category: 'plans' },
+            { file: 'plans_cu_005_equipment_list.jpg', caption: '装備リスト - 探検に必要な装備一覧', icon: '🎒', category: 'plans' },
+            { file: 'plans_cu_006_safety_protocol.jpg', caption: '安全プロトコル - 緊急時対応計画', icon: '🚨', category: 'plans' },
+            
+            // 中日計画書（10枚）
+            { file: 'plans_jc_001_japanese_cover.jpg', caption: '日本語計画書表紙 - 日中合同探検計画', icon: '📄', category: 'plans' },
+            { file: 'plans_jc_002_team_composition.jpg', caption: 'チーム構成 - 探検メンバー詳細', icon: '👥', category: 'plans' },
+            { file: 'plans_jc_003_budget_plan.jpg', caption: '予算計画 - 探検費用の詳細', icon: '💰', category: 'plans' },
+            { file: 'plans_jc_004_logistics_plan.jpg', caption: 'ロジスティクス計画 - 補給・輸送計画', icon: '🚛', category: 'plans' },
+            { file: 'plans_jc_005_communication_plan.jpg', caption: '通信計画 - 緊急時連絡体制', icon: '📡', category: 'plans' },
+            { file: 'plans_jc_006_medical_support.jpg', caption: '医療サポート - 医師同行・医療体制', icon: '⚕️', category: 'plans' },
+            { file: 'plans_jc_007_weather_analysis.jpg', caption: '気象分析 - 砂漠気候の詳細分析', icon: '🌡️', category: 'plans' },
+            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表 - 77日間の詳細スケジュール', icon: '📅', category: 'plans' },
+            { file: 'plans_jc_009_risk_assessment.jpg', caption: 'リスクアセスメント - 危険要因と対策', icon: '⚠️', category: 'plans' },
+            { file: 'plans_jc_010_permit_documents.jpg', caption: '許可証関連文書 - 中国政府からの正式許可', icon: '📋', category: 'plans' },
+            
+            // メモ・地図
+            { file: 'plans_memo_001_expedition_notes.jpg', caption: '探検メモ - 重要事項の手書きメモ', icon: '📝', category: 'plans' },
+            { file: 'plans_map_001_detailed_route_map.jpg', caption: '詳細ルート地図 - 砂漠横断の正確なルート', icon: '🗺️', category: 'plans' },
+            
+            // 報道記録
+            { file: 'news_001_japan_times_article.jpg', caption: 'Japan Times記事 - 国際的な報道記録', icon: '📰', category: 'news' },
+            
+            // エリザベス女王関連
+            { file: 'royal_001_queen_support_document.jpg', caption: 'エリザベス女王2世支援文書 - 王室からの公式支援', icon: '👑', category: 'royal' },
+            { file: 'royal_002_congratulation_telegram.jpg', caption: '祝電記録 - ロンドンからウルムチへの祝電', icon: '📧', category: 'royal' },
+            
+            // 実際の探検写真（約20枚）
+            { file: 'expedition_001_peng_jiamu_memorial.jpg', caption: 'Peng Jiamu博士記念碑での追悼 - 彭加木记念碑にて花を供え、敬意を表した歴史的瞬間', icon: '🏛️', category: 'expedition' },
+            { file: 'expedition_002_team_group_photo.jpg', caption: '探検隊全員集合 - 8人全員でPeng Jiamu記念碑前での記念撮影', icon: '👥', category: 'expedition' },
+            { file: 'expedition_003_camel_caravan.jpg', caption: '大規模ラクダ隊列 - 数十頭による壮大な砂漠横断の様子', icon: '🐪', category: 'expedition' },
+            { file: 'expedition_004_desert_camp.jpg', caption: '砂漠キャンプ - 夜間の宿営地での生活記録', icon: '⛺', category: 'expedition' },
+            { file: 'expedition_005_water_source.jpg', caption: '水源確保作業 - 砂漠での貴重な水の確保作業', icon: '💧', category: 'expedition' },
+            { file: 'expedition_006_navigation_work.jpg', caption: '測量調査活動 - 科学機器を使用した正確な測定作業', icon: '🔬', category: 'expedition' },
+            { file: 'expedition_007_vehicle_convoy.jpg', caption: '車両隊列 - 砂漠横断用の車両隊列', icon: '🚗', category: 'expedition' },
+            { file: 'expedition_008_team_meeting.jpg', caption: '隊員会議 - 重要な作戦会議の様子', icon: '🗣️', category: 'expedition' },
+            { file: 'expedition_009_desert_landscape.jpg', caption: '砂漠風景 - タクラマカン砂漠の雄大な風景', icon: '🏜️', category: 'expedition' },
+            { file: 'expedition_010_equipment_check.jpg', caption: '装備点検 - 重要な機材の点検作業', icon: '🔧', category: 'expedition' },
+            { file: 'expedition_011_chinese_officials.jpg', caption: '中国当局者との会議 - 現地当局との重要な打ち合わせ', icon: '🤝', category: 'expedition' },
+            { file: 'expedition_012_emergency_drill.jpg', caption: '緊急訓練 - 安全確保のための訓練', icon: '🚨', category: 'expedition' },
+            { file: 'expedition_013_food_preparation.jpg', caption: '食事準備 - 砂漠での食事準備作業', icon: '🍽️', category: 'expedition' },
+            { file: 'expedition_014_weather_monitoring.jpg', caption: '気象観測 - 砂漠気候の観測記録', icon: '🌡️', category: 'expedition' },
+            { file: 'expedition_015_team_rest.jpg', caption: '休憩時間 - 探検隊の休憩中の様子', icon: '😴', category: 'expedition' },
+            { file: 'expedition_016_final_celebration.jpg', caption: '探検成功祝賀 - 砂漠横断成功の記念', icon: '🎉', category: 'expedition' },
+            
+            // その他の資料
+            { file: 'others_001_historical_context.jpg', caption: '歴史的背景資料 - 探検の歴史的位置づけ', icon: '📚', category: 'others' },
+            { file: 'others_002_scientific_data.jpg', caption: '科学的データ - 探検で得られた科学的知見', icon: '📊', category: 'others' },
+            { file: 'others_003_legacy_document.jpg', caption: '遺産文書 - 後世に残すべき記録', icon: '📜', category: 'others' }
         ];
 
-        // その他の重要文書
-        const additionalFiles = [
-            { file: 'news_001_japan_times_2002.jpg', caption: 'Japan Times報道記事 - 国際的な注目を集めた探検の報道', icon: '📰', category: 'news' },
-            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'シルクロード・バウアー文書 - 探検の原点となった歴史的文書', icon: '📜', category: 'origin' }
-        ];
-
-        // 自動検出された全画像ファイルリスト
-        let detectedImages = [];
-
-        // ページ読み込み時にギャラリー生成
+        // ページ読み込み時にギャラリーを生成
         document.addEventListener('DOMContentLoaded', function() {
-            generateActualGallery();
+            generateGallery();
         });
 
-        // 実際のファイル名でギャラリーを生成
-        function generateActualGallery() {
-            console.log('🔍 実際のファイル名でギャラリーを生成...');
+        function generateGallery() {
             const gallery = document.getElementById('photo-gallery');
             gallery.innerHTML = '';
 
-            // メイン探検写真を追加
-            expeditionImages.forEach((image) => {
-                detectedImages.push(image);
-            });
-
-            console.log(`🖼️ ${detectedImages.length}個の探検写真でギャラリーを生成`);
-
-            detectedImages.forEach((image, index) => {
+            galleryImages.forEach((image, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.onclick = () => openModal(image.file, image.caption);
+                galleryItem.onclick = () => openModal(`./final/large/${image.file}`, image.caption);
 
                 galleryItem.innerHTML = `
                     <img class="gallery-image" 
@@ -967,24 +1074,14 @@
 
                 gallery.appendChild(galleryItem);
             });
-
-            // 成功メッセージ
-            const statusDiv = document.createElement('div');
-            statusDiv.style.cssText = 'grid-column: 1/-1; text-align: center; padding: 20px; background: rgba(139, 69, 19, 0.1); border-radius: 10px; margin-top: 20px; color: #8B4513;';
-            statusDiv.innerHTML = `
-                <h3>✅ 探検写真ギャラリー完成</h3>
-                <p>${detectedImages.length}枚の探検写真を表示中</p>
-                <p style="font-size: 0.9em; margin-top: 5px;">expedition_001 〜 expedition_022</p>
-            `;
-            gallery.appendChild(statusDiv);
         }
 
-        function openModal(imageName, caption) {
+        function openModal(imageSrc, caption) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             
-            modalImage.src = `./final/large/${imageName}`;
+            modalImage.src = imageSrc;
             modalCaption.textContent = caption;
             
             modal.classList.add('active');
@@ -992,10 +1089,7 @@
             
             // 画像読み込みエラー時の処理
             modalImage.onerror = function() {
-                this.src = `./final/medium/${imageName}`;
-                this.onerror = function() {
-                    modalCaption.textContent = `${caption} - 画像を読み込み中です`;
-                };
+                modalCaption.textContent = `${caption} - 画像を読み込み中です`;
             };
         }
 
