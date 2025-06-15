@@ -686,6 +686,7 @@
             transition: var(--transition);
             box-shadow: var(--shadow-light);
             border: 3px solid var(--accent-color);
+            transform: rotate(180deg); /* 天地逆修正 */
         }
 
         .document-image:hover {
@@ -1626,20 +1627,54 @@
             modalImage.src = imageSrc;
             modalCaption.textContent = caption;
             
+            // 重要文書の画像の場合は天地逆修正
+            const isDocumentImage = imageSrc.includes('plans_cu_') || 
+                                  imageSrc.includes('plans_jc_') || 
+                                  imageSrc.includes('origin_') ||
+                                  imageSrc.includes('news_');
+            
+            if (isDocumentImage) {
+                modalImage.style.transform = 'rotate(180deg)';
+                modal.classList.add('document-modal');
+            } else {
+                modalImage.style.transform = 'none';
+                modal.classList.remove('document-modal');
+            }
+            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // 画像読み込みエラー時の処理
-            modalImage.onerror = function() {
-                modalCaption.textContent = `${caption} - 画像を読み込み中です`;
-            };
+            // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
+            history.pushState({modal: true}, '', '#modal');
         }
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
+            
+            // 履歴からモーダル状態を削除
+            if (window.location.hash === '#modal') {
+                history.back();
+            }
         }
+
+        // ブラウザの戻るボタンでモーダルを閉じる制御
+        window.addEventListener('popstate', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // ページ読み込み時の初期化
+        window.addEventListener('load', function() {
+            // URLにハッシュがある場合は除去
+            if (window.location.hash) {
+                history.replaceState({}, '', window.location.pathname);
+            }
+        });
 
         // タブ切り替え機能
         function showTab(tabName) {
