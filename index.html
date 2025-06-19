@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>西域冒険家 成田正次 記録館 | シルクロードを駆け抜けた78歳の軌跡</title>
+    <title>西域冒険家 成田正次 記録館 | シルクロードを駆け抜けた75歳の軌跡</title>
     <meta name="description" content="1980年代NHK特集『シルクロード』とバウアー文書に感銘を受け、1990年から30年間にわたり西域を冒険した成田正次の記録。タクラマカン砂漠、チベット高原、クムタグ砂漠、パミール高原を制覇した真の冒険家の軌跡。">
     <meta name="keywords" content="西域冒険家,成田正次,シルクロード,NHK特集,バウアー文書,タクラマカン砂漠,チベット高原,クムタグ砂漠,パミール高原,冒険記録,石坂浩二,喜多郎">
     <meta property="og:title" content="西域冒険家 成田正次 記録館">
@@ -48,61 +48,154 @@
             padding: 20px;
         }
 
-        /* メインヘッダー */
-        .main-header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding: 50px 30px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: var(--shadow-medium);
+        /* 最上部タイトルヒーロー */
+        .title-hero {
             position: relative;
+            text-align: center;
+            margin-bottom: 0;
+            padding: 80px 30px;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            
+            /* 砂漠のラクダ隊列写真背景 */
+            background-image: url('./final/large/expedition_021_camel_caravan_desert.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
+        /* タイトルヒーロー用軽めオーバーレイ */
+        .title-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(0, 0, 0, 0.3) 0%, 
+                rgba(139, 69, 19, 0.2) 50%, 
+                rgba(0, 0, 0, 0.4) 100%
+            );
+            z-index: 1;
+        }
+
+        /* シンプルタイトル */
+        .title-hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .title-hero h1 {
+            font-size: clamp(1.8em, 4.5vw, 3.2em);
+            color: white;
+            margin: 0;
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9), 
+                         2px 2px 6px rgba(0, 0, 0, 0.7);
+            letter-spacing: 3px;
+            font-weight: bold;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        /* 詳細情報ヒーロー */
+        .main-header {
+            position: relative;
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 80px 30px;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            
+            /* 砂漠風景写真背景 */
+            background-image: url('./final/large/expedition_023_desert_landscape.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* 詳細ヒーロー用ダークオーバーレイ */
         .main-header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            bottom: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(0, 0, 0, 0.6) 0%, 
+                rgba(139, 69, 19, 0.4) 50%, 
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 1;
+        }
+
+        /* ヒーローコンテンツ */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .main-title {
-            font-size: clamp(2.2em, 5vw, 3.2em);
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-            letter-spacing: 3px;
-            font-weight: bold;
+            font-size: clamp(1.8em, 4vw, 2.5em);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            font-weight: 300;
+            line-height: 1.3;
         }
 
         .subtitle {
-            font-size: 1.4em;
-            color: var(--text-secondary);
+            font-size: clamp(1.4em, 3.5vw, 2em);
+            color: white;
             margin-bottom: 25px;
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
         }
 
         .explorer-name {
-            font-size: 1.2em;
-            color: var(--primary-color);
+            font-size: clamp(1em, 2.5vw, 1.4em);
+            color: var(--accent-color);
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            background: rgba(218, 165, 32, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            display: inline-block;
         }
 
         .intro-text {
-            font-size: 1.1em;
-            color: #555;
+            font-size: clamp(1em, 2vw, 1.2em);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 800px;
             margin: 0 auto;
-            line-height: 2;
-            padding: 20px;
-            background: rgba(255, 248, 220, 0.7);
-            border-radius: 10px;
+            line-height: 1.8;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
             border-left: 4px solid var(--accent-color);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         /* ナビゲーション */
@@ -481,7 +574,9 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
-        /* モーダルスタイル */
+        /* =========================
+           A4縦表示対応モーダル
+           ========================= */
         .modal {
             display: none;
             position: fixed;
@@ -506,12 +601,33 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* A4縦表示専用スタイル */
+        .modal-content.a4-portrait {
+            max-width: 85vh; /* A4縦の幅 */
+            max-height: 90vh; /* A4縦の高さ */
+            width: auto;
+            height: auto;
         }
 
         .modal-image {
             width: 100%;
             height: auto;
             display: block;
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        /* A4縦表示の画像スタイル */
+        .modal-image.a4-portrait {
+            max-width: 85vh; /* A4の縦横比 1:1.414 に対応 */
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
         .modal-caption {
@@ -542,6 +658,21 @@
         .modal-close:hover {
             background: rgba(0, 0, 0, 0.9);
             transform: scale(1.1);
+        }
+
+        /* A4サイズ表示インジケーター */
+        .a4-indicator {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            z-index: 10001;
+            opacity: 0.9;
         }
 
         /* スクロールトップボタン */
@@ -580,8 +711,27 @@
                 padding: 15px;
             }
 
+            /* モバイル時のタイトルヒーロー調整 */
+            .title-hero {
+                min-height: 40vh;
+                padding: 40px 20px;
+                background-attachment: scroll;
+            }
+
+            .title-hero h1 {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
+
+            /* モバイル時の詳細ヒーロー調整 */
+            .main-header {
+                min-height: 55vh;
+                padding: 50px 20px;
+                background-attachment: scroll;
+            }
+
             .main-title {
-                font-size: 2.2em;
+                font-size: 1.5em;
                 letter-spacing: 1px;
             }
 
@@ -617,226 +767,26 @@
                 grid-template-columns: 1fr;
             }
 
-            .document-content-wrapper {
-                flex-direction: column;
+            /* モバイル時のA4表示調整 */
+            .modal-content.a4-portrait {
+                max-width: 95%;
+                max-height: 85vh;
             }
 
-            .document-image-section {
-                margin-bottom: 25px;
+            .modal-image.a4-portrait {
+                max-width: 95%;
+                max-height: 70vh;
             }
-
-            .translation-box {
-                flex-direction: column;
-            }
-        }
-
-        /* 重要文書解説専用スタイル */
-        .document-section {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
-            margin: 40px 0;
-            overflow: hidden;
-            box-shadow: var(--shadow-medium);
-            border: 2px solid var(--accent-color);
-            transition: var(--transition);
-        }
-
-        .document-section:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .document-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 25px;
-            text-align: center;
-            color: white;
-        }
-
-        .document-title {
-            font-size: 1.6em;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-
-        .document-meta {
-            font-size: 0.9em;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .document-content-wrapper {
-            display: flex;
-            gap: 30px;
-            padding: 30px;
-            align-items: flex-start;
-        }
-
-        .document-image-section {
-            flex: 0 0 300px;
-            text-align: center;
-        }
-
-        .document-image {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow-light);
-            border: 3px solid var(--accent-color);
-            transform: rotate(180deg); /* 天地逆修正 */
-        }
-
-        .document-image:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .document-caption {
-            margin-top: 12px;
-            font-size: 0.9em;
-            color: var(--text-secondary);
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .document-text-section {
-            flex: 1;
-        }
-
-        .subsection-title {
-            color: var(--primary-color);
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            font-weight: bold;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-        }
-
-        .document-significance,
-        .document-background,
-        .document-translation,
-        .document-analysis {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: rgba(248, 244, 230, 0.6);
-            border-radius: 12px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .translation-box {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 15px 0;
-            box-shadow: var(--shadow-light);
-            display: flex;
-            gap: 20px;
-        }
-
-        .original-text,
-        .translated-text {
-            flex: 1;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .original-text {
-            background: #f0f8ff;
-            border-left: 4px solid #4169e1;
-        }
-
-        .translated-text {
-            background: #f0fff0;
-            border-left: 4px solid #32cd32;
-        }
-
-        .article-summary {
-            margin-top: 20px;
-            padding: 15px;
-            background: #fffacd;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .article-summary h5 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .analysis-list,
-        .profile-list {
-            list-style: none;
-            margin: 15px 0;
-        }
-
-        .analysis-list li,
-        .profile-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .analysis-list li::before,
-        .profile-list li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-size: 0.8em;
-        }
-
-        .analysis-list li:last-child,
-        .profile-list li:last-child {
-            border-bottom: none;
-        }
-
-        .person-profile {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid var(--accent-color);
-        }
-
-        .comprehensive-analysis {
-            margin-top: 50px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-            border: 3px solid var(--accent-color);
-        }
-
-        .analysis-content {
-            padding: 30px;
-        }
-
-        .analysis-section {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: linear-gradient(135deg, #fff8dc 0%, #fdf5e6 100%);
-            border-radius: 15px;
-            border-left: 5px solid var(--accent-color);
-        }
-
-        .analysis-title {
-            color: var(--primary-color);
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .analysis-section p {
-            line-height: 1.8;
-            text-align: justify;
         }
 
         @media (max-width: 480px) {
+            .title-hero h1 {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+
             .main-title {
-                font-size: 1.8em;
+                font-size: 1.3em;
             }
 
             .timeline {
@@ -847,13 +797,12 @@
                 font-size: 0.85em;
                 padding: 12px 15px;
             }
+        }
 
-            .document-image-section {
-                flex: none;
-            }
-
-            .document-image {
-                max-width: 100%;
+        @media (max-width: 320px) {
+            .title-hero h1 {
+                font-size: 1.2em;
+                letter-spacing: 0.5px;
             }
         }
 
@@ -905,16 +854,25 @@
 </head>
 <body>
     <div class="container">
-        <!-- メインヘッダー -->
+        <!-- 最上部タイトルヒーロー -->
+        <section class="title-hero">
+            <div class="title-hero-content">
+                <h1>西域冒険家成田正次　記録館</h1>
+            </div>
+        </section>
+
+        <!-- 詳細情報ヒーロー -->
         <header class="main-header">
-            <h1 class="main-title">西域冒険家 成田正次 記録館</h1>
-            <p class="subtitle">〜 シルクロードを駆け抜けた75歳の軌跡 〜</p>
-            <p class="explorer-name">冒険家　成田正次（1950年1月18日生まれ）</p>
-            <div class="intro-text">
-                1980年代、NHK特集『シルクロード』（ナレーション：石坂浩二、音楽：喜多郎）と
-                「ロプノール探検カラブランに吹かれて」バン・ジロー著に深く感銘を受け、
-                図書館で抜き書きしたバウアー文書が冒険の原点となった。
-                1990年から30年間にわたって西域の砂漠・高原・山脈を制覇した真の冒険家の記録をここに残します。
+            <div class="hero-content">
+                <h2 class="main-title">シルクロードを駆け抜けた75歳の軌跡</h2>
+                <p class="subtitle">〜 1990年から30年間の西域冒険記録 〜</p>
+                <p class="explorer-name">冒険家　成田正次（1950年1月18日生まれ）</p>
+                <div class="intro-text">
+                    1980年代、NHK特集『シルクロード』（ナレーション：石坂浩二、音楽：喜多郎）と
+                    「ロプノール探検カラブランに吹かれて」バン・ジロー著に深く感銘を受け、
+                    図書館で抜き書きしたバウアー文書が冒険の原点となった。
+                    1990年から30年間にわたって西域の砂漠・高原・山脈を制覇した真の冒険家の記録をここに残します。
+                </div>
             </div>
         </header>
 
@@ -923,8 +881,6 @@
             <button class="nav-tab active" onclick="showTab('overview')">西域冒険概要</button>
             <button class="nav-tab" onclick="showTab('bower-document')">バウアー文書への関心</button>
             <button class="nav-tab" onclick="showTab('timeline')">30年間冒険年表</button>
-            <button class="nav-tab" onclick="showTab('international')">国際協力プロジェクト</button>
-            <button class="nav-tab" onclick="showTab('documents')">重要文書解説</button>
             <button class="nav-tab" onclick="showTab('gallery')">冒険記録ギャラリー</button>
         </nav>
 
@@ -988,95 +944,8 @@
                             </div>
                         </div>
 
-                        <div class="highlight-box">
-                            <div class="highlight-title">1990年6月の5つの冒険旅程</div>
-                            <div class="feature-list" style="list-style: none;">
-                                <li style="margin-bottom: 25px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 10px; border-left: 4px solid #8B4513;">
-                                    <strong style="color: #8B4513; font-size: 1.2em;">1. パミール高原・第一到達点カラクリ湖（4,000m）</strong><br>
-                                    カラクリ湖到達後、ラクダでムスターグ・アタ山（標高7,509m）雪渓5,000mまで到達
-                                </li>
-                                
-                                <li style="margin-bottom: 25px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 10px; border-left: 4px solid #8B4513;">
-                                    <strong style="color: #8B4513; font-size: 1.2em;">2. キルギス国境トルガルト峠観光（標高3,752m）</strong><br>
-                                    国境峠での観光・国際的な雰囲気を味わう
-                                </li>
-                                
-                                <li style="margin-bottom: 25px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 10px; border-left: 4px solid #8B4513;">
-                                    <strong style="color: #8B4513; font-size: 1.2em;">3. タクラマカン砂漠横断（250km）</strong><br>
-                                    和田でラクダ用意→砂漠横断→民豊県ニヤまで（西域南道より補給）
-                                </li>
-                                
-                                <li style="margin-bottom: 25px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 10px; border-left: 4px solid #8B4513;">
-                                    <strong style="color: #8B4513; font-size: 1.2em;">4. アルチン山脈越え</strong><br>
-                                    アルチン山脈内一泊→米蘭（ミーラン）→崑崙（コンロン）→敦煌
-                                </li>
-                                
-                                <li style="padding: 25px; background: linear-gradient(135deg, #fff8dc 0%, #fdf5e6 100%); border-radius: 10px; border-left: 4px solid #DAA520;">
-                                    <strong style="color: #B8860B; font-size: 1.2em;">5. クムターグ砂漠・アルチン山脈探検（詳細冒険）</strong><br><br>
-                                    
-                                    <div style="margin-bottom: 15px;">
-                                        <strong style="color: #8B4513;">車両編成：</strong>ランドクルーザー5台 + 大型四輪駆動車1台（食糧・水）
-                                    </div>
-                                    
-                                    <div style="margin-bottom: 15px;">
-                                        <strong style="color: #8B4513;">ルート分岐：</strong>電柱No.702番より右へアルチン山脈方面（左は桜蘭遺跡方面）
-                                    </div>
-                                    
-                                    <div style="margin-bottom: 15px;">
-                                        <strong style="color: #8B4513;">地形変化：</strong>沢が2本に分岐、電柱は右沢青海省方面に消失
-                                    </div>
-                                    
-                                    <div style="margin-bottom: 15px;">
-                                        <strong style="color: #8B4513;">名所発見：</strong>岩綿に赤い大文字「天下第一景紅柳溝（ホンリュウコウ）」<br>
-                                        <span style="font-size: 0.9em; color: #666;">※紅柳（ホンリュウ）＝タマリスク</span>
-                                    </div>
-                                    
-                                    <div style="margin-bottom: 15px;">
-                                        <strong style="color: #8B4513;">山脈横断：</strong>アルチン山脈（標高5,786m）<br>
-                                        南北高く中央低い地形、雪解け水・雨による乾河床浸食で深い溝が無数、走行極めて困難
-                                    </div>
-                                    
-                                    <div>
-                                        <strong style="color: #8B4513;">最終目的地：</strong>一泊後敦煌入り、月牙泉（げつがせん・ユエヤーチュエン）・莫高窟観光<br>
-                                        <em style="color: #8B7355; font-size: 0.95em;">冒険的要素と観光の融合した愉しい旅</em>
-                                    </div>
-                                </li>
-                            </div>
-                        </div>
-
                         <div class="quote-box">
                             「1990年の男女14人による第1回冒険は、冒険的なところと観光が融合した愉しい旅であった。これが30年間の西域冒険の出発点となった。」
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section-card">
-                    <div class="section-header">
-                        <h2 class="section-title">30年間の継続冒険（1990年〜2004年）</h2>
-                        <p class="section-subtitle">西域全体を舞台とした壮大な冒険の軌跡</p>
-                    </div>
-                    <div class="section-content">
-                        <p class="section-text">
-                            1990年の記念すべき第1回冒険から始まり、タクラマカン砂漠、チベット高原、クムタグ砂漠、パミール高原、崑崙山脈など、西域全体を舞台とした30年間の冒険が続いた。1993年には国際的な日中英合同冒険プロジェクトも実現し、真の冒険家としての軌跡を刻んだ。
-                        </p>
-
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">30</span>
-                                <span class="stat-label">年間継続</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">6</span>
-                                <span class="stat-label">主要地域制覇</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">2,000</span>
-                                <span class="stat-label">km自転車走破</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">1993</span>
-                                <span class="stat-label">年国際協力</span>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -1102,32 +971,6 @@
                             <div class="highlight-text">
                                 1980年代、NHK特集『シルクロード』の美しい映像と喜多郎の音楽に魅了された成田氏は、さらに西域について深く知りたくなり図書館通いを始めた。「ロプノール探検カラブランに吹かれて」バン・ジロー著と共に発見したのが、西域探検の歴史を記したこの文書だった。著者名は忘れてしまったものの、重要な部分を抜き書きしたメモが現在も大切に保管されている。
                             </div>
-                        </div>
-
-                        <div class="highlight-box">
-                            <div class="highlight-title">バウアー文書の歴史的背景</div>
-                            <div class="highlight-text">
-                                <strong>時代背景：</strong>19世紀後期から20世紀初頭の西域探検黄金時代<br>
-                                <strong>探検家：</strong>英国、ドイツ、フランス、ロシアなど各国の探検家による競争<br>
-                                <strong>発見内容：</strong>シルクロード沿いの古代遺跡、古文書、仏教美術<br>
-                                <strong>学術的価値：</strong>東西文化交流の歴史的証拠<br>
-                                <strong>成田氏への影響：</strong>現代における西域探検の可能性への開眼
-                            </div>
-                        </div>
-
-                        <div class="quote-box">
-                            「バウアー文書が示した西域探検の歴史的意義。そして1980年代のNHK『シルクロード』の美しさ。この2つが交差する点に、私の使命があると感じた。」
-                        </div>
-
-                        <div class="highlight-box">
-                            <div class="highlight-title">文書から冒険へ</div>
-                            <ul class="feature-list">
-                                <li><strong>1980年代：</strong>NHK『シルクロード』視聴→図書館で西域研究開始</li>
-                                <li><strong>図書館での発見：</strong>バウアー文書とバン・ジロー著書の抜き書き</li>
-                                <li><strong>1990年：</strong>ついに西域冒険実行を決意</li>
-                                <li><strong>第1回冒険：</strong>男女14人でタクラマカン砂漠一周の旅</li>
-                                <li><strong>30年継続：</strong>2004年まで西域各地で冒険を続行</li>
-                            </ul>
                         </div>
                     </div>
                 </section>
@@ -1159,34 +1002,10 @@
                             </div>
 
                             <div class="timeline-item">
-                                <div class="timeline-year">1992年</div>
-                                <div class="timeline-title">ロシア国境・満州里冒険</div>
-                                <div class="timeline-desc">
-                                    マウンテンバイクと列車でロシア国境の街満州里を訪問。大興安嶺山脈越えを実施。
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
                                 <div class="timeline-year">1993年</div>
-                                <div class="timeline-title">日中英合同国際冒険プロジェクト（メイン）</div>
+                                <div class="timeline-title">日中英合同国際冒険プロジェクト</div>
                                 <div class="timeline-desc">
-                                    <strong>第1回記録歩行：クムタグ砂漠、内モンゴルのバダインジャラン砂漠走破。エリザベス女王2世の支援を受けた歴史的な国際冒険プロジェクト。Japan Timesで報道され、国際的な注目を集めた。</strong>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-year">1997年</div>
-                                <div class="timeline-title">チベット高原・崑崙山脈冒険</div>
-                                <div class="timeline-desc">
-                                    ウイグル大学外科医師王龍文氏、地質学者・冒険家趙沈氏同行。未知の地形での高地順応冒険。中国軍使用の高原1号（利尿剤）、ダキキックス、ラソシックス、ガモフバッグを使用して苦労の末、チベット・ラサまで到達。
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-year">1998年6月</div>
-                                <div class="timeline-title">ロプノール本格冒険</div>
-                                <div class="timeline-desc">
-                                    「これぞ本当のロプノール冒険だ」。ディカール村からロプノール南岸まで塩皮殻（エンビカク）を乗り越え。彭加木（ペン・ジャームー）記念碑を通り敦煌へ。石油探査隊の道路発見。
+                                    第1回記録歩行：クムタグ砂漠、内モンゴルのバダインジャラン砂漠走破。国際的な注目を集めた歴史的な冒険プロジェクト。
                                 </div>
                             </div>
 
@@ -1199,375 +1018,10 @@
                             </div>
 
                             <div class="timeline-item">
-                                <div class="timeline-year">2003年</div>
-                                <div class="timeline-title">タクラマカン・西域アルチン山脈冒険</div>
-                                <div class="timeline-desc">
-                                    タクラマカン砂漠、西域アルチン山脈、崑崙山脈での野営冒険を実施。
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
                                 <div class="timeline-year">2004年</div>
                                 <div class="timeline-title">タクラマカン砂漠完全縦断成功</div>
                                 <div class="timeline-desc">
-                                    73日間、1,200kmの完全縦断に成功。タクラマカン砂漠横断冒険（北緯39度線）を計画実行総責任者として成功させた。30年間の西域冒険の集大成。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- 国際協力プロジェクトタブ -->
-            <div id="international" class="tab-content">
-                <section class="section-card">
-                    <div class="section-header">
-                        <h2 class="section-title">エリザベス女王2世の支援</h2>
-                        <p class="section-subtitle">英国王室が支援した国際プロジェクト</p>
-                    </div>
-                    <div class="section-content">
-                        <img class="article-image" src="./final/medium/plans_cu_004_buckingham_palace_letter.jpg" alt="バッキンガム宮殿からの手紙" onclick="openModal('./final/large/plans_cu_004_buckingham_palace_letter.jpg', 'バッキンガム宮殿からの手紙 - 英国王室からの公式支援文書')">
-                        <p class="article-image-caption">バッキンガム宮殿からの手紙 - 英国王室からの公式支援文書</p>
-
-                        <p class="section-text">
-                            今世紀初のタクラマカン砂漠横断冒険にエリザベス女王2世が強い関心を示し、各方面に働きかけを行った。英国陸軍将校ドクター・チャールズ・ブラックモア氏は周辺砂漠の調査に5年を費やし、冒険成功後、エリザベス女王2世はロンドンからウルムチに祝電を送信。中国政府はこれを記念して記念切手を発行した。
-                        </p>
-
-                        <div class="image-gallery-inline">
-                            <div class="inline-image-item">
-                                <img class="inline-image" src="./final/medium/plans_cu_002_blackmore_signature_document.jpg" alt="ブラックモア博士署名文書" onclick="openModal('./final/large/plans_cu_002_blackmore_signature_document.jpg', 'Charles Blackmore博士署名文書 - 英国政府の正式承認')">
-                                <p class="inline-caption">Charles Blackmore博士署名文書</p>
-                            </div>
-                            <div class="inline-image-item">
-                                <img class="inline-image" src="./final/medium/plans_cu_005_house_of_commons_document.jpg" alt="英国下院文書" onclick="openModal('./final/large/plans_cu_005_house_of_commons_document.jpg', '英国下院文書 - 国会からの公式支援文書')">
-                                <p class="inline-caption">英国下院からの公式支援文書</p>
-                            </div>
-                        </div>
-
-                        <div class="highlight-box">
-                            <div class="highlight-title">Charles Blackmore博士と英国の関与</div>
-                            <div class="highlight-text">
-                                <strong>Charles Blackmore博士：</strong>英国陸軍将校、地質学者<br>
-                                <strong>冒険準備：</strong>周辺砂漠の調査に5年を費やす<br>
-                                <strong>正式承認：</strong>手書き署名入りの承認書（上記画像に収録）<br>
-                                <strong>バッキンガム宮殿：</strong>英国王室からの正式支援文書<br>
-                                <strong>英国下院：</strong>国会からの公式支援決議<br>
-                                <strong>国際協力：</strong>英国政府・王室・国会の三位一体支援<br>
-                                <strong>成果：</strong>エリザベス女王2世からロンドン→ウルムチに祝電<br>
-                                <strong>記念：</strong>中国政府による記念切手発行
-                            </div>
-                        </div>
-
-                        <div class="quote-box">
-                            「英国冒険に参加した中国メンバーは、私が以前クムターグ砂漠で決死の脱出を図った際に苦労を共にした人々であった。我々の冒険は6月15日、英国隊は9月であった。」
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section-card">
-                    <div class="section-header">
-                        <h2 class="section-title">中国当局との交渉</h2>
-                        <p class="section-subtitle">国際冒険実現への険しい道のり</p>
-                    </div>
-                    <div class="section-content">
-                        <p class="section-text">
-                            タクラマカン砂漠での国際冒険を実現するためには、中国政府の正式な許可が必要不可欠であった。特に外国人による砂漠冒険は、政治的・安全保障的観点から極めて厳しい制限が設けられており、許可取得は困難を極めた。
-                        </p>
-
-                        <div class="highlight-box">
-                            <div class="highlight-title">日中合同冒険チーム</div>
-                            <ul class="feature-list">
-                                <li><strong>計画実行総責任者：</strong>成田正次（1950年1月18日生まれ）</li>
-                                <li><strong>中国側総経理：</strong>鄭穂（ていほ）氏（CYTS社長）</li>
-                                <li><strong>中国側部長：</strong>王星（わんしん）氏（CYTS部長）</li>
-                                <li><strong>安全対策：</strong>緊急時救助用新疆軍航空部ヘリコプター（24人乗り）待機</li>
-                                <li><strong>補給体制：</strong>給水容器40リットル入×24個（ミネラルウォーター限定）</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-box">
-                            <div class="highlight-title">新疆大自然旅行社との正式協定</div>
-                            <ul class="feature-list">
-                                <li><strong>協力機関：</strong>新疆大自然旅行社（XINJIANG NATURE TRAVEL SERVICE）</li>
-                                <li><strong>総経理（社長）：</strong>王衛平氏</li>
-                                <li><strong>副総経理：</strong>冒険家・趙希林氏</li>
-                                <li><strong>主管：</strong>（日本語通訳）</li>
-                                <li><strong>所在地：</strong>ウルムチ市東風路64号</li>
-                                <li><strong>正式協定：</strong>1993年4月14日〜1993年6月2日期間で締結</li>
-                                <li><strong>安全保障：</strong>緊急時救助体制、医師同行</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- 重要文書解説タブ -->
-            <div id="documents" class="tab-content">
-                <section class="section-card">
-                    <div class="section-header">
-                        <h2 class="section-title">📜 重要文書解説</h2>
-                        <p class="section-subtitle">歴史的価値のある5つの重要文書の詳細解説</p>
-                    </div>
-                    <div class="section-content">
-                        <p class="section-text">
-                            1993年の日中英合同タクラマカン砂漠冒険には、英国王室・政府・軍、そして中国政府からの正式な支援が寄せられました。ここでは、その歴史的証拠となる重要文書を詳細に解説します。
-                        </p>
-
-                        <!-- バッキンガム宮殿からの手紙 -->
-                        <div class="document-section">
-                            <div class="document-header">
-                                <h3 class="document-title">🏰 バッキンガム宮殿からの手紙</h3>
-                                <div class="document-meta">Document Classification: Royal Palace Official Correspondence</div>
-                            </div>
-                            
-                            <div class="document-content-wrapper">
-                                <div class="document-image-section">
-                                    <img class="document-image" src="./final/medium/plans_cu_004_buckingham_palace_letter.jpg" alt="バッキンガム宮殿からの手紙" onclick="openModal('./final/large/plans_cu_004_buckingham_palace_letter.jpg', 'バッキンガム宮殿からの手紙 - 英国王室からの公式支援文書')">
-                                    <p class="document-caption">バッキンガム宮殿公式レターヘッド付き文書</p>
-                                </div>
-                                
-                                <div class="document-text-section">
-                                    <div class="document-significance">
-                                        <h4 class="subsection-title">🎯 歴史的意義</h4>
-                                        <p>英国王室が民間の国際冒険活動に正式な支援を表明することは極めて稀有なことです。この文書は、1993年のタクラマカン砂漠冒険がエリザベス女王2世治世下における重要な国際協力事業として認識されていたことを示す貴重な証拠です。</p>
-                                    </div>
-                                    
-                                    <div class="document-translation">
-                                        <h4 class="subsection-title">📖 推測内容（英日対訳）</h4>
-                                        <div class="translation-box">
-                                            <div class="original-text">
-                                                <strong>【推測原文】</strong><br>
-                                                "Her Majesty the Queen has been pleased to learn of the Joint British-Chinese Taklamakan Desert Expedition 1993, and extends her best wishes for the success of this remarkable international endeavour..."
-                                            </div>
-                                            <div class="translated-text">
-                                                <strong>【推測翻訳】</strong><br>
-                                                「女王陛下は1993年日中英合同タクラマカン砂漠冒険について知られ、この注目すべき国際事業の成功に対し、心からの祝福をお送りいたします...」
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="document-analysis">
-                                        <h4 class="subsection-title">🔍 学術的分析</h4>
-                                        <ul class="analysis-list">
-                                            <li><strong>王室外交の表れ</strong>：民間外交を通じた英中関係強化の意図</li>
-                                            <li><strong>学術冒険の承認</strong>：商業的でない純粋な冒険活動への王室支援</li>
-                                            <li><strong>国際協力の象徴</strong>：冷戦終結後の新しい国際協調の体現</li>
-                                            <li><strong>文化交流の推進</strong>：東西文明間の橋渡し役としての英国の立場</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 英国下院文書 -->
-                        <div class="document-section">
-                            <div class="document-header">
-                                <h3 class="document-title">🏛️ 英国下院文書</h3>
-                                <div class="document-meta">Document Classification: House of Commons Official Resolution</div>
-                            </div>
-                            
-                            <div class="document-content-wrapper">
-                                <div class="document-image-section">
-                                    <img class="document-image" src="./final/medium/plans_cu_005_house_of_commons_document.jpg" alt="英国下院文書" onclick="openModal('./final/large/plans_cu_005_house_of_commons_document.jpg', '英国下院文書 - 国会からの公式支援文書')">
-                                    <p class="document-caption">英国国会下院公式印章付き決議文書</p>
-                                </div>
-                                
-                                <div class="document-text-section">
-                                    <div class="document-significance">
-                                        <h4 class="subsection-title">🎯 政治的意義</h4>
-                                        <p>英国下院からの公式支援は、この冒険が単なる個人的冒険ではなく、英国政府が承認した国際的学術事業であることを示しています。議会制民主主義国家における民意の代表機関からの支援は、冒険の正統性と重要性を保証するものです。</p>
-                                    </div>
-                                    
-                                    <div class="document-translation">
-                                        <h4 class="subsection-title">📖 推測内容（英日対訳）</h4>
-                                        <div class="translation-box">
-                                            <div class="original-text">
-                                                <strong>【推測原文】</strong><br>
-                                                "The House of Commons recognises the scientific and cultural value of the Joint Expedition and hereby extends official parliamentary support for this international endeavour..."
-                                            </div>
-                                            <div class="translated-text">
-                                                <strong>【推測翻訳】</strong><br>
-                                                「英国下院は合同冒険の科学的・文化的価値を認識し、ここに国際事業に対する公式な議会支援を表明いたします...」
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="document-analysis">
-                                        <h4 class="subsection-title">🔍 制度的分析</h4>
-                                        <ul class="analysis-list">
-                                            <li><strong>立法府の承認</strong>：行政府を超えた国家レベルでの支援体制</li>
-                                            <li><strong>予算的裏付け</strong>：必要に応じた資金援助の可能性示唆</li>
-                                            <li><strong>外交的保護</strong>：英国国民の海外活動への政府保護</li>
-                                            <li><strong>学術外交</strong>：軍事・経済以外の新しい外交手段としての位置づけ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Charles Blackmore博士署名文書 -->
-                        <div class="document-section">
-                            <div class="document-header">
-                                <h3 class="document-title">✍️ Charles Blackmore博士署名文書</h3>
-                                <div class="document-meta">Document Classification: Military Scientific Authorization</div>
-                            </div>
-                            
-                            <div class="document-content-wrapper">
-                                <div class="document-image-section">
-                                    <img class="document-image" src="./final/medium/plans_cu_002_blackmore_signature_document.jpg" alt="Charles Blackmore博士署名文書" onclick="openModal('./final/large/plans_cu_002_blackmore_signature_document.jpg', 'Charles Blackmore博士署名文書 - 英国陸軍将校による科学的承認')">
-                                    <p class="document-caption">英国陸軍将校・地質学者の手書き署名入り承認書</p>
-                                </div>
-                                
-                                <div class="document-text-section">
-                                    <div class="document-significance">
-                                        <h4 class="subsection-title">🎯 軍事科学的意義</h4>
-                                        <p>Charles Blackmore博士は英国陸軍将校でありながら優秀な地質学者でもありました。彼による5年間の事前調査と署名は、この冒険が軍事的・科学的両面から十分に検討された綿密な計画であることを証明しています。</p>
-                                    </div>
-                                    
-                                    <div class="document-background">
-                                        <h4 class="subsection-title">👤 人物背景</h4>
-                                        <div class="person-profile">
-                                            <p><strong>Dr. Charles Blackmore</strong></p>
-                                            <ul class="profile-list">
-                                                <li><strong>階級</strong>：英国陸軍将校（Major/Lieutenant Colonel）</li>
-                                                <li><strong>専門</strong>：地質学、砂漠地形学</li>
-                                                <li><strong>経歴</strong>：中央アジア砂漠地域の軍事的・学術的調査歴</li>
-                                                <li><strong>準備期間</strong>：タクラマカン周辺砂漠の5年間に及ぶ事前調査</li>
-                                                <li><strong>役割</strong>：英国側冒険隊の科学的リーダー</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="document-analysis">
-                                        <h4 class="subsection-title">🔍 軍事学術的分析</h4>
-                                        <ul class="analysis-list">
-                                            <li><strong>科学的根拠</strong>：軍事的精密性に基づく冒険計画の立案</li>
-                                            <li><strong>安全保障</strong>：英国軍による間接的な安全確保体制</li>
-                                            <li><strong>情報収集</strong>：戦略的地域における地理情報の蓄積</li>
-                                            <li><strong>国際協力</strong>：軍事専門家による平和的学術交流の推進</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 中国公式印鑑文書 -->
-                        <div class="document-section">
-                            <div class="document-header">
-                                <h3 class="document-title">🔰 中国公式印鑑文書</h3>
-                                <div class="document-meta">Document Classification: Chinese Government Official Seal Document</div>
-                            </div>
-                            
-                            <div class="document-content-wrapper">
-                                <div class="document-image-section">
-                                    <img class="document-image" src="./final/medium/plans_cu_003_chinese_official_stamp_document.jpg" alt="中国公式印鑑文書" onclick="openModal('./final/large/plans_cu_003_chinese_official_stamp_document.jpg', '中国公式印鑑文書 - 中国政府からの正式許可')">
-                                    <p class="document-caption">中国政府機関の公式印章（赤印）付き許可文書</p>
-                                </div>
-                                
-                                <div class="document-text-section">
-                                    <div class="document-significance">
-                                        <h4 class="subsection-title">🎯 行政的意義</h4>
-                                        <p>外国人によるタクラマカン砂漠での冒険活動は、中国政府にとって極めて慎重な判断を要する案件でした。この公式印鑑付き文書は、最高レベルでの政府承認を示す貴重な証拠です。</p>
-                                    </div>
-                                    
-                                    <div class="document-translation">
-                                        <h4 class="subsection-title">📖 推測内容（中日対訳）</h4>
-                                        <div class="translation-box">
-                                            <div class="original-text">
-                                                <strong>【推測原文】</strong><br>
-                                                「中华人民共和国国家旅游局正式批准1993年中英日联合塔克拉玛干沙漠科学考察活动...」
-                                            </div>
-                                            <div class="translated-text">
-                                                <strong>【推測翻訳】</strong><br>
-                                                「中華人民共和国国家観光局は、1993年中英日合同タクラマカン砂漠科学調査活動を正式に許可する...」
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="document-analysis">
-                                        <h4 class="subsection-title">🔍 行政制度分析</h4>
-                                        <ul class="analysis-list">
-                                            <li><strong>最高機関承認</strong>：国務院レベルでの政策決定による許可</li>
-                                            <li><strong>国際信頼関係</strong>：改革開放政策下での対外開放の象徴</li>
-                                            <li><strong>安全保障考慮</strong>：国境地域での外国人活動への特別配慮</li>
-                                            <li><strong>科学交流促進</strong>：純粋な学術目的での国際協力推進</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Japan Times記事 -->
-                        <div class="document-section">
-                            <div class="document-header">
-                                <h3 class="document-title">📰 Japan Times記事（2002年）</h3>
-                                <div class="document-meta">Document Classification: International Press Coverage</div>
-                            </div>
-                            
-                            <div class="document-content-wrapper">
-                                <div class="document-image-section">
-                                    <img class="document-image" src="./final/medium/news_001_japan_times_2002.jpg" alt="Japan Times記事" onclick="openModal('./final/large/news_001_japan_times_2002.jpg', 'Japan Times記事 - 国際的な報道記録')">
-                                    <p class="document-caption">Japan Times 2002年版 国際報道記事</p>
-                                </div>
-                                
-                                <div class="document-text-section">
-                                    <div class="document-significance">
-                                        <h4 class="subsection-title">🎯 報道的意義</h4>
-                                        <p>Japan Timesは日本最古の英字新聞として、国際的な読者層を持つ権威ある報道機関です。2002年の記事掲載は、1993年の冒険が長期にわたり国際的な注目を集め続けていたことを証明しています。</p>
-                                    </div>
-                                    
-                                    <div class="document-translation">
-                                        <h4 class="subsection-title">📖 推測記事内容（英日要約）</h4>
-                                        <div class="translation-box">
-                                            <div class="original-text">
-                                                <strong>【推測見出し】</strong><br>
-                                                "Japanese Adventurer Recalls Historic 1993 Taklamakan Desert Expedition Supported by Queen Elizabeth II"
-                                            </div>
-                                            <div class="translated-text">
-                                                <strong>【推測翻訳】</strong><br>
-                                                「日本人冒険家、エリザベス女王2世支援による1993年歴史的タクラマカン砂漠冒険を回想」
-                                            </div>
-                                        </div>
-                                        <div class="article-summary">
-                                            <h5>【推測記事要約】</h5>
-                                            <p>記事では、成田正次氏による1993年の日中英合同タクラマカン砂漠冒険について、エリザベス女王2世からの支援、Charles Blackmore博士による5年間の準備、中国政府からの正式許可など、国際的な協力体制の詳細が紹介されていると推測されます。</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="document-analysis">
-                                        <h4 class="subsection-title">🔍 メディア史的分析</h4>
-                                        <ul class="analysis-list">
-                                            <li><strong>国際報道価値</strong>：9年後の2002年でも記事価値を持つ歴史的事件</li>
-                                            <li><strong>文化交流記録</strong>：日英中三国協力の成功事例としての位置づけ</li>
-                                            <li><strong>冒険史的意義</strong>：現代における純粋な冒険精神の体現</li>
-                                            <li><strong>国際理解促進</strong>：異文化間協力のモデルケースとしての評価</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 総合的評価 -->
-                        <div class="comprehensive-analysis">
-                            <div class="section-header" style="background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);">
-                                <h3 class="section-title">🌟 総合的学術評価</h3>
-                                <p class="section-subtitle">5つの重要文書が示す1993年冒険の歴史的価値</p>
-                            </div>
-                            
-                            <div class="analysis-content">
-                                <div class="analysis-section">
-                                    <h4 class="analysis-title">🏛️ 制度的意義</h4>
-                                    <p>英国王室・議会・軍、中国政府、そして国際メディアという複数の権威ある機関からの支援・承認・報道は、この冒険が単なる個人的冒険ではなく、国際的に認められた学術・文化事業であったことを証明しています。</p>
-                                </div>
-                                
-                                <div class="analysis-section">
-                                    <h4 class="analysis-title">🌍 国際協力の先駆性</h4>
-                                    <p>冷戦終結直後の1993年における東西文明間の架け橋として、また純粋な学術目的での国際協力事例として、この冒険は21世紀の国際関係の方向性を先取りしていました。</p>
-                                </div>
-                                
-                                <div class="analysis-section">
-                                    <h4 class="analysis-title">📚 歴史的遺産価値</h4>
-                                    <p>これらの文書群は、現代日本人による国際的冒険活動の貴重な記録であり、同時に1990年代の国際関係、外交史、冒険史における重要な一次資料として、後世に残すべき歴史的遺産です。</p>
+                                    73日間、1,200kmの完全縦断に成功。30年間の西域冒険の集大成。
                                 </div>
                             </div>
                         </div>
@@ -1579,8 +1033,8 @@
             <div id="gallery" class="tab-content">
                 <section class="section-card">
                     <div class="section-header">
-                        <h2 class="section-title">📸 完全冒険記録ギャラリー（42枚完全版）</h2>
-                        <p class="section-subtitle">全42枚の冒険・計画書・報道記録（バッキンガム宮殿・英国下院文書含む）</p>
+                        <h2 class="section-title">📸 完全冒険記録ギャラリー（43枚完全版）</h2>
+                        <p class="section-subtitle">全43枚の冒険・計画書・報道記録（A4縦表示対応）</p>
                     </div>
                     <div class="section-content">
                         <div class="gallery-container">
@@ -1590,13 +1044,13 @@
                         </div>
                         
                         <div class="highlight-box">
-                            <div class="highlight-title">記録について</div>
+                            <div class="highlight-title">A4縦表示対応について</div>
                             <div class="highlight-text">
-                                <strong>✅ 全42枚確認済み：</strong>冒険写真22枚 + 計画書19枚 + 報道記録1枚が完全表示中<br><br>
+                                <strong>📄 文書類（A4縦表示）：</strong>計画書・原点文書・報道記録は文書として読みやすいA4縦サイズで表示<br><br>
                                 
-                                <strong>🏰 特別文書：</strong>バッキンガム宮殿からの手紙・英国下院文書・Charles Blackmore博士署名文書など、英国王室・政府・軍の三位一体支援を示す貴重な資料<br><br>
+                                <strong>📸 写真類（通常表示）：</strong>冒険写真は従来通りの画面サイズに最適化された表示<br><br>
                                 
-                                <strong>🌍 国際的価値：</strong>1993年日中英合同タクラマカン砂漠冒険の完全なデジタルアーカイブが実現。エリザベス女王2世支援による歴史的冒険記録の永続保存が完成しました。
+                                <strong>🔍 サムネイル：</strong>ギャラリー表示はそのまま維持（バランス保持）
                             </div>
                         </div>
                     </div>
@@ -1620,69 +1074,71 @@
     <!-- スクロールトップボタン -->
     <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
 
-    <!-- 画像モーダル -->
+    <!-- 画像モーダル（A4縦表示対応） -->
     <div class="modal" id="imageModal">
         <button class="modal-close" onclick="closeModal()">&times;</button>
-        <div class="modal-content">
+        <div class="a4-indicator" id="a4Indicator" style="display: none;">📄 A4縦表示</div>
+        <div class="modal-content" id="modalContent">
             <img class="modal-image" id="modalImage" src="" alt="">
             <div class="modal-caption" id="modalCaption"></div>
         </div>
     </div>
 
     <script>
-        // 実際の42枚完全ギャラリー画像リスト（実ファイル名）
+        // 実際の43枚完全ギャラリー画像リスト（A4表示判定付き）
         const galleryImages = [
-            // 【確認済み】原点文書（1枚）
-            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'バウアー文書 - 冒険の原点となった歴史的シルクロード文書', icon: '📜', category: 'origin', confirmed: true },
+            // 【文書類 - A4縦表示対象】
+            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'バウアー文書 - 冒険の原点となった歴史的シルクロード文書', icon: '📜', category: 'origin', isDocument: true },
             
-            // 【実在】中英計画書（6枚）
-            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同冒険計画書表紙', icon: '📋', category: 'plans', confirmed: true },
-            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書', icon: '✍️', category: 'plans', confirmed: true },
-            { file: 'plans_cu_003_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', confirmed: true },
-            { file: 'plans_cu_004_buckingham_palace_letter.jpg', caption: 'バッキンガム宮殿からの手紙 - 英国王室公式文書', icon: '🏰', category: 'plans', confirmed: true },
-            { file: 'plans_cu_005_house_of_commons_document.jpg', caption: '英国下院文書 - 国会からの公式支援文書', icon: '🏛️', category: 'plans', confirmed: true },
-            { file: 'plans_cu_006_xinjiang_travel_service_final.jpg', caption: '新疆旅行社最終協定書', icon: '📄', category: 'plans', confirmed: true },
+            // 中英計画書（A4縦表示）
+            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同冒険計画書表紙', icon: '📋', category: 'plans', isDocument: true },
+            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書', icon: '✍️', category: 'plans', isDocument: true },
+            { file: 'plans_cu_003_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', isDocument: true },
+            { file: 'plans_cu_004_buckingham_palace_letter.jpg', caption: 'バッキンガム宮殿からの手紙 - 英国王室公式文書', icon: '🏰', category: 'plans', isDocument: true },
+            { file: 'plans_cu_005_house_of_commons_document.jpg', caption: '英国下院文書 - 国会からの公式支援文書', icon: '🏛️', category: 'plans', isDocument: true },
+            { file: 'plans_cu_006_xinjiang_travel_service_final.jpg', caption: '新疆旅行社最終協定書', icon: '📄', category: 'plans', isDocument: true },
             
-            // 【実在】中日計画書（12枚）
-            { file: 'plans_jc_001_tour_cover_1993.jpg', caption: '1993年ツアーカバー', icon: '📋', category: 'plans', confirmed: true },
-            { file: 'plans_jc_002_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', confirmed: true },
-            { file: 'plans_jc_003_xinjiang_travel_service.jpg', caption: '新疆旅行社協定書', icon: '📄', category: 'plans', confirmed: true },
-            { file: 'plans_jc_004_official_star_stamp_document.jpg', caption: '公式星印文書', icon: '⭐', category: 'plans', confirmed: true },
-            { file: 'plans_jc_005_xinjiang_handwritten_memo.jpg', caption: '新疆手書きメモ', icon: '📝', category: 'plans', confirmed: true },
-            { file: 'plans_jc_006_administrative_memo_document.jpg', caption: '行政メモ文書', icon: '📋', category: 'plans', confirmed: true },
-            { file: 'plans_jc_007_dated_1996_official_document.jpg', caption: '1996年付公式文書', icon: '📅', category: 'plans', confirmed: true },
-            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表', icon: '📅', category: 'plans', confirmed: true },
-            { file: 'plans_jc_009_itinerary_table_format.jpg', caption: '旅程表形式', icon: '🗓️', category: 'plans', confirmed: true },
-            { file: 'plans_jc_010_blank_schedule_calendar.jpg', caption: '空白スケジュールカレンダー', icon: '📆', category: 'plans', confirmed: true },
-            { file: 'plans_jc_011_expedition_summary_1993.jpg', caption: '1993年冒険要約', icon: '📊', category: 'plans', confirmed: true },
-            { file: 'plans_jc_012_expedition_route_map.jpg', caption: '冒険ルート地図', icon: '🗺️', category: 'plans', confirmed: true },
+            // 中日計画書（A4縦表示）
+            { file: 'plans_jc_001_tour_cover_1993.jpg', caption: '1993年ツアーカバー', icon: '📋', category: 'plans', isDocument: true },
+            { file: 'plans_jc_002_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', isDocument: true },
+            { file: 'plans_jc_003_xinjiang_travel_service.jpg', caption: '新疆旅行社協定書', icon: '📄', category: 'plans', isDocument: true },
+            { file: 'plans_jc_004_official_star_stamp_document.jpg', caption: '公式星印文書', icon: '⭐', category: 'plans', isDocument: true },
+            { file: 'plans_jc_005_xinjiang_handwritten_memo.jpg', caption: '新疆手書きメモ', icon: '📝', category: 'plans', isDocument: true },
+            { file: 'plans_jc_006_administrative_memo_document.jpg', caption: '行政メモ文書', icon: '📋', category: 'plans', isDocument: true },
+            { file: 'plans_jc_007_dated_1996_official_document.jpg', caption: '1996年付公式文書', icon: '📅', category: 'plans', isDocument: true },
+            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表', icon: '📅', category: 'plans', isDocument: true },
+            { file: 'plans_jc_009_itinerary_table_format.jpg', caption: '旅程表形式', icon: '🗓️', category: 'plans', isDocument: true },
+            { file: 'plans_jc_010_blank_schedule_calendar.jpg', caption: '空白スケジュールカレンダー', icon: '📆', category: 'plans', isDocument: true },
+            { file: 'plans_jc_011_expedition_summary_1993.jpg', caption: '1993年冒険要約', icon: '📊', category: 'plans', isDocument: true },
+            { file: 'plans_jc_012_expedition_route_map.jpg', caption: '冒険ルート地図', icon: '🗺️', category: 'plans', isDocument: true },
             
-            // 【実在】報道記録（1枚）
-            { file: 'news_001_japan_times_2002.jpg', caption: 'Japan Times 2002年記事 - 国際的な報道記録', icon: '📰', category: 'news', confirmed: true },
+            // 報道記録（A4縦表示）
+            { file: 'news_001_japan_times_2002.jpg', caption: 'Japan Times 2002年記事 - 国際的な報道記録', icon: '📰', category: 'news', isDocument: true },
             
-            // 【実在】冒険写真（22枚）
-            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備 - 冒険に使用した専門装備', icon: '🎒', category: 'expedition', confirmed: true },
-            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備② - 砂漠冒険用機材', icon: '🔧', category: 'expedition', confirmed: true },
-            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧', category: 'expedition', confirmed: true },
-            { file: 'expedition_004_kokusan_marker.jpg', caption: '国産マーカー - 冒険ルート標識', icon: '🚩', category: 'expedition', confirmed: true },
-            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 冒険隊メンバーの記念撮影', icon: '👥', category: 'expedition', confirmed: true },
-            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源確保のための詳細調査', icon: '🔍', category: 'expedition', confirmed: true },
-            { file: 'expedition_007_exploration_vehicle.jpg', caption: '冒険車両 - 砂漠横断に使用した専用車両', icon: '🚗', category: 'expedition', confirmed: true },
-            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木博士への追悼', icon: '🏛️', category: 'expedition', confirmed: true },
-            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での敬意表明', icon: '🏛️', category: 'expedition', confirmed: true },
-            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者ポートレート - 冒険に参加した地質学者', icon: '👤', category: 'expedition', confirmed: true },
-            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側冒険隊員', icon: '👥', category: 'expedition', confirmed: true },
-            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際冒険を支えた通訳スタッフ', icon: '🗣️', category: 'expedition', confirmed: true },
-            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断のラクダ隊', icon: '🐪', category: 'expedition', confirmed: true },
-            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠での扇子休憩 - 暑さ対策の様子', icon: '🌞', category: 'expedition', confirmed: true },
-            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャー・カラオケ - 冒険中の息抜き時間', icon: '🎤', category: 'expedition', confirmed: true },
-            { file: 'expedition_016_map_consultation.jpg', caption: '地図相談 - 重要なルート確認作業', icon: '🗺️', category: 'expedition', confirmed: true },
-            { file: 'expedition_017_local_bike.jpg', caption: '現地バイク - 機動的移動手段として使用', icon: '🏍️', category: 'expedition', confirmed: true },
-            { file: 'expedition_018_night_road.jpg', caption: '夜の道路 - 夜間移動の記録', icon: '🌙', category: 'expedition', confirmed: true },
-            { file: 'expedition_019_team_group_photo.jpg', caption: 'チームグループ写真 - 全員での記念撮影', icon: '👥', category: 'expedition', confirmed: true },
-            { file: 'expedition_020_landcruiser_desert.jpg', caption: '砂漠のランドクルーザー - 砂漠での車両記録', icon: '🚗', category: 'expedition', confirmed: true },
-            { file: 'expedition_021_camel_caravan_desert.jpg', caption: '砂漠のラクダ隊列 - 大規模キャラバンの様子', icon: '🐪', category: 'expedition', confirmed: true },
-            { file: 'expedition_022_mountain_landscape.jpg', caption: '山の風景 - 壮大な山間部の景観', icon: '🏔️', category: 'expedition', confirmed: true }
+            // 【冒険写真 - 通常表示】
+            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備 - 冒険に使用した専門装備', icon: '🎒', category: 'expedition', isDocument: false },
+            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備② - 砂漠冒険用機材', icon: '🔧', category: 'expedition', isDocument: false },
+            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧', category: 'expedition', isDocument: false },
+            { file: 'expedition_004_kokusan_marker.jpg', caption: '国産マーカー - 冒険ルート標識', icon: '🚩', category: 'expedition', isDocument: false },
+            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 冒険隊メンバーの記念撮影', icon: '👥', category: 'expedition', isDocument: false },
+            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源確保のための詳細調査', icon: '🔍', category: 'expedition', isDocument: false },
+            { file: 'expedition_007_exploration_vehicle.jpg', caption: '冒険車両 - 砂漠横断に使用した専用車両', icon: '🚗', category: 'expedition', isDocument: false },
+            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木博士への追悼', icon: '🏛️', category: 'expedition', isDocument: false },
+            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での敬意表明', icon: '🏛️', category: 'expedition', isDocument: false },
+            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者ポートレート - 冒険に参加した地質学者', icon: '👤', category: 'expedition', isDocument: false },
+            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側冒険隊員', icon: '👥', category: 'expedition', isDocument: false },
+            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際冒険を支えた通訳スタッフ', icon: '🗣️', category: 'expedition', isDocument: false },
+            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断のラクダ隊', icon: '🐪', category: 'expedition', isDocument: false },
+            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠での扇子休憩 - 暑さ対策の様子', icon: '🌞', category: 'expedition', isDocument: false },
+            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャー・カラオケ - 冒険中の息抜き時間', icon: '🎤', category: 'expedition', isDocument: false },
+            { file: 'expedition_016_map_consultation.jpg', caption: '地図相談 - 重要なルート確認作業', icon: '🗺️', category: 'expedition', isDocument: false },
+            { file: 'expedition_017_local_bike.jpg', caption: '現地バイク - 機動的移動手段として使用', icon: '🏍️', category: 'expedition', isDocument: false },
+            { file: 'expedition_018_night_road.jpg', caption: '夜の道路 - 夜間移動の記録', icon: '🌙', category: 'expedition', isDocument: false },
+            { file: 'expedition_019_team_group_photo.jpg', caption: 'チームグループ写真 - 全員での記念撮影', icon: '👥', category: 'expedition', isDocument: false },
+            { file: 'expedition_020_landcruiser_desert.jpg', caption: '砂漠のランドクルーザー - 砂漠での車両記録', icon: '🚗', category: 'expedition', isDocument: false },
+            { file: 'expedition_021_camel_caravan_desert.jpg', caption: '砂漠のラクダ隊列 - 大規模キャラバンの様子', icon: '🐪', category: 'expedition', isDocument: false },
+            { file: 'expedition_022_mountain_landscape.jpg', caption: '山の風景 - 壮大な山間部の景観', icon: '🏔️', category: 'expedition', isDocument: false },
+            { file: 'expedition_023_desert_landscape.jpg', caption: '砂漠風景 - 壮大な砂漠の情景', icon: '🏜️', category: 'expedition', isDocument: false }
         ];
 
         // ページ読み込み時にギャラリーを生成
@@ -1697,14 +1153,16 @@
             galleryImages.forEach((image, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.onclick = () => openModal(`./final/large/${image.file}`, image.caption);
+                galleryItem.onclick = () => openModal(`./final/large/${image.file}`, image.caption, image.isDocument);
 
-                // 確認済みファイルには特別な表示
-                const confirmedBadge = image.confirmed ? '<div style="position: absolute; top: 5px; right: 5px; background: #4CAF50; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; z-index: 1;">✓</div>' : '<div style="position: absolute; top: 5px; right: 5px; background: #FF9800; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; z-index: 1;">?</div>';
+                // 文書/写真の種別表示
+                const typeBadge = image.isDocument ? 
+                    '<div style="position: absolute; top: 5px; right: 5px; background: #DAA520; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">📄 A4</div>' : 
+                    '<div style="position: absolute; top: 5px; right: 5px; background: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">📸 写真</div>';
 
                 galleryItem.innerHTML = `
                     <div style="position: relative;">
-                        ${confirmedBadge}
+                        ${typeBadge}
                         <img class="gallery-image" 
                              src="./final/medium/${image.file}" 
                              alt="${image.caption}"
@@ -1724,51 +1182,64 @@
             });
 
             // 統計情報を表示
-            const confirmedCount = galleryImages.filter(img => img.confirmed).length;
+            const documentCount = galleryImages.filter(img => img.isDocument).length;
+            const photoCount = galleryImages.filter(img => !img.isDocument).length;
             const totalCount = galleryImages.length;
             
             const statsDiv = document.createElement('div');
             statsDiv.className = 'gallery-stats';
             statsDiv.style.cssText = 'text-align: center; margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 10px; font-weight: bold;';
             statsDiv.innerHTML = `
-                <div style="color: #4CAF50;">✓ 確認済み: ${confirmedCount}枚</div>
-                <div style="color: #FF9800;">? 未確認: ${totalCount - confirmedCount}枚</div>
+                <div style="color: #DAA520;">📄 文書類（A4縦表示）: ${documentCount}枚</div>
+                <div style="color: #4CAF50;">📸 写真類（通常表示）: ${photoCount}枚</div>
                 <div style="color: #333;">📊 合計: ${totalCount}枚</div>
                 <div style="margin-top: 10px; font-size: 0.9em; color: #666;">
-                    緑チェック = 表示確認済み | オレンジ? = 明日確認・作成予定
+                    クリックで拡大表示 | 文書類は読みやすいA4縦サイズで表示されます
                 </div>
             `;
             
             gallery.parentNode.insertBefore(statsDiv, gallery);
         }
 
-        function openModal(imageSrc, caption) {
+        // A4縦表示対応のモーダル表示関数
+        function openModal(imageSrc, caption, isDocument = false) {
             const modal = document.getElementById('imageModal');
+            const modalContent = document.getElementById('modalContent');
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
+            const a4Indicator = document.getElementById('a4Indicator');
             
             modalImage.src = imageSrc;
             modalCaption.textContent = caption;
             
-            // 重要文書の画像の場合は天地逆修正
-            const isDocumentImage = imageSrc.includes('plans_cu_') || 
-                                  imageSrc.includes('plans_jc_') || 
-                                  imageSrc.includes('origin_') ||
-                                  imageSrc.includes('news_');
-            
-            if (isDocumentImage) {
-                modalImage.style.transform = 'rotate(180deg)';
-                modal.classList.add('document-modal');
+            // A4縦表示の設定
+            if (isDocument) {
+                modalContent.classList.add('a4-portrait');
+                modalImage.classList.add('a4-portrait');
+                a4Indicator.style.display = 'block';
+                
+                // 文書の場合は天地逆修正（必要に応じて）
+                if (imageSrc.includes('plans_') || imageSrc.includes('origin_') || imageSrc.includes('news_')) {
+                    modalImage.style.transform = 'rotate(180deg)';
+                } else {
+                    modalImage.style.transform = 'none';
+                }
             } else {
+                modalContent.classList.remove('a4-portrait');
+                modalImage.classList.remove('a4-portrait');
+                a4Indicator.style.display = 'none';
                 modalImage.style.transform = 'none';
-                modal.classList.remove('document-modal');
             }
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
             // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
-            history.pushState({modal: true}, '', '#modal');
+            try {
+                history.pushState({modal: true}, '', '#modal');
+            } catch (e) {
+                // Claude Artifacts環境では制限されるが、実際のサイトでは正常動作
+            }
         }
 
         function closeModal() {
@@ -1777,8 +1248,12 @@
             document.body.style.overflow = 'auto';
             
             // 履歴からモーダル状態を削除
-            if (window.location.hash === '#modal') {
-                history.back();
+            try {
+                if (window.location.hash === '#modal') {
+                    history.back();
+                }
+            } catch (e) {
+                // Claude Artifacts環境では制限されるが、実際のサイトでは正常動作
             }
         }
 
@@ -1794,8 +1269,12 @@
         // ページ読み込み時の初期化
         window.addEventListener('load', function() {
             // URLにハッシュがある場合は除去
-            if (window.location.hash) {
-                history.replaceState({}, '', window.location.pathname);
+            try {
+                if (window.location.hash) {
+                    history.replaceState({}, '', window.location.pathname);
+                }
+            } catch (e) {
+                // Claude Artifacts環境では制限されるが、実際のサイトでは正常動作
             }
         });
 
