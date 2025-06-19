@@ -60,8 +60,8 @@
             justify-content: center;
             overflow: hidden;
             
-            /* 砂漠のラクダ隊列写真背景 */
-            background-image: url('./final/large/expedition_021_camel_caravan_desert.jpg');
+            /* 砂漠風景16:9写真背景 */
+            background-image: url('./final/large/expedition_023_desert_landscape_16x9.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -1217,18 +1217,10 @@
                 modalContent.classList.add('a4-portrait');
                 modalImage.classList.add('a4-portrait');
                 a4Indicator.style.display = 'block';
-                
-                // 文書の場合は天地逆修正（必要に応じて）
-                if (imageSrc.includes('plans_') || imageSrc.includes('origin_') || imageSrc.includes('news_')) {
-                    modalImage.style.transform = 'rotate(180deg)';
-                } else {
-                    modalImage.style.transform = 'none';
-                }
             } else {
                 modalContent.classList.remove('a4-portrait');
                 modalImage.classList.remove('a4-portrait');
                 a4Indicator.style.display = 'none';
-                modalImage.style.transform = 'none';
             }
             
             modal.classList.add('active');
