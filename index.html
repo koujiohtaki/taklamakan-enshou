@@ -1270,39 +1270,26 @@
                 isMap: isMap
             });
             
-            // 強力なパス修正機能
+            // 根本的なパス解決機能
             if (typeof imageSrc === 'string') {
                 let cleanPath = imageSrc;
                 
                 console.log('🔧 Original path:', cleanPath);
                 
-                // パターン1: ホスト名:ポート番号./ を ./ に置換
-                cleanPath = cleanPath.replace(/^[^\/]*:[0-9]+\.\//, './');
-                
-                // パターン2: 任意のホスト名部分を除去して final から開始
-                if (cleanPath.includes('final/large/')) {
-                    const finalIndex = cleanPath.indexOf('final/large/');
-                    cleanPath = './' + cleanPath.substring(finalIndex);
+                // 絶対パス化（ベースURL問題を回避）
+                if (cleanPath.startsWith('./')) {
+                    // 現在のページのベースURLを取得
+                    const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+                    cleanPath = baseUrl + cleanPath.substring(2); // ./ を除去してベースURLと結合
+                    console.log('🌐 Converted to absolute path:', cleanPath);
+                } else if (!cleanPath.startsWith('http')) {
+                    // 相対パスの場合も絶対パス化
+                    const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+                    cleanPath = baseUrl + cleanPath.replace(/^\/+/, '');
+                    console.log('🌐 Converted relative to absolute:', cleanPath);
                 }
                 
-                // パターン3: .jpg/.jpeg の完全性を保証
-                if (cleanPath.includes('route_map') && !cleanPath.endsWith('.jpg')) {
-                    if (cleanPath.endsWith('.jp')) {
-                        cleanPath = cleanPath + 'g';
-                    } else if (!cleanPath.includes('.jpg')) {
-                        cleanPath = cleanPath + '.jpg';
-                    }
-                }
-                
-                // パターン4: 二重スラッシュ除去
-                cleanPath = cleanPath.replace(/\/+/g, '/');
-                
-                // パターン5: 確実に相対パスにする
-                if (!cleanPath.startsWith('./')) {
-                    cleanPath = './' + cleanPath.replace(/^\.?\//, '');
-                }
-                
-                console.log('🔧 Step-by-step cleaned path:', cleanPath);
+                console.log('🔧 Final absolute path:', cleanPath);
                 imageSrc = cleanPath;
             }
             
@@ -1370,7 +1357,7 @@
                 modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
             };
             
-            console.log('🔄 Final image source:', imageSrc);
+            console.log('🔄 Setting absolute image source:', imageSrc);
             modalImage.src = imageSrc;
             
             // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
