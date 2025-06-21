@@ -1260,7 +1260,7 @@
             }
         }
 
-        // A4縦・横表示対応のモーダル表示関数
+        // A4縦・横表示対応のモーダル表示関数（エラー修正版）
         function openModal(imageSrc, caption, isDocument = false, isMap = false) {
             try {
                 console.log('🔍 openModal:', {isMap, isDocument});
@@ -1315,14 +1315,22 @@
                     a4Indicator.style.display = 'none';
                 }
                 
-                // 画像読み込み
+                // 画像読み込み（重複イベント防止）
+                let imageHandled = false;
+                
                 modalImage.onload = function() {
+                    if (imageHandled) return;
+                    imageHandled = true;
                     console.log('🖼️ Image loaded successfully');
+                    modalImage.onerror = null; // エラーハンドラを無効化
                 };
                 
                 modalImage.onerror = function() {
-                    console.warn('⚠️ Image load failed');
+                    if (imageHandled) return;
+                    imageHandled = true;
+                    console.log('📁 Preview environment - image files not available');
                     modalCaption.textContent = 'プレビュー環境: ' + (caption || '画像');
+                    modalImage.onload = null; // ロードハンドラを無効化
                 };
                 
                 modalImage.src = imageSrc || '';
