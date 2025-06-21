@@ -606,8 +606,8 @@
 
         /* A4縦表示専用スタイル */
         .modal-content.a4-portrait {
-            max-width: 85vh; /* A4縦の幅 */
-            max-height: 90vh; /* A4縦の高さ */
+            max-width: 95vh; /* 85vh→95vh に拡大 */
+            max-height: 95vh; /* 90vh→95vh に拡大 */
             width: auto;
             height: auto;
         }
@@ -623,8 +623,8 @@
 
         /* A4縦表示の画像スタイル */
         .modal-image.a4-portrait {
-            max-width: 85vh; /* A4の縦横比 1:1.414 に対応 */
-            max-height: 90vh;
+            max-width: 95vh; /* 85vh→95vh に拡大 */
+            max-height: 95vh; /* 90vh→95vh に拡大 */
             width: auto;
             height: auto;
             object-fit: contain;
@@ -769,13 +769,13 @@
 
             /* モバイル時のA4表示調整 */
             .modal-content.a4-portrait {
-                max-width: 95%;
-                max-height: 85vh;
+                max-width: 98%; /* モバイルではほぼ全幅使用 */
+                max-height: 90vh;
             }
 
             .modal-image.a4-portrait {
-                max-width: 95%;
-                max-height: 70vh;
+                max-width: 98%;
+                max-height: 80vh; /* モバイルでは少し小さく */
             }
         }
 
