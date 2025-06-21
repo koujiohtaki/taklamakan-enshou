@@ -575,7 +575,7 @@
         }
 
         /* =========================
-           A4縦表示対応モーダル
+           A4縦・横表示対応モーダル
            ========================= */
         .modal {
             display: none;
@@ -606,8 +606,16 @@
 
         /* A4縦表示専用スタイル */
         .modal-content.a4-portrait {
-            max-width: 95vh; /* 85vh→95vh に拡大 */
-            max-height: 95vh; /* 90vh→95vh に拡大 */
+            max-width: 95vh;
+            max-height: 95vh;
+            width: auto;
+            height: auto;
+        }
+
+        /* A4横表示専用スタイル（地図用） */
+        .modal-content.a4-landscape {
+            max-width: 95%;
+            max-height: 75vh;
             width: auto;
             height: auto;
         }
@@ -623,8 +631,17 @@
 
         /* A4縦表示の画像スタイル */
         .modal-image.a4-portrait {
-            max-width: 95vh; /* 85vh→95vh に拡大 */
-            max-height: 95vh; /* 90vh→95vh に拡大 */
+            max-width: 95vh;
+            max-height: 95vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* A4横表示の画像スタイル（地図用） */
+        .modal-image.a4-landscape {
+            max-width: 95%;
+            max-height: 75vh;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -769,13 +786,24 @@
 
             /* モバイル時のA4表示調整 */
             .modal-content.a4-portrait {
-                max-width: 98%; /* モバイルではほぼ全幅使用 */
+                max-width: 98%;
                 max-height: 90vh;
             }
 
             .modal-image.a4-portrait {
                 max-width: 98%;
-                max-height: 80vh; /* モバイルでは少し小さく */
+                max-height: 80vh;
+            }
+
+            /* モバイル時のA4横表示調整（地図用） */
+            .modal-content.a4-landscape {
+                max-width: 98%;
+                max-height: 60vh;
+            }
+
+            .modal-image.a4-landscape {
+                max-width: 98%;
+                max-height: 55vh;
             }
         }
 
@@ -893,7 +921,7 @@
                         <p class="section-subtitle">NHK特集『シルクロード』が奮い立たせた西域への憧憬</p>
                     </div>
                     <div class="section-content">
-                        <img class="article-image" src="./final/medium/origin_001_silk_road_bower_document.jpg" alt="バウアー文書" onclick="openModal('./final/large/origin_001_silk_road_bower_document.jpg', 'バウアー文書 - 冒険の原点となった歴史的文書')">
+                        <img class="article-image" src="./final/medium/origin_001_silk_road_bower_document.jpg" alt="バウアー文書" onclick="openModal('./final/large/origin_001_silk_road_bower_document.jpg', 'バウアー文書 - 冒険の原点となった歴史的文書', true, false)">
                         <p class="article-image-caption">バウアー文書 - 図書館で抜き書きした冒険の原点文書</p>
 
                         <p class="section-text">
@@ -959,7 +987,7 @@
                         <p class="section-subtitle">冒険の原点となった歴史的文書との出会い</p>
                     </div>
                     <div class="section-content">
-                        <img class="article-image" src="./final/medium/origin_001_silk_road_bower_document.jpg" alt="バウアー文書" onclick="openModal('./final/large/origin_001_silk_road_bower_document.jpg', 'バウアー文書 - 冒険の原点となった歴史的文書')">
+                        <img class="article-image" src="./final/medium/origin_001_silk_road_bower_document.jpg" alt="バウアー文書" onclick="openModal('./final/large/origin_001_silk_road_bower_document.jpg', 'バウアー文書 - 冒険の原点となった歴史的文書', true, false)">
                         <p class="article-image-caption">バウアー文書 - 成田氏の冒険への関心を奮い立たせた貴重な文書</p>
 
                         <p class="section-text">
@@ -1034,7 +1062,7 @@
                 <section class="section-card">
                     <div class="section-header">
                         <h2 class="section-title">📸 完全冒険記録ギャラリー（43枚完全版）</h2>
-                        <p class="section-subtitle">全43枚の冒険・計画書・報道記録（A4縦表示対応）</p>
+                        <p class="section-subtitle">全43枚の冒険・計画書・報道記録（A4縦・横表示対応）</p>
                     </div>
                     <div class="section-content">
                         <div class="gallery-container">
@@ -1044,9 +1072,11 @@
                         </div>
                         
                         <div class="highlight-box">
-                            <div class="highlight-title">A4縦表示対応について</div>
+                            <div class="highlight-title">A4表示対応について</div>
                             <div class="highlight-text">
                                 <strong>📄 文書類（A4縦表示）：</strong>計画書・原点文書・報道記録は文書として読みやすいA4縦サイズで表示<br><br>
+                                
+                                <strong>🗺️ 地図（A4横表示）：</strong>冒険ルート地図は横長A4サイズで見やすく拡大表示<br><br>
                                 
                                 <strong>📸 写真類（通常表示）：</strong>冒険写真は従来通りの画面サイズに最適化された表示<br><br>
                                 
@@ -1074,10 +1104,10 @@
     <!-- スクロールトップボタン -->
     <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
 
-    <!-- 画像モーダル（A4縦表示対応） -->
+    <!-- 画像モーダル（A4縦・横表示対応） -->
     <div class="modal" id="imageModal">
         <button class="modal-close" onclick="closeModal()">&times;</button>
-        <div class="a4-indicator" id="a4Indicator" style="display: none;">📄 A4縦表示</div>
+        <div class="a4-indicator" id="a4Indicator" style="display: none;"></div>
         <div class="modal-content" id="modalContent">
             <img class="modal-image" id="modalImage" src="" alt="">
             <div class="modal-caption" id="modalCaption"></div>
@@ -1088,57 +1118,59 @@
         // 実際の43枚完全ギャラリー画像リスト（A4表示判定付き）
         const galleryImages = [
             // 【文書類 - A4縦表示対象】
-            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'バウアー文書 - 冒険の原点となった歴史的シルクロード文書', icon: '📜', category: 'origin', isDocument: true },
+            { file: 'origin_001_silk_road_bower_document.jpg', caption: 'バウアー文書 - 冒険の原点となった歴史的シルクロード文書', icon: '📜', category: 'origin', isDocument: true, isMap: false },
             
             // 中英計画書（A4縦表示）
-            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同冒険計画書表紙', icon: '📋', category: 'plans', isDocument: true },
-            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書', icon: '✍️', category: 'plans', isDocument: true },
-            { file: 'plans_cu_003_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', isDocument: true },
-            { file: 'plans_cu_004_buckingham_palace_letter.jpg', caption: 'バッキンガム宮殿からの手紙 - 英国王室公式文書', icon: '🏰', category: 'plans', isDocument: true },
-            { file: 'plans_cu_005_house_of_commons_document.jpg', caption: '英国下院文書 - 国会からの公式支援文書', icon: '🏛️', category: 'plans', isDocument: true },
-            { file: 'plans_cu_006_xinjiang_travel_service_final.jpg', caption: '新疆旅行社最終協定書', icon: '📄', category: 'plans', isDocument: true },
+            { file: 'plans_cu_001_joint_expedition_plan_cover.jpg', caption: '日中英合同冒険計画書表紙', icon: '📋', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_cu_002_blackmore_signature_document.jpg', caption: 'Charles Blackmore博士署名文書', icon: '✍️', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_cu_003_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_cu_004_buckingham_palace_letter.jpg', caption: 'バッキンガム宮殿からの手紙 - 英国王室公式文書', icon: '🏰', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_cu_005_house_of_commons_document.jpg', caption: '英国下院文書 - 国会からの公式支援文書', icon: '🏛️', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_cu_006_xinjiang_travel_service_final.jpg', caption: '新疆旅行社最終協定書', icon: '📄', category: 'plans', isDocument: true, isMap: false },
             
-            // 中日計画書（A4縦表示）
-            { file: 'plans_jc_001_joint_expedition_plan_cover.jpg', caption: '1993年合同冒険計画書表紙', icon: '📋', category: 'plans', isDocument: true },
-            { file: 'plans_jc_002_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', isDocument: true },
-            { file: 'plans_jc_003_xinjiang_travel_service.jpg', caption: '新疆旅行社協定書', icon: '📄', category: 'plans', isDocument: true },
-            { file: 'plans_jc_004_official_star_stamp_document.jpg', caption: '公式星印文書', icon: '⭐', category: 'plans', isDocument: true },
-            { file: 'plans_jc_005_xinjiang_handwritten_memo.jpg', caption: '新疆手書きメモ', icon: '📝', category: 'plans', isDocument: true },
-            { file: 'plans_jc_006_administrative_memo_document.jpg', caption: '行政メモ文書', icon: '📋', category: 'plans', isDocument: true },
-            { file: 'plans_jc_007_dated_1996_official_document.jpg', caption: '1996年付公式文書', icon: '📅', category: 'plans', isDocument: true },
-            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表', icon: '📅', category: 'plans', isDocument: true },
-            { file: 'plans_jc_009_itinerary_table_format.jpg', caption: '旅程表形式', icon: '🗓️', category: 'plans', isDocument: true },
-            { file: 'plans_jc_010_blank_schedule_calendar.jpg', caption: '空白スケジュールカレンダー', icon: '📆', category: 'plans', isDocument: true },
-            { file: 'plans_jc_011_expedition_summary_1993.jpg', caption: '1993年冒険要約', icon: '📊', category: 'plans', isDocument: true },
-            { file: 'plans_jc_012_expedition_route_map.jpg', caption: '冒険ルート地図', icon: '🗺️', category: 'plans', isDocument: true },
+            // 中日計画書（A4縦表示 + 地図のみA4横）
+            { file: 'plans_jc_001_joint_expedition_plan_cover.jpg', caption: '1993年合同冒険計画書表紙', icon: '📋', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_002_chinese_official_stamp_document.jpg', caption: '中国公式印鑑文書', icon: '🔰', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_003_xinjiang_travel_service.jpg', caption: '新疆旅行社協定書', icon: '📄', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_004_official_star_stamp_document.jpg', caption: '公式星印文書', icon: '⭐', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_005_xinjiang_handwritten_memo.jpg', caption: '新疆手書きメモ', icon: '📝', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_006_administrative_memo_document.jpg', caption: '行政メモ文書', icon: '📋', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_007_dated_1996_official_document.jpg', caption: '1996年付公式文書', icon: '📅', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_008_chronological_schedule_list.jpg', caption: '時系列スケジュール表', icon: '📅', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_009_itinerary_table_format.jpg', caption: '旅程表形式', icon: '🗓️', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_010_blank_schedule_calendar.jpg', caption: '空白スケジュールカレンダー', icon: '📆', category: 'plans', isDocument: true, isMap: false },
+            { file: 'plans_jc_011_expedition_summary_1993.jpg', caption: '1993年冒険要約', icon: '📊', category: 'plans', isDocument: true, isMap: false },
+            
+            // 【地図 - A4横表示対象】
+            { file: 'plans_jc_012_expedition_route_map.jpg', caption: '冒険ルート地図 - PC版で大きく横長表示', icon: '🗺️', category: 'plans', isDocument: true, isMap: true },
             
             // 報道記録（A4縦表示）
-            { file: 'news_001_japan_times_2002.jpg', caption: 'Japan Times 2002年記事 - 国際的な報道記録', icon: '📰', category: 'news', isDocument: true },
+            { file: 'news_001_japan_times_2002.jpg', caption: 'Japan Times 2002年記事 - 国際的な報道記録', icon: '📰', category: 'news', isDocument: true, isMap: false },
             
             // 【冒険写真 - 通常表示】
-            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備 - 冒険に使用した専門装備', icon: '🎒', category: 'expedition', isDocument: false },
-            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備② - 砂漠冒険用機材', icon: '🔧', category: 'expedition', isDocument: false },
-            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧', category: 'expedition', isDocument: false },
-            { file: 'expedition_004_kokusan_marker.jpg', caption: '国産マーカー - 冒険ルート標識', icon: '🚩', category: 'expedition', isDocument: false },
-            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 冒険隊メンバーの記念撮影', icon: '👥', category: 'expedition', isDocument: false },
-            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源確保のための詳細調査', icon: '🔍', category: 'expedition', isDocument: false },
-            { file: 'expedition_007_exploration_vehicle.jpg', caption: '冒険車両 - 砂漠横断に使用した専用車両', icon: '🚗', category: 'expedition', isDocument: false },
-            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木博士への追悼', icon: '🏛️', category: 'expedition', isDocument: false },
-            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での敬意表明', icon: '🏛️', category: 'expedition', isDocument: false },
-            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者ポートレート - 冒険に参加した地質学者', icon: '👤', category: 'expedition', isDocument: false },
-            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側冒険隊員', icon: '👥', category: 'expedition', isDocument: false },
-            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際冒険を支えた通訳スタッフ', icon: '🗣️', category: 'expedition', isDocument: false },
-            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断のラクダ隊', icon: '🐪', category: 'expedition', isDocument: false },
-            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠での扇子休憩 - 暑さ対策の様子', icon: '🌞', category: 'expedition', isDocument: false },
-            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャー・カラオケ - 冒険中の息抜き時間', icon: '🎤', category: 'expedition', isDocument: false },
-            { file: 'expedition_016_map_consultation.jpg', caption: '地図相談 - 重要なルート確認作業', icon: '🗺️', category: 'expedition', isDocument: false },
-            { file: 'expedition_017_local_bike.jpg', caption: '現地バイク - 機動的移動手段として使用', icon: '🏍️', category: 'expedition', isDocument: false },
-            { file: 'expedition_018_night_road.jpg', caption: '夜の道路 - 夜間移動の記録', icon: '🌙', category: 'expedition', isDocument: false },
-            { file: 'expedition_019_team_group_photo.jpg', caption: 'チームグループ写真 - 全員での記念撮影', icon: '👥', category: 'expedition', isDocument: false },
-            { file: 'expedition_020_landcruiser_desert.jpg', caption: '砂漠のランドクルーザー - 砂漠での車両記録', icon: '🚗', category: 'expedition', isDocument: false },
-            { file: 'expedition_021_camel_caravan_desert.jpg', caption: '砂漠のラクダ隊列 - 大規模キャラバンの様子', icon: '🐪', category: 'expedition', isDocument: false },
-            { file: 'expedition_022_mountain_landscape.jpg', caption: '山の風景 - 壮大な山間部の景観', icon: '🏔️', category: 'expedition', isDocument: false },
-            { file: 'expedition_023_desert_landscape_16x9.jpg', caption: '砂漠風景16:9 - 壮大な砂漠の情景', icon: '🏜️', category: 'expedition', isDocument: false }
+            { file: 'expedition_001_team_equipment.jpg', caption: 'チーム装備 - 冒険に使用した専門装備', icon: '🎒', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_002_team_equipment.jpg', caption: 'チーム装備② - 砂漠冒険用機材', icon: '🔧', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_003_well_discovery.jpg', caption: '井戸発見 - 砂漠での貴重な水源発見の瞬間', icon: '💧', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_004_kokusan_marker.jpg', caption: '国産マーカー - 冒険ルート標識', icon: '🚩', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_005_group_photo.jpg', caption: 'グループ写真 - 冒険隊メンバーの記念撮影', icon: '👥', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_006_well_exploration.jpg', caption: '井戸探査 - 水源確保のための詳細調査', icon: '🔍', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_007_exploration_vehicle.jpg', caption: '冒険車両 - 砂漠横断に使用した専用車両', icon: '🚗', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_008_peng_jiamu_memorial_01.jpg', caption: 'Peng Jiamu記念碑① - 彭加木博士への追悼', icon: '🏛️', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_009_peng_jiamu_memorial_02.jpg', caption: 'Peng Jiamu記念碑② - 記念碑での敬意表明', icon: '🏛️', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_010_geologist_portrait.jpg', caption: '地質学者ポートレート - 冒険に参加した地質学者', icon: '👤', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_011_chinese_team_members.jpg', caption: '中国チームメンバー - 中国側冒険隊員', icon: '👥', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_012_interpreter.jpg', caption: '通訳者 - 国際冒険を支えた通訳スタッフ', icon: '🗣️', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_013_camel_caravan.jpg', caption: 'ラクダ隊列 - 砂漠横断のラクダ隊', icon: '🐪', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_014_desert_fan_break.jpg', caption: '砂漠での扇子休憩 - 暑さ対策の様子', icon: '🌞', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_015_leisure_karaoke.jpg', caption: 'レジャー・カラオケ - 冒険中の息抜き時間', icon: '🎤', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_016_map_consultation.jpg', caption: '地図相談 - 重要なルート確認作業', icon: '🗺️', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_017_local_bike.jpg', caption: '現地バイク - 機動的移動手段として使用', icon: '🏍️', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_018_night_road.jpg', caption: '夜の道路 - 夜間移動の記録', icon: '🌙', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_019_team_group_photo.jpg', caption: 'チームグループ写真 - 全員での記念撮影', icon: '👥', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_020_landcruiser_desert.jpg', caption: '砂漠のランドクルーザー - 砂漠での車両記録', icon: '🚗', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_021_camel_caravan_desert.jpg', caption: '砂漠のラクダ隊列 - 大規模キャラバンの様子', icon: '🐪', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_022_mountain_landscape.jpg', caption: '山の風景 - 壮大な山間部の景観', icon: '🏔️', category: 'expedition', isDocument: false, isMap: false },
+            { file: 'expedition_023_desert_landscape_16x9.jpg', caption: '砂漠風景16:9 - 壮大な砂漠の情景', icon: '🏜️', category: 'expedition', isDocument: false, isMap: false }
         ];
 
         // ページ読み込み時にギャラリーを生成
@@ -1153,12 +1185,17 @@
             galleryImages.forEach((image, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.onclick = () => openModal(`./final/large/${image.file}`, image.caption, image.isDocument);
+                galleryItem.onclick = () => openModal(`./final/large/${image.file}`, image.caption, image.isDocument, image.isMap);
 
-                // 文書/写真の種別表示
-                const typeBadge = image.isDocument ? 
-                    '<div style="position: absolute; top: 5px; right: 5px; background: #DAA520; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">📄 A4</div>' : 
-                    '<div style="position: absolute; top: 5px; right: 5px; background: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">📸 写真</div>';
+                // 文書/写真/地図の種別表示
+                let typeBadge;
+                if (image.isMap) {
+                    typeBadge = '<div style="position: absolute; top: 5px; right: 5px; background: #FF6B35; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">🗺️ 地図</div>';
+                } else if (image.isDocument) {
+                    typeBadge = '<div style="position: absolute; top: 5px; right: 5px; background: #DAA520; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">📄 A4</div>';
+                } else {
+                    typeBadge = '<div style="position: absolute; top: 5px; right: 5px; background: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; z-index: 1;">📸 写真</div>';
+                }
 
                 galleryItem.innerHTML = `
                     <div style="position: relative;">
@@ -1182,7 +1219,8 @@
             });
 
             // 統計情報を表示
-            const documentCount = galleryImages.filter(img => img.isDocument).length;
+            const documentCount = galleryImages.filter(img => img.isDocument && !img.isMap).length;
+            const mapCount = galleryImages.filter(img => img.isMap).length;
             const photoCount = galleryImages.filter(img => !img.isDocument).length;
             const totalCount = galleryImages.length;
             
@@ -1191,18 +1229,19 @@
             statsDiv.style.cssText = 'text-align: center; margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 10px; font-weight: bold;';
             statsDiv.innerHTML = `
                 <div style="color: #DAA520;">📄 文書類（A4縦表示）: ${documentCount}枚</div>
+                <div style="color: #FF6B35;">🗺️ 地図（A4横表示）: ${mapCount}枚</div>
                 <div style="color: #4CAF50;">📸 写真類（通常表示）: ${photoCount}枚</div>
                 <div style="color: #333;">📊 合計: ${totalCount}枚</div>
                 <div style="margin-top: 10px; font-size: 0.9em; color: #666;">
-                    クリックで拡大表示 | 文書類は読みやすいA4縦サイズで表示されます
+                    クリックで拡大表示 | 地図は横長で、文書類は縦長で表示されます
                 </div>
             `;
             
             gallery.parentNode.insertBefore(statsDiv, gallery);
         }
 
-        // A4縦表示対応のモーダル表示関数
-        function openModal(imageSrc, caption, isDocument = false) {
+        // A4縦・横表示対応のモーダル表示関数
+        function openModal(imageSrc, caption, isDocument = false, isMap = false) {
             const modal = document.getElementById('imageModal');
             const modalContent = document.getElementById('modalContent');
             const modalImage = document.getElementById('modalImage');
@@ -1212,14 +1251,25 @@
             modalImage.src = imageSrc;
             modalCaption.textContent = caption;
             
-            // A4縦表示の設定
-            if (isDocument) {
+            // クラスをリセット
+            modalContent.classList.remove('a4-portrait', 'a4-landscape');
+            modalImage.classList.remove('a4-portrait', 'a4-landscape');
+            
+            // 表示タイプに応じてスタイルを設定
+            if (isMap) {
+                // 地図の場合：A4横表示
+                modalContent.classList.add('a4-landscape');
+                modalImage.classList.add('a4-landscape');
+                a4Indicator.style.display = 'block';
+                a4Indicator.textContent = '🗺️ 地図横長表示';
+            } else if (isDocument) {
+                // 文書の場合：A4縦表示
                 modalContent.classList.add('a4-portrait');
                 modalImage.classList.add('a4-portrait');
                 a4Indicator.style.display = 'block';
+                a4Indicator.textContent = '📄 A4縦表示';
             } else {
-                modalContent.classList.remove('a4-portrait');
-                modalImage.classList.remove('a4-portrait');
+                // 写真の場合：通常表示
                 a4Indicator.style.display = 'none';
             }
             
