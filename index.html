@@ -1270,10 +1270,20 @@
                 isMap: isMap
             });
             
-            // パス検証
-            if (imageSrc.includes(':') && !imageSrc.startsWith('http')) {
-                console.error('❌ Invalid path detected:', imageSrc);
-                const cleanPath = imageSrc.replace(/:[0-9]+/, ''); // ポート番号を除去
+            // パス完全修正
+            if (typeof imageSrc === 'string') {
+                // ポート番号とホスト名の問題を完全に解決
+                let cleanPath = imageSrc;
+                
+                // ポート番号を含む不正なパスを修正
+                cleanPath = cleanPath.replace(/^[^\/]*:[0-9]+\./, './');
+                
+                // 相対パスに強制変換
+                if (!cleanPath.startsWith('./')) {
+                    cleanPath = './' + cleanPath.replace(/^\.?\//, '');
+                }
+                
+                console.log('🔧 Original path:', imageSrc);
                 console.log('🔧 Cleaned path:', cleanPath);
                 imageSrc = cleanPath;
             }
