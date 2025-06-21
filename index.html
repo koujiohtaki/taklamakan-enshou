@@ -1195,14 +1195,12 @@
                 
                 // 地図判定のデバッグログ
                 if (image.file === 'plans_jc_012_expedition_route_map.jpg') {
-                    console.log('Map item found:', image.file, 'isMap:', image.isMap, 'isDocument:', image.isDocument);
+                    console.log('🗺️ Map item detected:', image.file);
                 }
                 
                 // クリックイベントにデバッグ情報を追加
                 galleryItem.onclick = () => {
                     const fullPath = `./final/large/${image.file}`;
-                    console.log('Gallery item clicked:', image.file, 'isMap:', image.isMap, 'isDocument:', image.isDocument);
-                    console.log('Full path:', fullPath);
                     openModal(fullPath, image.caption, image.isDocument, image.isMap);
                 };
 
@@ -1243,8 +1241,6 @@
             const photoCount = galleryImages.filter(img => !img.isDocument).length;
             const totalCount = galleryImages.length;
             
-            console.log('Gallery stats - Documents:', documentCount, 'Maps:', mapCount, 'Photos:', photoCount, 'Total:', totalCount);
-            
             const statsDiv = document.createElement('div');
             statsDiv.className = 'gallery-stats';
             statsDiv.style.cssText = 'text-align: center; margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 10px; font-weight: bold;';
@@ -1263,33 +1259,23 @@
 
         // A4縦・横表示対応のモーダル表示関数
         function openModal(imageSrc, caption, isDocument = false, isMap = false) {
-            console.log('🔍 openModal called with:', {
-                imageSrc: imageSrc,
-                caption: caption,
-                isDocument: isDocument,
-                isMap: isMap
-            });
+            console.log('🔍 openModal:', {isMap, isDocument});
             
             // 根本的なパス解決機能
             if (typeof imageSrc === 'string') {
                 let cleanPath = imageSrc;
-                
-                console.log('🔧 Original path:', cleanPath);
                 
                 // 絶対パス化（ベースURL問題を回避）
                 if (cleanPath.startsWith('./')) {
                     // 現在のページのベースURLを取得
                     const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
                     cleanPath = baseUrl + cleanPath.substring(2); // ./ を除去してベースURLと結合
-                    console.log('🌐 Converted to absolute path:', cleanPath);
                 } else if (!cleanPath.startsWith('http')) {
                     // 相対パスの場合も絶対パス化
                     const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
                     cleanPath = baseUrl + cleanPath.replace(/^\/+/, '');
-                    console.log('🌐 Converted relative to absolute:', cleanPath);
                 }
                 
-                console.log('🔧 Final absolute path:', cleanPath);
                 imageSrc = cleanPath;
             }
             
@@ -1300,7 +1286,7 @@
             const a4Indicator = document.getElementById('a4Indicator');
             
             if (!modal || !modalContent || !modalImage || !modalCaption || !a4Indicator) {
-                console.error('Modal elements not found');
+                console.error('❌ Required modal elements not found');
                 return;
             }
             
@@ -1308,23 +1294,22 @@
             modalContent.classList.remove('a4-portrait', 'a4-landscape');
             modalImage.classList.remove('a4-portrait', 'a4-landscape');
             
-            // スタイルリセット
+            // 完全スタイルリセット
             modalImage.style.width = '';
             modalImage.style.height = '';
             modalImage.style.minWidth = '';
             modalImage.style.maxWidth = '';
             modalImage.style.objectFit = '';
             modalImage.style.objectPosition = '';
+            modalImage.style.display = '';
+            modalImage.style.margin = '';
             
-            console.log('🧹 Reset completed');
+            console.log('🧹 Complete reset done');
             
             // モーダルを即座に表示
             modal.style.display = 'flex';
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            console.log('📱 Modal displayed');
-            
-            // キャプションを設定
             modalCaption.textContent = caption;
             
             // 表示タイプに応じてスタイルを設定（画像読み込み前）
@@ -1333,17 +1318,19 @@
                 modalContent.classList.add('a4-landscape');
                 modalImage.classList.add('a4-landscape');
                 
-                // 枠いっぱいに拡大するスタイル
-                modalImage.style.width = '95vw';
-                modalImage.style.height = '75vh';
-                modalImage.style.objectFit = 'contain';
+                // 枠いっぱい完全拡大（限界突破）
+                modalImage.style.width = '98vw';
+                modalImage.style.height = '80vh';
+                modalImage.style.objectFit = 'fill';  // 枠いっぱいに強制拡大
                 modalImage.style.objectPosition = 'center';
+                modalImage.style.display = 'block';
+                modalImage.style.margin = '0 auto';
                 
                 a4Indicator.style.display = 'block';
-                a4Indicator.textContent = '🗺️ 地図横長表示';
+                a4Indicator.textContent = '🗺️ 地図横長表示（最大拡大）';
                 a4Indicator.style.background = '#DAA520';
                 
-                console.log('✅ Map mode set with full-frame expansion');
+                console.log('✅ Map mode: MAXIMUM expansion applied');
             } else if (isDocument) {
                 console.log('📄 Setting DOCUMENT display mode');
                 modalContent.classList.add('a4-portrait');
@@ -1360,9 +1347,8 @@
             
             // 画像読み込み（最後に実行）
             modalImage.onload = function() {
-                console.log('🖼️ Image loaded successfully:', imageSrc);
+                console.log('🖼️ Image loaded successfully');
                 // 読み込み完了後のクラス確認
-                console.log('Final classes - Content:', modalContent.className, 'Image:', modalImage.className);
                 if (isMap && !modalImage.classList.contains('a4-landscape')) {
                     console.log('🔧 Re-applying map classes');
                     modalImage.classList.add('a4-landscape');
@@ -1371,18 +1357,23 @@
             };
             
             modalImage.onerror = function() {
-                console.error('❌ Failed to load image:', imageSrc);
-                modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
+                console.warn('⚠️ Image load failed (expected in Artifacts environment)');
+                // Artifacts環境では画像が存在しないためエラーは正常
+                if (window.location.hostname === 'claude.ai') {
+                    modalCaption.textContent = 'プレビュー環境のため画像は表示されません - ' + caption;
+                } else {
+                    modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
+                }
             };
             
-            console.log('🔄 Setting absolute image source:', imageSrc);
+            console.log('🔄 Setting image source');
             modalImage.src = imageSrc;
             
             // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
             try {
                 history.pushState({modal: true}, '', '#modal');
             } catch (e) {
-                console.log('History API not available:', e.message);
+                // History API制限時は無視
             }
         }
 
@@ -1392,19 +1383,16 @@
             const modalImage = document.getElementById('modalImage');
             
             if (!modal || !modalContent || !modalImage) {
-                console.error('Modal elements not found for closing');
                 return;
             }
             
-            // アニメーション前に全てのクラスをリセット
+            // クラスとスタイルをリセット
             modalContent.classList.remove('a4-portrait', 'a4-landscape');
             modalImage.classList.remove('a4-portrait', 'a4-landscape');
             
             // モーダルを非表示
             modal.classList.remove('active');
             modal.style.display = 'none';
-            
-            // スクロールを復元
             document.body.style.overflow = 'auto';
             
             // 画像をリセット（メモリリーク防止）
@@ -1418,8 +1406,7 @@
                     history.back();
                 }
             } catch (e) {
-                // Claude Artifacts環境では制限されるが、実際のサイトでは正常動作
-                console.log('History API not available:', e.message);
+                // History API制限時は無視
             }
         }
 
@@ -1440,7 +1427,7 @@
                     history.replaceState({}, '', window.location.pathname);
                 }
             } catch (e) {
-                // Claude Artifacts環境では制限されるが、実際のサイトでは正常動作
+                // History API制限時は無視
             }
         });
 
