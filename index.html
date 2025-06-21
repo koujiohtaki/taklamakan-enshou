@@ -1200,8 +1200,10 @@
                 
                 // クリックイベントにデバッグ情報を追加
                 galleryItem.onclick = () => {
+                    const fullPath = `./final/large/${image.file}`;
                     console.log('Gallery item clicked:', image.file, 'isMap:', image.isMap, 'isDocument:', image.isDocument);
-                    openModal(`./final/large/${image.file}`, image.caption, image.isDocument, image.isMap);
+                    console.log('Full path:', fullPath);
+                    openModal(fullPath, image.caption, image.isDocument, image.isMap);
                 };
 
                 // 文書/写真/地図の種別表示
@@ -1268,6 +1270,14 @@
                 isMap: isMap
             });
             
+            // パス検証
+            if (imageSrc.includes(':') && !imageSrc.startsWith('http')) {
+                console.error('❌ Invalid path detected:', imageSrc);
+                const cleanPath = imageSrc.replace(/:[0-9]+/, ''); // ポート番号を除去
+                console.log('🔧 Cleaned path:', cleanPath);
+                imageSrc = cleanPath;
+            }
+            
             const modal = document.getElementById('imageModal');
             const modalContent = document.getElementById('modalContent');
             const modalImage = document.getElementById('modalImage');
@@ -1332,6 +1342,7 @@
                 modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
             };
             
+            console.log('🔄 Setting image source:', imageSrc);
             modalImage.src = imageSrc;
             
             // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
