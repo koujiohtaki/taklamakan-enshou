@@ -1270,21 +1270,39 @@
                 isMap: isMap
             });
             
-            // パス完全修正
+            // 強力なパス修正機能
             if (typeof imageSrc === 'string') {
-                // ポート番号とホスト名の問題を完全に解決
                 let cleanPath = imageSrc;
                 
-                // ポート番号を含む不正なパスを修正
-                cleanPath = cleanPath.replace(/^[^\/]*:[0-9]+\./, './');
+                console.log('🔧 Original path:', cleanPath);
                 
-                // 相対パスに強制変換
+                // パターン1: ホスト名:ポート番号./ を ./ に置換
+                cleanPath = cleanPath.replace(/^[^\/]*:[0-9]+\.\//, './');
+                
+                // パターン2: 任意のホスト名部分を除去して final から開始
+                if (cleanPath.includes('final/large/')) {
+                    const finalIndex = cleanPath.indexOf('final/large/');
+                    cleanPath = './' + cleanPath.substring(finalIndex);
+                }
+                
+                // パターン3: .jpg/.jpeg の完全性を保証
+                if (cleanPath.includes('route_map') && !cleanPath.endsWith('.jpg')) {
+                    if (cleanPath.endsWith('.jp')) {
+                        cleanPath = cleanPath + 'g';
+                    } else if (!cleanPath.includes('.jpg')) {
+                        cleanPath = cleanPath + '.jpg';
+                    }
+                }
+                
+                // パターン4: 二重スラッシュ除去
+                cleanPath = cleanPath.replace(/\/+/g, '/');
+                
+                // パターン5: 確実に相対パスにする
                 if (!cleanPath.startsWith('./')) {
                     cleanPath = './' + cleanPath.replace(/^\.?\//, '');
                 }
                 
-                console.log('🔧 Original path:', imageSrc);
-                console.log('🔧 Cleaned path:', cleanPath);
+                console.log('🔧 Step-by-step cleaned path:', cleanPath);
                 imageSrc = cleanPath;
             }
             
@@ -1352,7 +1370,7 @@
                 modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
             };
             
-            console.log('🔄 Setting image source:', imageSrc);
+            console.log('🔄 Final image source:', imageSrc);
             modalImage.src = imageSrc;
             
             // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
