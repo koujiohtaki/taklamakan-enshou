@@ -1308,9 +1308,13 @@
             modalContent.classList.remove('a4-portrait', 'a4-landscape');
             modalImage.classList.remove('a4-portrait', 'a4-landscape');
             
-            // 最小限のスタイルリセット
+            // スタイルリセット
+            modalImage.style.width = '';
+            modalImage.style.height = '';
             modalImage.style.minWidth = '';
             modalImage.style.maxWidth = '';
+            modalImage.style.objectFit = '';
+            modalImage.style.objectPosition = '';
             
             console.log('🧹 Reset completed');
             
@@ -1329,15 +1333,17 @@
                 modalContent.classList.add('a4-landscape');
                 modalImage.classList.add('a4-landscape');
                 
-                // シンプルなインラインスタイルのみ
-                modalImage.style.minWidth = '80vw';
-                modalImage.style.maxWidth = '95vw';
+                // 枠いっぱいに拡大するスタイル
+                modalImage.style.width = '95vw';
+                modalImage.style.height = '75vh';
+                modalImage.style.objectFit = 'contain';
+                modalImage.style.objectPosition = 'center';
                 
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '🗺️ 地図横長表示';
                 a4Indicator.style.background = '#DAA520';
                 
-                console.log('✅ Map mode set with minimal inline styles');
+                console.log('✅ Map mode set with full-frame expansion');
             } else if (isDocument) {
                 console.log('📄 Setting DOCUMENT display mode');
                 modalContent.classList.add('a4-portrait');
