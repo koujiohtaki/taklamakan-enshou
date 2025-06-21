@@ -1242,11 +1242,33 @@
 
         // A4縦・横表示対応のモーダル表示関数
         function openModal(imageSrc, caption, isDocument = false, isMap = false) {
+            console.log('Opening modal:', imageSrc, 'isMap:', isMap); // デバッグ用
+            
             const modal = document.getElementById('imageModal');
             const modalContent = document.getElementById('modalContent');
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const a4Indicator = document.getElementById('a4Indicator');
+            
+            if (!modal || !modalContent || !modalImage || !modalCaption || !a4Indicator) {
+                console.error('Modal elements not found');
+                return;
+            }
+            
+            // 画像読み込み前にモーダルを表示
+            modal.style.display = 'flex';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // 画像の読み込みイベントを設定
+            modalImage.onload = function() {
+                console.log('Image loaded successfully');
+            };
+            
+            modalImage.onerror = function() {
+                console.error('Failed to load image:', imageSrc);
+                modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
+            };
             
             modalImage.src = imageSrc;
             modalCaption.textContent = caption;
@@ -1258,29 +1280,30 @@
             // 表示タイプに応じてスタイルを設定
             if (isMap) {
                 // 地図の場合：A4横表示
+                console.log('Setting map display mode');
                 modalContent.classList.add('a4-landscape');
                 modalImage.classList.add('a4-landscape');
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '🗺️ 地図横長表示';
             } else if (isDocument) {
                 // 文書の場合：A4縦表示
+                console.log('Setting document display mode');
                 modalContent.classList.add('a4-portrait');
                 modalImage.classList.add('a4-portrait');
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '📄 A4縦表示';
             } else {
                 // 写真の場合：通常表示
+                console.log('Setting photo display mode');
                 a4Indicator.style.display = 'none';
             }
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
             
             // ブラウザ履歴にモーダル状態を追加（戻るボタン制御用）
             try {
                 history.pushState({modal: true}, '', '#modal');
             } catch (e) {
                 // Claude Artifacts環境では制限されるが、実際のサイトでは正常動作
+                console.log('History API not available:', e.message);
             }
         }
 
