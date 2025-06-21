@@ -1192,7 +1192,17 @@
             galleryImages.forEach((image, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.onclick = () => openModal(`./final/large/${image.file}`, image.caption, image.isDocument, image.isMap);
+                
+                // 地図判定のデバッグログ
+                if (image.file === 'plans_jc_012_expedition_route_map.jpg') {
+                    console.log('Map item found:', image.file, 'isMap:', image.isMap, 'isDocument:', image.isDocument);
+                }
+                
+                // クリックイベントにデバッグ情報を追加
+                galleryItem.onclick = () => {
+                    console.log('Gallery item clicked:', image.file, 'isMap:', image.isMap, 'isDocument:', image.isDocument);
+                    openModal(`./final/large/${image.file}`, image.caption, image.isDocument, image.isMap);
+                };
 
                 // 文書/写真/地図の種別表示
                 let typeBadge;
@@ -1231,6 +1241,8 @@
             const photoCount = galleryImages.filter(img => !img.isDocument).length;
             const totalCount = galleryImages.length;
             
+            console.log('Gallery stats - Documents:', documentCount, 'Maps:', mapCount, 'Photos:', photoCount, 'Total:', totalCount);
+            
             const statsDiv = document.createElement('div');
             statsDiv.className = 'gallery-stats';
             statsDiv.style.cssText = 'text-align: center; margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 10px; font-weight: bold;';
@@ -1249,7 +1261,12 @@
 
         // A4縦・横表示対応のモーダル表示関数
         function openModal(imageSrc, caption, isDocument = false, isMap = false) {
-            console.log('Opening modal:', imageSrc, 'isMap:', isMap, 'isDocument:', isDocument);
+            console.log('🔍 openModal called with:', {
+                imageSrc: imageSrc,
+                caption: caption,
+                isDocument: isDocument,
+                isMap: isMap
+            });
             
             const modal = document.getElementById('imageModal');
             const modalContent = document.getElementById('modalContent');
@@ -1265,47 +1282,53 @@
             // 前のクラスを完全にリセット
             modalContent.classList.remove('a4-portrait', 'a4-landscape');
             modalImage.classList.remove('a4-portrait', 'a4-landscape');
+            console.log('🧹 Classes reset');
             
             // モーダルを即座に表示
             modal.style.display = 'flex';
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            console.log('📱 Modal displayed');
             
             // キャプションを設定
             modalCaption.textContent = caption;
             
             // 表示タイプに応じてスタイルを設定（画像読み込み前）
             if (isMap) {
-                console.log('Setting map display mode - A4 landscape');
+                console.log('🗺️ Setting MAP display mode');
                 modalContent.classList.add('a4-landscape');
                 modalImage.classList.add('a4-landscape');
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '🗺️ 地図横長表示';
-                a4Indicator.style.background = 'var(--accent-color)';
+                a4Indicator.style.background = '#DAA520'; // 直接色指定
+                console.log('✅ Map classes added:', modalContent.className, modalImage.className);
             } else if (isDocument) {
-                console.log('Setting document display mode - A4 portrait');
+                console.log('📄 Setting DOCUMENT display mode');
                 modalContent.classList.add('a4-portrait');
                 modalImage.classList.add('a4-portrait');
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '📄 A4縦表示';
-                a4Indicator.style.background = 'var(--primary-color)';
+                a4Indicator.style.background = '#8B4513'; // 直接色指定
+                console.log('✅ Document classes added:', modalContent.className, modalImage.className);
             } else {
-                console.log('Setting photo display mode - normal');
+                console.log('📸 Setting PHOTO display mode');
                 a4Indicator.style.display = 'none';
             }
             
             // 画像読み込み（最後に実行）
             modalImage.onload = function() {
-                console.log('Image loaded successfully:', imageSrc);
-                // 読み込み完了後に再度クラスを確認・適用
+                console.log('🖼️ Image loaded successfully:', imageSrc);
+                // 読み込み完了後のクラス確認
+                console.log('Final classes - Content:', modalContent.className, 'Image:', modalImage.className);
                 if (isMap && !modalImage.classList.contains('a4-landscape')) {
+                    console.log('🔧 Re-applying map classes');
                     modalImage.classList.add('a4-landscape');
                     modalContent.classList.add('a4-landscape');
                 }
             };
             
             modalImage.onerror = function() {
-                console.error('Failed to load image:', imageSrc);
+                console.error('❌ Failed to load image:', imageSrc);
                 modalCaption.textContent = 'エラー: 画像が読み込めませんでした - ' + caption;
             };
             
