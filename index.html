@@ -1308,20 +1308,11 @@
             modalContent.classList.remove('a4-portrait', 'a4-landscape');
             modalImage.classList.remove('a4-portrait', 'a4-landscape');
             
-            // インラインスタイルも完全にリセット
-            modalContent.style.maxWidth = '';
-            modalContent.style.maxHeight = '';
-            modalContent.style.width = '';
-            modalContent.style.height = '';
-            
-            modalImage.style.maxWidth = '';
-            modalImage.style.maxHeight = '';
-            modalImage.style.width = '';
-            modalImage.style.height = '';
+            // 最小限のスタイルリセット
             modalImage.style.minWidth = '';
-            modalImage.style.objectFit = '';
+            modalImage.style.maxWidth = '';
             
-            console.log('🧹 Classes and inline styles completely reset');
+            console.log('🧹 Reset completed');
             
             // モーダルを即座に表示
             modal.style.display = 'flex';
@@ -1338,64 +1329,26 @@
                 modalContent.classList.add('a4-landscape');
                 modalImage.classList.add('a4-landscape');
                 
-                // インラインスタイルで強制的に地図サイズを設定
-                modalContent.style.maxWidth = '95vw';
-                modalContent.style.maxHeight = '80vh';
-                modalContent.style.width = 'auto';
-                modalContent.style.height = 'auto';
-                
-                modalImage.style.maxWidth = '95vw';
-                modalImage.style.maxHeight = '75vh';
-                modalImage.style.width = 'auto';
-                modalImage.style.height = 'auto';
+                // シンプルなインラインスタイルのみ
                 modalImage.style.minWidth = '80vw';
-                modalImage.style.objectFit = 'contain';
+                modalImage.style.maxWidth = '95vw';
                 
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '🗺️ 地図横長表示';
-                a4Indicator.style.background = '#DAA520'; // 直接色指定
+                a4Indicator.style.background = '#DAA520';
                 
-                console.log('✅ Map classes and inline styles added');
-                console.log('✅ Modal content style:', modalContent.style.cssText);
-                console.log('✅ Modal image style:', modalImage.style.cssText);
+                console.log('✅ Map mode set with minimal inline styles');
             } else if (isDocument) {
                 console.log('📄 Setting DOCUMENT display mode');
                 modalContent.classList.add('a4-portrait');
                 modalImage.classList.add('a4-portrait');
-                
-                // A4縦表示のインラインスタイル
-                modalContent.style.maxWidth = '95vh';
-                modalContent.style.maxHeight = '95vh';
-                modalContent.style.width = 'auto';
-                modalContent.style.height = 'auto';
-                
-                modalImage.style.maxWidth = '95vh';
-                modalImage.style.maxHeight = '95vh';
-                modalImage.style.width = 'auto';
-                modalImage.style.height = 'auto';
-                modalImage.style.objectFit = 'contain';
-                
                 a4Indicator.style.display = 'block';
                 a4Indicator.textContent = '📄 A4縦表示';
-                a4Indicator.style.background = '#8B4513'; // 直接色指定
+                a4Indicator.style.background = '#8B4513';
                 
-                console.log('✅ Document classes and inline styles added');
+                console.log('✅ Document classes added');
             } else {
                 console.log('📸 Setting PHOTO display mode');
-                
-                // 通常表示の場合はインラインスタイルをリセット
-                modalContent.style.maxWidth = '';
-                modalContent.style.maxHeight = '';
-                modalContent.style.width = '';
-                modalContent.style.height = '';
-                
-                modalImage.style.maxWidth = '';
-                modalImage.style.maxHeight = '';
-                modalImage.style.width = '';
-                modalImage.style.height = '';
-                modalImage.style.minWidth = '';
-                modalImage.style.objectFit = '';
-                
                 a4Indicator.style.display = 'none';
             }
             
