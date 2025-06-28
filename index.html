@@ -33,14 +33,44 @@
             scroll-behavior: smooth;
         }
 
-        /* ヒーローセクション - 051番画像をフル活用 */
+        /* サイトヘッダー（一番上のタイトル） */
+        .site-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .site-header h1 {
+            font-size: clamp(1.5em, 4vw, 2.5em);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .site-header .subtitle {
+            font-size: clamp(1em, 2.5vw, 1.3em);
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .site-header .period {
+            font-size: clamp(0.9em, 2vw, 1.1em);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        /* ヒーローセクション - 背景画像専用 */
         .hero-section {
             position: relative;
             height: 100vh;
             width: 100%;
             overflow: hidden;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
         }
 
@@ -56,44 +86,6 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            margin-bottom: 50px;
-            margin-top: 45vh;
-        }
-
-        .main-title {
-            font-size: clamp(1.5em, 3.5vw, 2.2em);
-            color: white;
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            letter-spacing: 3px;
-            font-weight: bold;
-            line-height: 1.1;
-        }
-
-        .subtitle {
-            font-size: clamp(0.9em, 2vw, 1.2em);
-            color: var(--accent-color);
-            margin-bottom: 6px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-            font-weight: 600;
-        }
-
-        .period {
-            font-size: clamp(0.8em, 1.8vw, 1em);
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-            font-weight: 300;
         }
 
         /* タブナビゲーション */
@@ -607,13 +599,17 @@
 
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
-            .hero-background {
-                background-attachment: scroll;
+            .site-header {
+                padding: 15px;
             }
 
-            .main-title {
-                font-size: 1.8em;
-                letter-spacing: 2px;
+            .site-header h1 {
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+
+            .hero-background {
+                background-attachment: scroll;
             }
 
             .nav-tabs {
@@ -664,6 +660,7 @@
             color: white;
             text-align: center;
             animation: bounce 2s infinite;
+            cursor: pointer;
         }
 
         @keyframes bounce {
@@ -680,16 +677,17 @@
     </style>
 </head>
 <body>
-    <!-- ヒーローセクション -->
+    <!-- サイトヘッダー（一番上のタイトル） -->
+    <header class="site-header">
+        <h1>西域冒険家成田正次 記録館</h1>
+        <p class="subtitle">崑崙（コンロン）・羌塘（チャンタン）高原から砂漠まで</p>
+        <p class="period">1990-2004年 30年間の軌跡</p>
+    </header>
+
+    <!-- ヒーローセクション（背景画像専用） -->
     <section class="hero-section">
         <div class="hero-background"></div>
         
-        <div class="hero-content">
-            <h1 class="main-title">西域冒険家成田正次 記録館</h1>
-            <p class="subtitle">崑崙（コンロン）・羌塘（チャンタン）高原から砂漠まで</p>
-            <p class="period">1990-2004年 30年間の軌跡</p>
-        </div>
-
         <div class="scroll-indicator">
             <div style="font-size: 0.9em; margin-bottom: 5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);">冒険記録を見る</div>
             <div style="font-size: 1.5em; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);">↓</div>
