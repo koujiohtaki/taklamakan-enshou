@@ -50,7 +50,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('./final/large/051_expedition_kunlun_changtang_16x9_L.jpg');
+            background-image: url('./final/large/051_expedition_059_kunlun_chantan_expedition_16x9_L.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -71,25 +71,25 @@
         }
 
         .main-title {
-            font-size: clamp(2em, 4.5vw, 3.2em);
+            font-size: clamp(1.5em, 3.5vw, 2.2em);
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             letter-spacing: 3px;
             font-weight: bold;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .subtitle {
-            font-size: clamp(1em, 2.5vw, 1.5em);
+            font-size: clamp(0.9em, 2vw, 1.2em);
             color: var(--accent-color);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
             font-weight: 600;
         }
 
         .period {
-            font-size: clamp(0.9em, 2vw, 1.2em);
+            font-size: clamp(0.8em, 1.8vw, 1em);
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
             font-weight: 300;
@@ -1036,94 +1036,96 @@
     </div>
 
     <script>
-        // 75枚画像データベース（通し番号001-075）
+        // 実際の75枚画像データベース（正確なファイル名）
         const imageDatabase = [
-            // 001-020: 冒険写真1
-            { id: "001", filename: "001_expedition_team_equipment.jpg", category: "expedition", year: 1990, caption: "チーム装備 - 第1回冒険の専門装備" },
-            { id: "002", filename: "002_expedition_team_preparation.jpg", category: "expedition", year: 1990, caption: "チーム準備 - 出発前の最終確認" },
-            { id: "003", filename: "003_expedition_pamir_highlands.jpg", category: "expedition", year: 1990, caption: "パミール高原 - ムスターグアタ山麓" },
-            { id: "004", filename: "004_expedition_camel_caravan.jpg", category: "expedition", year: 1990, caption: "ラクダ隊列 - 砂漠横断250km" },
-            { id: "005", filename: "005_expedition_altun_mountains.jpg", category: "expedition", year: 1990, caption: "アルティン山脈 - 標高5,786m" },
-            { id: "006", filename: "006_expedition_1992_bike_tour.jpg", category: "expedition", year: 1992, caption: "自転車ツアー - 大興安嶺山脈越え" },
-            { id: "007", filename: "007_expedition_1993_investigation.jpg", category: "expedition", year: 1993, caption: "1993年調査 - ラリーコース調査開始" },
-            { id: "008", filename: "008_expedition_well_discovery.jpg", category: "expedition", year: 1993, caption: "井戸発見 - 奇跡の古代井戸" },
-            { id: "009", filename: "009_expedition_peng_jiamu_memorial.jpg", category: "expedition", year: 1993, caption: "彭加木記念碑 - 水を供えて祈る" },
-            { id: "010", filename: "010_expedition_survival_moment.jpg", category: "expedition", year: 1993, caption: "生還の瞬間 - 全員安堵の表情" },
-            { id: "011", filename: "011_expedition_1994_tianshan.jpg", category: "expedition", year: 1994, caption: "天山山脈 - ロバ案内人との探検" },
-            { id: "012", filename: "012_expedition_vehicle_stuck.jpg", category: "expedition", year: 1996, caption: "車両スタック - クムタグ砂漠での脱出" },
-            { id: "013", filename: "013_expedition_international_team.jpg", category: "expedition", year: 1997, caption: "国際チーム - フランス・カナダとの合同" },
-            { id: "014", filename: "014_expedition_changtang_plateau.jpg", category: "expedition", year: 1997, caption: "羌塘高原 - 標高4,000m超の高原" },
-            { id: "015", filename: "015_expedition_medical_team.jpg", category: "expedition", year: 1997, caption: "医療チーム - 外科医師同行" },
-            { id: "016", filename: "016_expedition_lop_nor.jpg", category: "expedition", year: 1998, caption: "ロプノール - 塩皮殻の厳しい地形" },
-            { id: "017", filename: "017_expedition_guide_service.jpg", category: "expedition", year: 1999, caption: "ガイド業務 - 板東氏ら13人を案内" },
-            { id: "018", filename: "018_expedition_rally_preparation.jpg", category: "expedition", year: 2000, caption: "ラリー準備 - ポイントマーク杭打ち" },
-            { id: "019", filename: "019_expedition_rally_rescue.jpg", category: "expedition", year: 2000, caption: "ラリー救出 - 脱落車両の救援" },
-            { id: "020", filename: "020_expedition_desert_crossing.jpg", category: "expedition", year: 2002, caption: "砂漠横断 - タリム大橋南から230km" },
+            // 001-010: 冒険写真・受賞記録
+            { id: "001", filename: "001_award_001_taklamakan_1990_certificate.jpg", category: "award", year: 1990, caption: "タクラマカン1990年認定証" },
+            { id: "002", filename: "002_expedition_001_team_equipment.jpg", category: "expedition", year: 1990, caption: "チーム装備" },
+            { id: "003", filename: "003_expedition_002_team_equipment.jpg", category: "expedition", year: 1990, caption: "チーム装備②" },
+            { id: "004", filename: "004_expedition_003_well_discovery.jpg", category: "expedition", year: 1993, caption: "井戸発見" },
+            { id: "005", filename: "005_expedition_004_kokusan_marker.jpg", category: "expedition", year: 1993, caption: "国産マーカー" },
+            { id: "006", filename: "006_expedition_005_group_photo.jpg", category: "expedition", year: 1993, caption: "グループ写真" },
+            { id: "007", filename: "007_expedition_006_well_exploration.jpg", category: "expedition", year: 1993, caption: "井戸探査" },
+            { id: "008", filename: "008_expedition_007_exploration_vehicle.jpg", category: "expedition", year: 1993, caption: "冒険車両" },
+            { id: "009", filename: "009_expedition_008_peng_jiamu_memorial_01.jpg", category: "expedition", year: 1993, caption: "Peng Jiamu記念碑①" },
+            { id: "010", filename: "010_expedition_009_peng_jiamu_memorial_02.jpg", category: "expedition", year: 1993, caption: "Peng Jiamu記念碑②" },
 
-            // 021-040: 冒険写真2
-            { id: "021", filename: "021_expedition_walking_desert.jpg", category: "expedition", year: 2002, caption: "砂漠徒歩 - 国道90km歩行" },
-            { id: "022", filename: "022_expedition_arakan_village.jpg", category: "expedition", year: 2002, caption: "阿拉干村 - 静寂の村に到着" },
-            { id: "023", filename: "023_expedition_kyrgyz_border.jpg", category: "expedition", year: 2002, caption: "キルギス国境 - トルガルト峠観光" },
-            { id: "024", filename: "024_expedition_final_preparation.jpg", category: "expedition", year: 2004, caption: "最終準備 - 完全縦断への準備" },
-            { id: "025", filename: "025_expedition_camel_loading.jpg", category: "expedition", year: 2004, caption: "ラクダ積載 - 73日分の物資" },
-            { id: "026", filename: "026_expedition_water_containers.jpg", category: "expedition", year: 2004, caption: "水容器 - 40リットル×24個" },
-            { id: "027", filename: "027_expedition_nan_bread.jpg", category: "expedition", year: 2004, caption: "ナン1000枚 - ラクダ使いの主食" },
-            { id: "028", filename: "028_expedition_supply_depot.jpg", category: "expedition", year: 2004, caption: "補給デポ - 5回補給地点" },
-            { id: "029", filename: "029_expedition_nhk_director.jpg", category: "expedition", year: 2004, caption: "NHKディレクター - 肺炎で離脱" },
-            { id: "030", filename: "030_expedition_latitude_39.jpg", category: "expedition", year: 2004, caption: "北緯39度線 - 縦断ライン" },
-            { id: "031", filename: "031_expedition_completion.jpg", category: "expedition", year: 2004, caption: "縦断完了 - 1200km達成" },
-            { id: "032", filename: "032_expedition_group_final.jpg", category: "expedition", year: 2004, caption: "最終記念撮影 - 30年間の集大成" },
-            { id: "033", filename: "033_expedition_landscape_1.jpg", category: "expedition", year: 1990, caption: "砂漠風景① - タクラマカンの壮大さ" },
-            { id: "034", filename: "034_expedition_landscape_2.jpg", category: "expedition", year: 1993, caption: "砂漠風景② - クムタグの美しさ" },
-            { id: "035", filename: "035_expedition_landscape_3.jpg", category: "expedition", year: 1997, caption: "高原風景① - 羌塘の雄大さ" },
-            { id: "036", filename: "036_expedition_landscape_4.jpg", category: "expedition", year: 1998, caption: "ロプノール風景 - 塩湖の神秘" },
-            { id: "037", filename: "037_expedition_landscape_5.jpg", category: "expedition", year: 2002, caption: "砂漠風景③ - 夕日に染まる砂丘" },
-            { id: "038", filename: "038_expedition_landscape_6.jpg", category: "expedition", year: 2004, caption: "縦断風景 - 無限に続く砂漠" },
-            { id: "039", filename: "039_expedition_team_portrait.jpg", category: "expedition", year: 1993, caption: "チーム肖像 - 生死を共にした仲間" },
-            { id: "040", filename: "040_expedition_equipment_detail.jpg", category: "expedition", year: 1997, caption: "装備詳細 - 高山病対策機材" },
+            // 011-020: 冒険チーム
+            { id: "011", filename: "011_expedition_010_geologist_portrait.jpg", category: "expedition", year: 1993, caption: "地質学者ポートレート" },
+            { id: "012", filename: "012_expedition_011_chinese_team_members.jpg", category: "expedition", year: 1993, caption: "中国チームメンバー" },
+            { id: "013", filename: "013_expedition_012_interpreter.jpg", category: "expedition", year: 1993, caption: "通訳者" },
+            { id: "014", filename: "014_expedition_013_camel_caravan.jpg", category: "expedition", year: 1990, caption: "ラクダ隊列" },
+            { id: "015", filename: "015_expedition_014_desert_fan_break.jpg", category: "expedition", year: 1993, caption: "砂漠での扇子休憩" },
+            { id: "016", filename: "016_expedition_015_leisure_karaoke.jpg", category: "expedition", year: 1993, caption: "レジャー・カラオケ" },
+            { id: "017", filename: "017_expedition_016_map_consultation.jpg", category: "expedition", year: 1993, caption: "地図相談" },
+            { id: "018", filename: "018_expedition_017_local_bike.jpg", category: "expedition", year: 1993, caption: "現地バイク" },
+            { id: "019", filename: "019_expedition_018_night_road.jpg", category: "expedition", year: 1993, caption: "夜の道路" },
+            { id: "020", filename: "020_expedition_019_team_group_photo.jpg", category: "expedition", year: 1993, caption: "チームグループ写真" },
 
-            // 041-055: 冒険写真3・トップ画像
-            { id: "041", filename: "041_expedition_chinese_team.jpg", category: "expedition", year: 1993, caption: "中国チーム - 王衛平氏との協力" },
-            { id: "042", filename: "042_expedition_geologist.jpg", category: "expedition", year: 1993, caption: "地質学者 - 趙子允氏" },
-            { id: "043", filename: "043_expedition_explorer.jpg", category: "expedition", year: 1993, caption: "探検家 - 甄希林氏" },
-            { id: "044", filename: "044_expedition_driver.jpg", category: "expedition", year: 1993, caption: "運転手 - 井戸発見の李江氏" },
-            { id: "045", filename: "045_expedition_doctor.jpg", category: "expedition", year: 1997, caption: "外科医師 - 王龍文氏" },
-            { id: "046", filename: "046_expedition_international_1.jpg", category: "expedition", year: 1997, caption: "国際探検① - フランス人メンバー" },
-            { id: "047", filename: "047_expedition_international_2.jpg", category: "expedition", year: 1997, caption: "国際探検② - カナダ人メンバー" },
-            { id: "048", filename: "048_expedition_vehicles.jpg", category: "expedition", year: 1997, caption: "車両隊 - ランドクルーザー3台" },
-            { id: "049", filename: "049_expedition_truck_convoy.jpg", category: "expedition", year: 1997, caption: "トラック隊 - 4トン車2台" },
-            { id: "050", filename: "050_expedition_base_camp.jpg", category: "expedition", year: 2004, caption: "ベースキャンプ - 砂漠の中の拠点" },
-            { id: "051", filename: "051_expedition_kunlun_changtang_16x9_L.jpg", category: "expedition", year: 1997, caption: "崑崙・羌塘高原探検 - トップ背景画像", special: "top" },
-            { id: "052", filename: "052_expedition_sunset_desert.jpg", category: "expedition", year: 2004, caption: "砂漠の夕日 - 縦断中の絶景" },
-            { id: "053", filename: "053_expedition_morning_camp.jpg", category: "expedition", year: 2004, caption: "朝のキャンプ - 砂漠での野営" },
-            { id: "054", filename: "054_expedition_navigation.jpg", category: "expedition", year: 1993, caption: "ナビゲーション - 地図とコンパス" },
-            { id: "055", filename: "055_expedition_survival_gear.jpg", category: "expedition", year: 1993, caption: "サバイバル装備 - 緊急時装備" },
+            // 021-030: 砂漠・山景・記念品
+            { id: "021", filename: "021_expedition_020_landcruiser_desert.jpg", category: "expedition", year: 1993, caption: "砂漠のランドクルーザー" },
+            { id: "022", filename: "022_expedition_021_camel_caravan_desert.jpg", category: "expedition", year: 1990, caption: "砂漠のラクダ隊列" },
+            { id: "023", filename: "023_expedition_022_mountain_landscape.jpg", category: "expedition", year: 1997, caption: "山の風景" },
+            { id: "024", filename: "024_expedition_023_desert_landscape_16x9.jpg", category: "expedition", year: 2004, caption: "砂漠風景16:9" },
+            { id: "025", filename: "025_expedition_024_rally_flag_01.jpg", category: "expedition", year: 2000, caption: "ラリーフラッグ①" },
+            { id: "026", filename: "026_expedition_025_rally_flag_02.jpg", category: "expedition", year: 2000, caption: "ラリーフラッグ②" },
+            { id: "027", filename: "027_expedition_026_survey_flag.jpg", category: "expedition", year: 1993, caption: "調査フラッグ" },
+            { id: "028", filename: "028_expedition_027_tshirt_close_up_01.jpg", category: "expedition", year: 1993, caption: "Tシャツクローズアップ①" },
+            { id: "029", filename: "029_expedition_028_tshirt_full_01.jpg", category: "expedition", year: 1993, caption: "Tシャツ全体①" },
+            { id: "030", filename: "030_expedition_029_tshirt_close_up_02.jpg", category: "expedition", year: 1993, caption: "Tシャツクローズアップ②" },
 
-            // 056-065: 計画文書
-            { id: "056", filename: "056_plans_bower_document.jpg", category: "plans", year: 1980, caption: "バウアー文書 - 冒険の原点文書" },
-            { id: "057", filename: "057_plans_1993_cover.jpg", category: "plans", year: 1993, caption: "1993年計画書表紙 - ラリー構想" },
-            { id: "058", filename: "058_plans_wang_agreement.jpg", category: "plans", year: 1993, caption: "王衛平氏協定書 - 大自然旅行社" },
-            { id: "059", filename: "059_plans_investigation_memo.jpg", category: "plans", year: 1993, caption: "調査メモ - 東部路線詳細" },
-            { id: "060", filename: "060_plans_uk_expedition.jpg", category: "plans", year: 1993, caption: "英国隊資料 - 関連記録書類" },
-            { id: "061", filename: "061_plans_elizabeth_stamp.jpg", category: "plans", year: 1993, caption: "エリザベス女王記念切手 - 関連栄誉" },
-            { id: "062", filename: "062_plans_international_1997.jpg", category: "plans", year: 1997, caption: "1997年国際探検計画書" },
-            { id: "063", filename: "063_plans_changtang_route.jpg", category: "plans", year: 1997, caption: "羌塘高原ルート計画" },
-            { id: "064", filename: "064_plans_2004_final.jpg", category: "plans", year: 2004, caption: "2004年完全縦断計画書" },
-            { id: "065", filename: "065_plans_supply_schedule.jpg", category: "plans", year: 2004, caption: "補給スケジュール表" },
+            // 031-040: 記念品・新聞記録
+            { id: "031", filename: "031_expedition_030_tshirt_full_02.jpg", category: "expedition", year: 1993, caption: "Tシャツ全体②" },
+            { id: "032", filename: "032_expedition_031_tshirt_close_up_03.jpg", category: "expedition", year: 1993, caption: "Tシャツクローズアップ③" },
+            { id: "033", filename: "033_expedition_032_tshirt_close_up_04.jpg", category: "expedition", year: 1993, caption: "Tシャツクローズアップ④" },
+            { id: "034", filename: "034_expedition_033_tshirt_full_03.jpg", category: "expedition", year: 1993, caption: "Tシャツ全体③" },
+            { id: "035", filename: "035_expedition_034_tshirt_full_04.jpg", category: "expedition", year: 1993, caption: "Tシャツ全体④" },
+            { id: "036", filename: "036_expedition_044_1996_newspaper_A4V_L.jpg", category: "expedition", year: 1996, caption: "1996年新聞記事" },
+            { id: "037", filename: "037_expedition_045_1999_sankei_rally_A4V_L.jpg", category: "expedition", year: 1999, caption: "1999年産経ラリー" },
+            { id: "038", filename: "038_expedition_046_2000_asahi_silkroad_rally_A4V_L.jpg", category: "expedition", year: 2000, caption: "2000年朝日シルクロードラリー" },
+            { id: "039", filename: "039_expedition_047_2001_asahi_rally_end_A4V_L.jpg", category: "expedition", year: 2001, caption: "2001年朝日ラリー終了" },
+            { id: "040", filename: "040_expedition_048_2002_taklamakan_memoir_A4V_L.jpg", category: "expedition", year: 2002, caption: "2002年タクラマカン回想録" },
 
-            // 066-070: 報道記録
-            { id: "066", filename: "066_news_1993_discovery.jpg", category: "news", year: 1993, caption: "1993年井戸発見 - 新聞報道" },
-            { id: "067", filename: "067_news_uk_expedition.jpg", category: "news", year: 1993, caption: "英国隊縦断 - 海外報道" },
-            { id: "068", filename: "068_news_international_1997.jpg", category: "news", year: 1997, caption: "1997年国際探検 - テレビ報道" },
-            { id: "069", filename: "069_news_rally_2000.jpg", category: "news", year: 2000, caption: "2000年ラリー実施 - 報道記録" },
-            { id: "070", filename: "070_news_final_expedition.jpg", category: "news", year: 2004, caption: "2004年完全縦断 - 最終報道" },
+            // 041-051: 報道・説明資料・トップ画像
+            { id: "041", filename: "041_expedition_049_chantan_explanation_geologist_A4V_L.jpg", category: "expedition", year: 1997, caption: "羌塘説明・地質学者" },
+            { id: "042", filename: "042_expedition_050_chantan_guide_2003_A4V_L.jpg", category: "expedition", year: 2003, caption: "羌塘ガイド2003年" },
+            { id: "043", filename: "043_expedition_051_2002_taklamakan_route_map_A4H_L.jpg", category: "expedition", year: 2002, caption: "2002年タクラマカンルート地図" },
+            { id: "044", filename: "044_expedition_052_2001_yomiuri_rally_invitation_A4V_L.jpg", category: "expedition", year: 2001, caption: "2001年読売ラリー招待状" },
+            { id: "045", filename: "045_expedition_053_2000_china_newspaper_A4V_L.jpg", category: "expedition", year: 2000, caption: "2000年中国新聞" },
+            { id: "046", filename: "046_expedition_054_2000_china_press_A4V_L.jpg", category: "expedition", year: 2000, caption: "2000年中国報道" },
+            { id: "047", filename: "047_expedition_055_2000_chunichi_rally_A4H_L.jpg", category: "expedition", year: 2000, caption: "2000年中日ラリー" },
+            { id: "048", filename: "048_expedition_056_1999_sponichi_rally_A4H_L.jpg", category: "expedition", year: 1999, caption: "1999年スポニチラリー" },
+            { id: "049", filename: "049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg", category: "expedition", year: 1997, caption: "1997年崑崙成功栄誉" },
+            { id: "050", filename: "050_expedition_058_1956_school_entrance_A4H_L.jpg", category: "expedition", year: 1956, caption: "1956年学校入学" },
+            { id: "051", filename: "051_expedition_059_kunlun_chantan_expedition_16x9_L.jpg", category: "expedition", year: 1997, caption: "崑崙・羌塘高原探検", special: "top" },
 
-            // 071-075: 地図資料
-            { id: "071", filename: "071_maps_taklamakan_overview.jpg", category: "maps", year: 1990, caption: "タクラマカン砂漠全体図" },
-            { id: "072", filename: "072_maps_1993_investigation.jpg", category: "maps", year: 1993, caption: "1993年調査ルート図" },
-            { id: "073", filename: "073_maps_changtang_route.jpg", category: "maps", year: 1997, caption: "羌塘高原縦走ルート図" },
-            { id: "074", filename: "074_maps_latitude_39.jpg", category: "maps", year: 2004, caption: "北緯39度線縦断ルート図" },
-            { id: "075", filename: "075_maps_complete_30years.jpg", category: "maps", year: 2004, caption: "30年間完全ルート図" }
+            // 052-062: 報道・原点文書・計画書
+            { id: "052", filename: "052_news_001_japan_times_2002_A.jpg", category: "news", year: 2002, caption: "Japan Times 2002年記事" },
+            { id: "053", filename: "053_origin_001_silk_road_bower_docu.jpg", category: "origin", year: 1980, caption: "シルクロード・バウアー文書" },
+            { id: "054", filename: "054_origin_002_karabran_book_cover.jpg", category: "origin", year: 1980, caption: "カラブラン本表紙" },
+            { id: "055", filename: "055_origin_003_karabran_pages_16_17.jpg", category: "origin", year: 1980, caption: "カラブラン16-17ページ" },
+            { id: "056", filename: "056_origin_004_karabran_pages_14_15.jpg", category: "origin", year: 1980, caption: "カラブラン14-15ページ" },
+            { id: "057", filename: "057_origin_005_karabran_pages_12_13.jpg", category: "origin", year: 1980, caption: "カラブラン12-13ページ" },
+            { id: "058", filename: "058_plans_cu_001_joint_expedition_plan_cover.jpg", category: "plans", year: 1993, caption: "中英合同冒険計画表紙" },
+            { id: "059", filename: "059_plans_cu_002_blackmore_signature_document.jpg", category: "plans", year: 1993, caption: "Blackmore署名文書" },
+            { id: "060", filename: "060_plans_cu_003_chinese_official_stamp_document.jpg", category: "plans", year: 1993, caption: "中国公式印鑑文書" },
+            { id: "061", filename: "061_plans_cu_004_buckingham_palace_letter.jpg", category: "plans", year: 1993, caption: "バッキンガム宮殿手紙" },
+            { id: "062", filename: "062_plans_cu_005_house_of_commons_document.jpg", category: "plans", year: 1993, caption: "英国下院文書" },
+
+            // 063-075: 計画書完結
+            { id: "063", filename: "063_plans_cu_006_xinjiang_travel_service_final.jpg", category: "plans", year: 1993, caption: "新疆旅行社最終" },
+            { id: "064", filename: "064_plans_jc_001_joint_expedition_plan_cover.jpg", category: "plans", year: 1993, caption: "日中合同冒険計画表紙" },
+            { id: "065", filename: "065_plans_jc_002_chinese_official_stamp_document.jpg", category: "plans", year: 1993, caption: "中国公式印鑑文書" },
+            { id: "066", filename: "066_plans_jc_003_xinjiang_travel_service.jpg", category: "plans", year: 1993, caption: "新疆旅行社" },
+            { id: "067", filename: "067_plans_jc_004_official_star_stamp_document.jpg", category: "plans", year: 1993, caption: "公式星印文書" },
+            { id: "068", filename: "068_plans_jc_005_xinjiang_handwritten_memo.jpg", category: "plans", year: 1993, caption: "新疆手書きメモ" },
+            { id: "069", filename: "069_plans_jc_006_administrative_memo_document.jpg", category: "plans", year: 1993, caption: "行政メモ文書" },
+            { id: "070", filename: "070_plans_jc_007_dated_1996_official_document.jpg", category: "plans", year: 1996, caption: "1996年付公式文書" },
+            { id: "071", filename: "071_plans_jc_008_chronological_schedule_list.jpg", category: "plans", year: 1993, caption: "時系列スケジュール表" },
+            { id: "072", filename: "072_plans_jc_009_itinerary_table_format.jpg", category: "plans", year: 1993, caption: "旅程表形式" },
+            { id: "073", filename: "073_plans_jc_010_blank_schedule_calendar.jpg", category: "plans", year: 1993, caption: "空白スケジュールカレンダー" },
+            { id: "074", filename: "074_plans_jc_011_expedition_summary_1993.jpg", category: "plans", year: 1993, caption: "1993年冒険要約" },
+            { id: "075", filename: "075_plans_jc_012_expedition_route_map.jpg", category: "plans", year: 1993, caption: "冒険ルート地図" }
         ];
 
         // 診断システム
