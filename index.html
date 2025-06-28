@@ -68,6 +68,7 @@
             border-radius: 15px;
             backdrop-filter: blur(5px);
             margin-bottom: 50px;
+            margin-top: 45vh;
         }
 
         .main-title {
@@ -685,7 +686,7 @@
         
         <div class="hero-content">
             <h1 class="main-title">西域冒険家成田正次 記録館</h1>
-            <p class="subtitle">崑崙・羌塘高原から砂漠まで</p>
+            <p class="subtitle">崑崙（コンロン）・羌塘（チャンタン）高原から砂漠まで</p>
             <p class="period">1990-2004年 30年間の軌跡</p>
         </div>
 
@@ -832,6 +833,7 @@
                             <div class="timeline-year">2000年</div>
                             <div class="timeline-title">シルクロードラリー</div>
                             <div class="timeline-desc">ラリー用ポイントマーク杭打ち。第1回シルクロードラリー実行で最後尾から救出担当。</div>
+                            <img style="width: 200px; height: auto; margin: 10px 0; border-radius: 8px; cursor: pointer;" src="./final/medium/038_expedition_046_2000_asahi_silkroad_rally_A4V_L.jpg" alt="2000年朝日シルクロードラリー" onclick="openModal('./final/large/038_expedition_046_2000_asahi_silkroad_rally_A4V_L.jpg', '2000年朝日新聞 シルクロードラリー報道')">
                             <a href="#" class="detail-link" onclick="showDetailModal('2000年')">詳細を見る</a>
                         </div>
 
@@ -868,6 +870,9 @@
                         </div>
                         <div class="accordion-content">
                             <div class="accordion-body">
+                                <img class="article-image" src="./final/medium/001_award_001_taklamakan_1990_certificate.jpg" alt="1990年タクラマカン認定証" onclick="openModal('./final/large/001_award_001_taklamakan_1990_certificate.jpg', '1990年タクラマカン砂漠一周認定証')">
+                                <p class="article-image-caption">1990年タクラマカン砂漠一周 - 記念すべき第1回冒険の認定証</p>
+
                                 <p class="section-text">新疆に強い関心を持つ男女14人が集まり、数回のミーティングを重ねて計画された記念すべき第1回冒険。成田氏は副隊長として参加し、中国現地打合せを2回北京で行った。</p>
                                 
                                 <div class="highlight-box">
@@ -940,6 +945,9 @@
                         </div>
                         <div class="accordion-content">
                             <div class="accordion-body">
+                                <img class="article-image" src="./final/medium/049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg" alt="1997年崑崙成功栄誉" onclick="openModal('./final/large/049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg', '1997年崑崙山脈・羌塘高原制覇成功栄誉')">
+                                <p class="article-image-caption">1997年崑崙山脈・羌塘高原制覇 - 成功を讃える栄誉記録</p>
+
                                 <p class="section-text"><strong>4月</strong>：北京でフランス人・カナダ人との合同記者発表会。中国全土のテレビ放映のための旅番組制作として企画。</p>
                                 
                                 <p class="section-text"><strong>6月</strong>：羌塘高原縦走。ウルムチを出発し、サニルチェン大橋より崑崙山脈の川底を登り、カラミランサンコウを西から回り、羌塘高原を縦走してザンゼルガン峰の横を通りソウチュン村の国道に抜けてラサ〜敦煌〜ウルムチを縦走。</p>
@@ -965,6 +973,9 @@
                         </div>
                         <div class="accordion-content">
                             <div class="accordion-body">
+                                <img class="article-image" src="./final/medium/040_expedition_048_2002_taklamakan_memoir_A4V_L.jpg" alt="2002年タクラマカン回想録" onclick="openModal('./final/large/040_expedition_048_2002_taklamakan_memoir_A4V_L.jpg', '2002年タクラマカン砂漠探検回想録')">
+                                <p class="article-image-caption">タクラマカン砂漠探検回想録 - 30年間の冒険を振り返る貴重な記録</p>
+
                                 <p class="section-text">北緯39度線タクラマカン砂漠完全縦断。当初はカシュガルより北18kmを出発予定だったが、口蹄疫により和田のラクダが移動禁止となり、出発地点を変更。</p>
 
                                 <div class="highlight-box">
@@ -980,6 +991,9 @@
                                 </div>
 
                                 <p class="section-text">麻札塔格山（マザターグ）でNHKディレクターが肺炎で離脱するトラブルもあったが、里雅布衣村（タリヤブイ）→塔中（ターチョン）→若羌（チャリクリク）のルートで見事に完全縦断を達成。30年間の西域冒険の集大成となった。</p>
+
+                                <img class="article-image" src="./final/medium/043_expedition_051_2002_taklamakan_route_map_A4H_L.jpg" alt="2002年タクラマカンルート地図" onclick="openModal('./final/large/043_expedition_051_2002_taklamakan_route_map_A4H_L.jpg', '2002年タクラマカン砂漠冒険ルート詳細地図')">
+                                <p class="article-image-caption">タクラマカン砂漠冒険ルート詳細地図 - 完全縦断への道のり</p>
                             </div>
                         </div>
                     </div>
@@ -1257,7 +1271,7 @@
                              loading="lazy"
                              onclick="openModal('./final/large/${image.filename}', '${image.caption}')"
                              style="border: 3px solid transparent; transition: all 0.3s ease;"
-                             onload="this.style.border='3px solid #4CAF50'"
+                             onload="this.style.border='3px solid rgba(139, 69, 19, 0.3)'"
                              onerror="this.style.border='3px solid #f44336'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="gallery-placeholder" style="display: none; height: 200px; background: #f0f0f0; align-items: center; justify-content: center; font-size: 3em; color: #999;">
                             📷
