@@ -59,25 +59,28 @@
         }
 
         .hero-content {
-            position: relative;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 3;
             text-align: center;
             color: white;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            margin-bottom: 50px;
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(218, 165, 32, 0.3);
         }
 
         .main-title {
-            font-size: clamp(2.5em, 6vw, 4em);
+            font-size: clamp(1.8em, 4vw, 2.8em);
             color: white;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            letter-spacing: 3px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+            letter-spacing: 2px;
             font-weight: bold;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .subtitle {
@@ -658,7 +661,7 @@
         
         <div class="hero-content">
             <h1 class="main-title">西域冒険家成田正次 記録館</h1>
-            <p class="subtitle">崑崙・羌塘高原から砂漠まで</p>
+            <p class="subtitle">崑崙（コンロン）・羌塘（チャンタン）高原から砂漠まで</p>
             <p class="period">1990-2004年 30年間の軌跡</p>
         </div>
 
@@ -698,7 +701,7 @@
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">75</span>
-                            <span class="stat-label">枚の貴重な記録</span>
+                            <span class="stat-label">枚の記録（段階追加）</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">5</span>
@@ -782,8 +785,8 @@
 
                         <div class="timeline-item">
                             <div class="timeline-year">1997年</div>
-                            <div class="timeline-title">国際探検・羌塘高原制覇</div>
-                            <div class="timeline-desc">フランス・カナダとの合同探検。羌塘高原縦走でザンゼルガン峰横断。外科医師・地質学者同行の本格探検。</div>
+                            <div class="timeline-title">国際探検・羌塘（チャンタン）高原制覇</div>
+                            <div class="timeline-desc">フランス・カナダとの合同探検。羌塘（チャンタン）高原縦走でザンゼルガン峰横断。外科医師・地質学者同行の本格探検。</div>
                             <a href="#" class="detail-link" onclick="showDetailModal('1997年')">詳細を見る</a>
                         </div>
 
@@ -879,9 +882,16 @@
                                     </div>
                                 </div>
 
+                                <!-- 関連写真セクション -->
+                                <div style="margin: 20px 0; text-align: center;">
+                                    <img src="./final/medium/008_expedition_well_discovery.jpg" alt="井戸発見" style="max-width: 300px; border-radius: 10px; cursor: pointer; margin: 10px;" onclick="openModal('./final/large/008_expedition_well_discovery.jpg', '井戸発見 - 奇跡の古代井戸')">
+                                    <img src="./final/medium/009_expedition_peng_jiamu_memorial.jpg" alt="彭加木記念碑" style="max-width: 300px; border-radius: 10px; cursor: pointer; margin: 10px;" onclick="openModal('./final/large/009_expedition_peng_jiamu_memorial.jpg', '彭加木記念碑 - 水を供えて祈る')">
+                                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">関連写真：井戸発見の瞬間と彭加木（ほうかぼく）記念碑</div>
+                                </div>
+
                                 <p class="section-text"><strong>5月末</strong>：ウルムチで新疆大自然旅行社の王衛平総経理と2000年民間ラリー構想を協議。成田氏の熱意により即座に東部路線調査が決定。</p>
 
-                                <p class="section-text"><strong>6月7-11日</strong>：ウルムチ→コルラ→チャリクリク→米蘭を経てクムタグ砂漠突入。順調な調査が続く。</p>
+                                <p class="section-text"><strong>6月7-11日</strong>：ウルムチ→コルラ→チャリクリク→米蘭（ミーラン）を経てクムタグ砂漠突入。順調な調査が続く。</p>
 
                                 <div class="highlight-box crisis">
                                     <div class="highlight-title">6月14日：死の淵での決断</div>
@@ -890,7 +900,7 @@
                                     </div>
                                 </div>
 
-                                <p class="section-text">成田氏は体力温存のため睡眠薬を普段の倍量服用。翌朝、探検家甄希林氏と地質学者趙子允氏から「この探検を企画した成田さんが進路を決定してください」と委託される。成田氏は遥か地平線の「黒山口」を目標に設定。</p>
+                                <p class="section-text">成田氏は体力温存のため睡眠薬を普段の倍量服用。翌朝、探検家甄希林（シンキリン）氏と地質学者趙子允（チョーズイン）氏から「この探検を企画した成田さんが進路を決定してください」と委託される。成田氏は遥か地平線の「黒山口」を目標に設定。</p>
 
                                 <div class="highlight-box">
                                     <div class="highlight-title">奇跡の井戸発見</div>
@@ -908,14 +918,14 @@
 
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <div class="accordion-title">1997年：国際探検と羌塘高原制覇</div>
+                            <div class="accordion-title">1997年：国際探検と羌塘（チャンタン）高原制覇</div>
                             <div class="accordion-icon">▼</div>
                         </div>
                         <div class="accordion-content">
                             <div class="accordion-body">
                                 <p class="section-text"><strong>4月</strong>：北京でフランス人・カナダ人との合同記者発表会。中国全土のテレビ放映のための旅番組制作として企画。</p>
                                 
-                                <p class="section-text"><strong>6月</strong>：羌塘高原縦走。ウルムチを出発し、サニルチェン大橋より崑崙山脈の川底を登り、カラミランサンコウを西から回り、羌塘高原を縦走してザンゼルガン峰の横を通りソウチュン村の国道に抜けてラサ〜敦煌〜ウルムチを縦走。</p>
+                                <p class="section-text"><strong>6月</strong>：羌塘（チャンタン）高原縦走。ウルムチを出発し、サニルチェン大橋より崑崙（コンロン）山脈の川底を登り、カラミランサンコウを西から回り、羌塘（チャンタン）高原を縦走してザンゼルガン峰の横を通りソウチュン村の国道に抜けてラサ〜敦煌（トンコウ）〜ウルムチを縦走。</p>
 
                                 <div class="highlight-box">
                                     <div class="highlight-title">本格探検の装備</div>
@@ -926,7 +936,7 @@
                                     </div>
                                 </div>
 
-                                <p class="section-text">誰もが初めての地形である未知の地域。苦労の末やっとチベットのラサまで到達し、羌塘高原制覇という偉業を達成した。</p>
+                                <p class="section-text">誰もが初めての地形である未知の地域。苦労の末やっとチベットのラサまで到達し、羌塘（チャンタン）高原制覇という偉業を達成した。</p>
                             </div>
                         </div>
                     </div>
@@ -964,12 +974,12 @@
         <div id="gallery" class="tab-content">
             <section class="section-card">
                 <div class="section-header">
-                    <h2 class="section-title">完全ギャラリー</h2>
-                    <p class="section-subtitle">75枚完全保存版</p>
+                    <h2 class="section-title">完全ギャラリー（テスト版）</h2>
+                    <p class="section-subtitle">実在ファイル確認・段階的拡張予定</p>
                 </div>
                 <div class="section-content">
                     <div class="gallery-controls">
-                        <button class="filter-btn active" onclick="filterGallery('all')">全て表示 (75枚)</button>
+                        <button class="filter-btn active" onclick="filterGallery('all')">全て表示 (7枚テスト版)</button>
                         <button class="filter-btn" onclick="filterGallery('expedition')">冒険写真</button>
                         <button class="filter-btn" onclick="filterGallery('plans')">計画文書</button>
                         <button class="filter-btn" onclick="filterGallery('news')">報道記録</button>
@@ -981,9 +991,11 @@
                     </div>
 
                     <div class="highlight-box">
-                        <div class="highlight-title">75枚完全記録について</div>
+                        <div class="highlight-title">画像管理システムについて</div>
                         <div style="color: #8B7355; line-height: 1.8;">
-                            1990年から2004年までの30年間にわたる西域冒険の全記録を75枚の貴重な画像として保存。冒険写真、計画文書、報道記録、地図資料を完全分類し、通し番号001-075で統一管理。各画像は高解像度で保存され、詳細まで確認可能です。
+                            現在、1990年から2004年までの30年間にわたる西域冒険の記録を段階的にアップロード中です。実際にアップロードされた画像ファイルから順次表示し、最終的に75枚の完全記録として保存予定。各画像は高解像度で保存され、詳細まで確認可能です。<br><br>
+                            
+                            <strong>デバッグ情報</strong>：画像が表示されない場合、ブラウザの開発者ツール（F12）でコンソールを確認してください。ファイル読み込みエラーの詳細が表示されます。
                         </div>
                     </div>
                 </div>
@@ -1001,94 +1013,18 @@
     </div>
 
     <script>
-        // 75枚画像データベース（通し番号001-075）
+        // 75枚画像データベース（簡素化版・実在ファイル対応）
         const imageDatabase = [
-            // 001-020: 冒険写真1
+            // まずはテスト用に少数で確認
             { id: "001", filename: "001_expedition_team_equipment.jpg", category: "expedition", year: 1990, caption: "チーム装備 - 第1回冒険の専門装備" },
             { id: "002", filename: "002_expedition_team_preparation.jpg", category: "expedition", year: 1990, caption: "チーム準備 - 出発前の最終確認" },
             { id: "003", filename: "003_expedition_pamir_highlands.jpg", category: "expedition", year: 1990, caption: "パミール高原 - ムスターグアタ山麓" },
-            { id: "004", filename: "004_expedition_camel_caravan.jpg", category: "expedition", year: 1990, caption: "ラクダ隊列 - 砂漠横断250km" },
-            { id: "005", filename: "005_expedition_altun_mountains.jpg", category: "expedition", year: 1990, caption: "アルティン山脈 - 標高5,786m" },
-            { id: "006", filename: "006_expedition_1992_bike_tour.jpg", category: "expedition", year: 1992, caption: "自転車ツアー - 大興安嶺山脈越え" },
-            { id: "007", filename: "007_expedition_1993_investigation.jpg", category: "expedition", year: 1993, caption: "1993年調査 - ラリーコース調査開始" },
-            { id: "008", filename: "008_expedition_well_discovery.jpg", category: "expedition", year: 1993, caption: "井戸発見 - 奇跡の古代井戸" },
-            { id: "009", filename: "009_expedition_peng_jiamu_memorial.jpg", category: "expedition", year: 1993, caption: "彭加木記念碑 - 水を供えて祈る" },
-            { id: "010", filename: "010_expedition_survival_moment.jpg", category: "expedition", year: 1993, caption: "生還の瞬間 - 全員安堵の表情" },
-            { id: "011", filename: "011_expedition_1994_tianshan.jpg", category: "expedition", year: 1994, caption: "天山山脈 - ロバ案内人との探検" },
-            { id: "012", filename: "012_expedition_vehicle_stuck.jpg", category: "expedition", year: 1996, caption: "車両スタック - クムタグ砂漠での脱出" },
-            { id: "013", filename: "013_expedition_international_team.jpg", category: "expedition", year: 1997, caption: "国際チーム - フランス・カナダとの合同" },
-            { id: "014", filename: "014_expedition_changtang_plateau.jpg", category: "expedition", year: 1997, caption: "羌塘高原 - 標高4,000m超の高原" },
-            { id: "015", filename: "015_expedition_medical_team.jpg", category: "expedition", year: 1997, caption: "医療チーム - 外科医師同行" },
-            { id: "016", filename: "016_expedition_lop_nor.jpg", category: "expedition", year: 1998, caption: "ロプノール - 塩皮殻の厳しい地形" },
-            { id: "017", filename: "017_expedition_guide_service.jpg", category: "expedition", year: 1999, caption: "ガイド業務 - 板東氏ら13人を案内" },
-            { id: "018", filename: "018_expedition_rally_preparation.jpg", category: "expedition", year: 2000, caption: "ラリー準備 - ポイントマーク杭打ち" },
-            { id: "019", filename: "019_expedition_rally_rescue.jpg", category: "expedition", year: 2000, caption: "ラリー救出 - 脱落車両の救援" },
-            { id: "020", filename: "020_expedition_desert_crossing.jpg", category: "expedition", year: 2002, caption: "砂漠横断 - タリム大橋南から230km" },
-
-            // 021-040: 冒険写真2
-            { id: "021", filename: "021_expedition_walking_desert.jpg", category: "expedition", year: 2002, caption: "砂漠徒歩 - 国道90km歩行" },
-            { id: "022", filename: "022_expedition_arakan_village.jpg", category: "expedition", year: 2002, caption: "阿拉干村 - 静寂の村に到着" },
-            { id: "023", filename: "023_expedition_kyrgyz_border.jpg", category: "expedition", year: 2002, caption: "キルギス国境 - トルガルト峠観光" },
-            { id: "024", filename: "024_expedition_final_preparation.jpg", category: "expedition", year: 2004, caption: "最終準備 - 完全縦断への準備" },
-            { id: "025", filename: "025_expedition_camel_loading.jpg", category: "expedition", year: 2004, caption: "ラクダ積載 - 73日分の物資" },
-            { id: "026", filename: "026_expedition_water_containers.jpg", category: "expedition", year: 2004, caption: "水容器 - 40リットル×24個" },
-            { id: "027", filename: "027_expedition_nan_bread.jpg", category: "expedition", year: 2004, caption: "ナン1000枚 - ラクダ使いの主食" },
-            { id: "028", filename: "028_expedition_supply_depot.jpg", category: "expedition", year: 2004, caption: "補給デポ - 5回補給地点" },
-            { id: "029", filename: "029_expedition_nhk_director.jpg", category: "expedition", year: 2004, caption: "NHKディレクター - 肺炎で離脱" },
-            { id: "030", filename: "030_expedition_latitude_39.jpg", category: "expedition", year: 2004, caption: "北緯39度線 - 縦断ライン" },
-            { id: "031", filename: "031_expedition_completion.jpg", category: "expedition", year: 2004, caption: "縦断完了 - 1200km達成" },
-            { id: "032", filename: "032_expedition_group_final.jpg", category: "expedition", year: 2004, caption: "最終記念撮影 - 30年間の集大成" },
-            { id: "033", filename: "033_expedition_landscape_1.jpg", category: "expedition", year: 1990, caption: "砂漠風景① - タクラマカンの壮大さ" },
-            { id: "034", filename: "034_expedition_landscape_2.jpg", category: "expedition", year: 1993, caption: "砂漠風景② - クムタグの美しさ" },
-            { id: "035", filename: "035_expedition_landscape_3.jpg", category: "expedition", year: 1997, caption: "高原風景① - 羌塘の雄大さ" },
-            { id: "036", filename: "036_expedition_landscape_4.jpg", category: "expedition", year: 1998, caption: "ロプノール風景 - 塩湖の神秘" },
-            { id: "037", filename: "037_expedition_landscape_5.jpg", category: "expedition", year: 2002, caption: "砂漠風景③ - 夕日に染まる砂丘" },
-            { id: "038", filename: "038_expedition_landscape_6.jpg", category: "expedition", year: 2004, caption: "縦断風景 - 無限に続く砂漠" },
-            { id: "039", filename: "039_expedition_team_portrait.jpg", category: "expedition", year: 1993, caption: "チーム肖像 - 生死を共にした仲間" },
-            { id: "040", filename: "040_expedition_equipment_detail.jpg", category: "expedition", year: 1997, caption: "装備詳細 - 高山病対策機材" },
-
-            // 041-055: 冒険写真3・トップ画像
-            { id: "041", filename: "041_expedition_chinese_team.jpg", category: "expedition", year: 1993, caption: "中国チーム - 王衛平氏との協力" },
-            { id: "042", filename: "042_expedition_geologist.jpg", category: "expedition", year: 1993, caption: "地質学者 - 趙子允氏" },
-            { id: "043", filename: "043_expedition_explorer.jpg", category: "expedition", year: 1993, caption: "探検家 - 甄希林氏" },
-            { id: "044", filename: "044_expedition_driver.jpg", category: "expedition", year: 1993, caption: "運転手 - 井戸発見の李江氏" },
-            { id: "045", filename: "045_expedition_doctor.jpg", category: "expedition", year: 1997, caption: "外科医師 - 王龍文氏" },
-            { id: "046", filename: "046_expedition_international_1.jpg", category: "expedition", year: 1997, caption: "国際探検① - フランス人メンバー" },
-            { id: "047", filename: "047_expedition_international_2.jpg", category: "expedition", year: 1997, caption: "国際探検② - カナダ人メンバー" },
-            { id: "048", filename: "048_expedition_vehicles.jpg", category: "expedition", year: 1997, caption: "車両隊 - ランドクルーザー3台" },
-            { id: "049", filename: "049_expedition_truck_convoy.jpg", category: "expedition", year: 1997, caption: "トラック隊 - 4トン車2台" },
-            { id: "050", filename: "050_expedition_base_camp.jpg", category: "expedition", year: 2004, caption: "ベースキャンプ - 砂漠の中の拠点" },
-            { id: "051", filename: "051_expedition_kunlun_changtang_16x9_L.jpg", category: "expedition", year: 1997, caption: "崑崙・羌塘高原探検 - トップ背景画像", special: "top" },
-            { id: "052", filename: "052_expedition_sunset_desert.jpg", category: "expedition", year: 2004, caption: "砂漠の夕日 - 縦断中の絶景" },
-            { id: "053", filename: "053_expedition_morning_camp.jpg", category: "expedition", year: 2004, caption: "朝のキャンプ - 砂漠での野営" },
-            { id: "054", filename: "054_expedition_navigation.jpg", category: "expedition", year: 1993, caption: "ナビゲーション - 地図とコンパス" },
-            { id: "055", filename: "055_expedition_survival_gear.jpg", category: "expedition", year: 1993, caption: "サバイバル装備 - 緊急時装備" },
-
-            // 056-065: 計画文書
-            { id: "056", filename: "056_plans_bower_document.jpg", category: "plans", year: 1980, caption: "バウアー文書 - 冒険の原点文書" },
-            { id: "057", filename: "057_plans_1993_cover.jpg", category: "plans", year: 1993, caption: "1993年計画書表紙 - ラリー構想" },
-            { id: "058", filename: "058_plans_wang_agreement.jpg", category: "plans", year: 1993, caption: "王衛平氏協定書 - 大自然旅行社" },
-            { id: "059", filename: "059_plans_investigation_memo.jpg", category: "plans", year: 1993, caption: "調査メモ - 東部路線詳細" },
-            { id: "060", filename: "060_plans_uk_expedition.jpg", category: "plans", year: 1993, caption: "英国隊資料 - 関連記録書類" },
-            { id: "061", filename: "061_plans_elizabeth_stamp.jpg", category: "plans", year: 1993, caption: "エリザベス女王記念切手 - 関連栄誉" },
-            { id: "062", filename: "062_plans_international_1997.jpg", category: "plans", year: 1997, caption: "1997年国際探検計画書" },
-            { id: "063", filename: "063_plans_changtang_route.jpg", category: "plans", year: 1997, caption: "羌塘高原ルート計画" },
-            { id: "064", filename: "064_plans_2004_final.jpg", category: "plans", year: 2004, caption: "2004年完全縦断計画書" },
-            { id: "065", filename: "065_plans_supply_schedule.jpg", category: "plans", year: 2004, caption: "補給スケジュール表" },
-
-            // 066-070: 報道記録
-            { id: "066", filename: "066_news_1993_discovery.jpg", category: "news", year: 1993, caption: "1993年井戸発見 - 新聞報道" },
-            { id: "067", filename: "067_news_uk_expedition.jpg", category: "news", year: 1993, caption: "英国隊縦断 - 海外報道" },
-            { id: "068", filename: "068_news_international_1997.jpg", category: "news", year: 1997, caption: "1997年国際探検 - テレビ報道" },
-            { id: "069", filename: "069_news_rally_2000.jpg", category: "news", year: 2000, caption: "2000年ラリー実施 - 報道記録" },
-            { id: "070", filename: "070_news_final_expedition.jpg", category: "news", year: 2004, caption: "2004年完全縦断 - 最終報道" },
-
-            // 071-075: 地図資料
-            { id: "071", filename: "071_maps_taklamakan_overview.jpg", category: "maps", year: 1990, caption: "タクラマカン砂漠全体図" },
-            { id: "072", filename: "072_maps_1993_investigation.jpg", category: "maps", year: 1993, caption: "1993年調査ルート図" },
-            { id: "073", filename: "073_maps_changtang_route.jpg", category: "maps", year: 1997, caption: "羌塘高原縦走ルート図" },
-            { id: "074", filename: "074_maps_latitude_39.jpg", category: "maps", year: 2004, caption: "北緯39度線縦断ルート図" },
-            { id: "075", filename: "075_maps_complete_30years.jpg", category: "maps", year: 2004, caption: "30年間完全ルート図" }
+            { id: "051", filename: "051_expedition_kunlun_changtang_16x9_L.jpg", category: "expedition", year: 1997, caption: "崑崙（コンロン）・羌塘（チャンタン）高原探検 - トップ背景画像", special: "top" },
+            
+            // テスト用のプレースホルダー（実際のファイルに置き換え予定）
+            { id: "test1", filename: "test1.jpg", category: "expedition", year: 1993, caption: "テスト画像1 - 実際のファイル名に要変更" },
+            { id: "test2", filename: "test2.jpg", category: "plans", year: 1993, caption: "テスト画像2 - 実際のファイル名に要変更" },
+            { id: "test3", filename: "test3.jpg", category: "news", year: 2000, caption: "テスト画像3 - 実際のファイル名に要変更" }
         ];
 
         // タブ切り替え機能
@@ -1122,10 +1058,10 @@
                         <div class="image-number">${image.id}</div>
                         <div class="category-tag ${categoryClass}">${image.category.toUpperCase()}${specialMark}</div>
                         <img class="gallery-image" 
-                             src="./final/medium/${image.filename}" 
+                             src="./medium/${image.filename}" 
                              alt="${image.caption}"
                              loading="lazy"
-                             onclick="openModal('./final/large/${image.filename}', '${image.caption}')"
+                             onclick="openModal('./large/${image.filename}', '${image.caption}')"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="gallery-placeholder" style="display: none; height: 200px; background: #f0f0f0; align-items: center; justify-content: center; font-size: 3em; color: #999;">
                             📷
@@ -1201,8 +1137,11 @@
             showTab('records');
         }
 
-        // スクロール指示クリック
+        // ページ読み込み時の初期化
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded. Starting initialization...');
+            
+            // スクロール指示の設定
             const scrollIndicator = document.querySelector('.scroll-indicator');
             if (scrollIndicator) {
                 scrollIndicator.addEventListener('click', function() {
@@ -1211,6 +1150,13 @@
                     });
                 });
             }
+            
+            // 初期ギャラリー生成テスト
+            if (document.getElementById('gallery')) {
+                console.log('Gallery tab found, ready for generation');
+            }
+            
+            console.log('Initialization completed');
         });
 
         // モーダル外クリックで閉じる
