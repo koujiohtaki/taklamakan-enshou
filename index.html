@@ -411,6 +411,12 @@
             justify-content: center;
         }
 
+        /* 疑似全画面 */
+        .modal.pseudo-fullscreen {
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 20000;
+        }
+
         .modal-content {
             position: relative;
             max-width: 95%;
@@ -492,8 +498,8 @@
             transform: scale(1.1);
         }
 
-        /* 全画面表示 */
-        .fullscreen-btn {
+        /* 疑似全画面ボタン */
+        .pseudo-fullscreen-btn {
             position: absolute;
             top: 15px;
             right: 70px;
@@ -508,8 +514,153 @@
             z-index: 10001;
         }
 
-        .fullscreen-btn:hover {
+        .pseudo-fullscreen-btn:hover {
             background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* アコーディオン */
+        .accordion-item {
+            margin-bottom: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+        }
+
+        .accordion-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .accordion-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+
+        .accordion-body {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .article-image {
+            float: right;
+            margin: 0 0 20px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* タイムライン */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .timeline-item.highlight {
+            border: 3px solid var(--accent-color);
+            background: linear-gradient(135deg, #FFF8DC 0%, #F0E68C 100%);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 20px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-item.highlight::before {
+            background: var(--accent-color);
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+        .timeline-year {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .detail-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: var(--transition);
+        }
+
+        .detail-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         /* レスポンシブ */
@@ -552,6 +703,25 @@
             .modal-image.a4-landscape {
                 max-width: 90vw !important;
                 max-height: 60vh !important;
+            }
+
+            .article-image {
+                float: none;
+                margin: 0 auto 20px auto;
+                display: block;
+                max-width: 100%;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item::before {
+                left: -32px;
             }
         }
 
@@ -622,10 +792,10 @@
 
         <nav class="nav-container">
             <div class="nav-tabs">
-                <button class="nav-tab active" onclick="showTab('overview')">冒険概要</button>
-                <button class="nav-tab" onclick="showTab('gallery')">完全ギャラリー(126枚)</button>
-                <button class="nav-tab" onclick="showTab('records')">主要冒険記録</button>
-                <button class="nav-tab" onclick="showTab('timeline')">15年間年表</button>
+                <button class="nav-tab active" onclick="showTab('overview', this)">冒険概要</button>
+                <button class="nav-tab" onclick="showTab('gallery', this)">完全ギャラリー(126枚)</button>
+                <button class="nav-tab" onclick="showTab('records', this)">主要冒険記録</button>
+                <button class="nav-tab" onclick="showTab('timeline', this)">15年間年表</button>
             </div>
         </nav>
     </section>
@@ -728,7 +898,7 @@
             <section class="section-card">
                 <div class="section-header">
                     <h2 class="section-title">完全ギャラリー（126枚）</h2>
-                    <p class="section-subtitle">A4表示・全画面対応 + 診断機能</p>
+                    <p class="section-subtitle">A4表示・疑似全画面対応 + 診断機能</p>
                 </div>
                 <div class="section-content">
                     <div class="diagnostic-tool">
@@ -739,12 +909,12 @@
                     </div>
 
                     <div class="gallery-controls">
-                        <button class="filter-btn active" onclick="filterGallery('all')">全て表示 (126枚)</button>
-                        <button class="filter-btn" onclick="filterGallery('expedition')">冒険写真</button>
-                        <button class="filter-btn" onclick="filterGallery('plans')">計画文書</button>
-                        <button class="filter-btn" onclick="filterGallery('award')">受賞記録</button>
-                        <button class="filter-btn" onclick="filterGallery('news')">報道記録</button>
-                        <button class="filter-btn" onclick="filterGallery('origin')">原点文書</button>
+                        <button class="filter-btn active" onclick="filterGallery('all', this)">全て表示 (126枚)</button>
+                        <button class="filter-btn" onclick="filterGallery('expedition', this)">冒険写真</button>
+                        <button class="filter-btn" onclick="filterGallery('plans', this)">計画文書</button>
+                        <button class="filter-btn" onclick="filterGallery('award', this)">受賞記録</button>
+                        <button class="filter-btn" onclick="filterGallery('news', this)">報道記録</button>
+                        <button class="filter-btn" onclick="filterGallery('origin', this)">原点文書</button>
                     </div>
                     
                     <div class="gallery-grid" id="photo-gallery">
@@ -1007,7 +1177,7 @@
     <!-- 画像モーダル -->
     <div class="modal" id="imageModal">
         <button class="modal-close" onclick="closeModal()">&times;</button>
-        <button class="fullscreen-btn" onclick="toggleFullscreen()">🖼️ 全画面</button>
+        <button class="pseudo-fullscreen-btn" onclick="togglePseudoFullscreen()">🖼️ 疑似全画面</button>
         <div class="modal-content" id="modalContent">
             <img class="modal-image" id="modalImage" src="" alt="">
             <div class="modal-caption" id="modalCaption">
@@ -1017,7 +1187,7 @@
     </div>
 
     <script>
-        // 126枚完全データベース（構文エラー修正版）
+        // 126枚完全データベース
         const imageDatabase = [
             // 001-010: 受賞記録・冒険写真
             { id: "001", filename: "001_award_001_taklamakan_1990_certificate.jpg", category: "award", year: 1990, caption: "タクラマカン1990年認定証" },
@@ -1249,8 +1419,8 @@
             }
         }
 
-        // タブ切り替え
-        function showTab(tabName) {
+        // タブ切り替え（修正済み）
+        function showTab(tabName, buttonElement) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.classList.remove('active'));
 
@@ -1258,7 +1428,7 @@
             tabButtons.forEach(button => button.classList.remove('active'));
 
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            buttonElement.classList.add('active');
 
             if (tabName === 'gallery') {
                 generateGallery();
@@ -1298,11 +1468,11 @@
             }).join('');
         }
 
-        // ギャラリーフィルター
-        function filterGallery(category) {
+        // ギャラリーフィルター（修正済み）
+        function filterGallery(category, buttonElement) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            buttonElement.classList.add('active');
 
             const items = document.querySelectorAll('.gallery-item');
             items.forEach(item => {
@@ -1366,23 +1536,23 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // 全画面表示
-        function toggleFullscreen() {
+        // 疑似全画面表示
+        function togglePseudoFullscreen() {
             const modal = document.getElementById('imageModal');
             
-            if (!document.fullscreenElement) {
-                modal.requestFullscreen().catch(err => {
-                    console.log(`全画面エラー: ${err.message}`);
-                });
+            if (modal.classList.contains('pseudo-fullscreen')) {
+                modal.classList.remove('pseudo-fullscreen');
+                console.log('📱 疑似全画面解除');
             } else {
-                document.exitFullscreen();
+                modal.classList.add('pseudo-fullscreen');
+                console.log('🖼️ 疑似全画面表示（GitHub URL非表示）');
             }
         }
 
         // モーダル閉じる
         function closeModal() {
             const modal = document.getElementById('imageModal');
-            modal.classList.remove('active');
+            modal.classList.remove('active', 'pseudo-fullscreen');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
@@ -1409,7 +1579,7 @@
         // 詳細モーダル（年表用）
         function showDetailModal(year) {
             alert(`${year}の詳細記録は主要冒険記録タブでご覧ください。`);
-            showTab('records');
+            showTab('records', document.querySelector('.nav-tab[onclick*="records"]'));
         }
 
         // スクロール指示
