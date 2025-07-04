@@ -243,6 +243,11 @@
             position: relative;
         }
 
+        .highlight-box.crisis {
+            background: linear-gradient(135deg, #FFE4E1 0%, #FFC0CB 100%);
+            border-color: #DC143C;
+        }
+
         .highlight-box::before {
             content: '🏔️';
             position: absolute;
@@ -253,11 +258,20 @@
             font-size: 1.5em;
         }
 
+        .highlight-box.crisis::before {
+            content: '⚠️';
+            background: #FFE4E1;
+        }
+
         .highlight-title {
             color: #B8860B;
             font-size: 1.3em;
             margin-bottom: 15px;
             font-weight: bold;
+        }
+
+        .highlight-box.crisis .highlight-title {
+            color: #DC143C;
         }
 
         /* ギャラリー診断ツール */
@@ -748,17 +762,138 @@
                     <p class="section-subtitle">重要な冒険の詳細記述</p>
                 </div>
                 <div class="section-content">
-                    <div class="highlight-box">
-                        <div class="highlight-title">1993年：命がけの調査と奇跡の生還</div>
-                        <div style="color: #8B7355; line-height: 1.8;">
-                            残燃料1日分、水の蓄えも少量という絶望的状況で彭加木博士の石碑に祈りを捧げる。成田氏の進路決定により古代井戸を発見し、調査隊全員が奇跡的に生還。この命がけの体験を共にした現地ガイドたちは、2004年まで11年間一貫して成田氏の冒険をサポートし続けた。
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="accordion-title">1990年：記念すべき第1回冒険</div>
+                            <div class="accordion-icon">▼</div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <img class="article-image" src="./final/medium/001_award_001_taklamakan_1990_certificate.jpg" alt="1990年タクラマカン認定証" onclick="openModal('./final/large/001_award_001_taklamakan_1990_certificate.jpg', '1990年タクラマカン砂漠一周認定証', '001_award_001_taklamakan_1990_certificate.jpg')" style="width: 300px; height: auto; margin: 10px 0; border-radius: 8px; cursor: pointer;">
+                                <p style="text-align: center; font-size: 0.9em; color: #666; margin-bottom: 15px;">1990年タクラマカン砂漠一周 - 記念すべき第1回冒険の認定証</p>
+
+                                <p class="section-text">新疆に強い関心を持つ男女14人が集まり、数回のミーティングを重ねて計画された記念すべき第1回冒険。成田氏は副隊長として参加し、中国現地打合せを2回北京で行った。</p>
+                                
+                                <div class="highlight-box">
+                                    <div class="highlight-title">旅程の概要</div>
+                                    <div style="color: #8B7355; line-height: 1.8;">
+                                        <strong>1. パミール高原の東端</strong><br>
+                                        ムスターグアタ山（標高7,546m）の雪渓5,000mまで到達<br><br>
+                                        
+                                        <strong>2. タクラマカン砂漠一周</strong><br>
+                                        和田（ホータン）でラクダを用意し、民豊県（ニヤ）まで約250km砂漠横断<br><br>
+                                        
+                                        <strong>3. アルティン山脈越え</strong><br>
+                                        西域南道からの補給を受けながら、米蘭（ミーラン）〜崑崙〜敦煌ルート<br><br>
+                                        
+                                        <strong>4. クムタグ砂漠東進</strong><br>
+                                        ランドクルーザー5台と大型四輪駆動車1台で「天下第一景 紅柳溝」を経由
+                                    </div>
+                                </div>
+                                
+                                <p class="section-text">冒険的なところと観光が融合した愉しい旅であった。見学可能な遺跡は全て周り、文物を見て回る充実した内容で、15年間のタクラマカン砂漠冒険の出発点となった。</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="highlight-box">
-                        <div class="highlight-title">2004年：30年間冒険の集大成</div>
-                        <div style="color: #8B7355; line-height: 1.8;">
-                            北緯39度線タクラマカン砂漠完全縦断。73日間1,200km、5回補給・1回デポジット。水容器40リットル入24個（960kg）、ウイグルのラクダ使いの主食ナン1,000枚を用意した本格探検。30年間の西域冒険の集大成となった偉業。
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="accordion-title">⭐ 1993年：命がけの調査と奇跡の生還</div>
+                            <div class="accordion-icon">▼</div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <div class="highlight-box crisis" style="background: linear-gradient(135deg, #FFE4E1 0%, #FFC0CB 100%); border-color: #DC143C;">
+                                    <div class="highlight-title" style="color: #DC143C;">史上初の挑戦</div>
+                                    <div style="color: #8B0000; line-height: 1.8;">
+                                        この地域はこれまで<strong>人類未踏の地域</strong>であり、タクラマカン砂漠では過去に<strong>ラリーはおろか、ラクダでの横断すらいまだかつて行われたことがなく</strong>、完全未開拓の挑戦領域だった。成田氏の企画力と王衛平氏との信頼関係により、即座に調査が実現。
+                                    </div>
+                                </div>
+
+                                <p class="section-text"><strong>5月末</strong>：ウルムチで新疆大自然旅行社の王衛平総経理と2000年民間ラリー構想を協議。成田氏の熱意により即座に東部路線調査が決定。</p>
+
+                                <p class="section-text"><strong>6月7-11日</strong>：ウルムチ→コルラ→チャリクリク→米蘭を経てクムタグ砂漠突入。順調な調査が続く。</p>
+
+                                <div class="highlight-box crisis" style="background: linear-gradient(135deg, #FFE4E1 0%, #FFC0CB 100%); border-color: #DC143C;">
+                                    <div class="highlight-title" style="color: #DC143C;">6月14日：死の淵での決断</div>
+                                    <div style="color: #8B0000; line-height: 1.8;">
+                                        夕方、残燃料1日分、水の蓄えも少量という絶望的状況。彭加木（ほうかぼく）博士の石碑に水を供えて祈りを捧げた2時間後、自分たちも同じ運命をたどる恐れに直面。全員が死を覚悟したが、誰一人取り乱すことはなかった。
+                                    </div>
+                                </div>
+
+                                <p class="section-text">成田氏は体力温存のため睡眠薬を普段の倍量服用。翌朝、探検家甄希林氏と地質学者趙子允氏から「この探検を企画した成田さんが進路を決定してください」と委託される。成田氏は遥か地平線の「黒山口」を目標に設定。</p>
+
+                                <div class="highlight-box">
+                                    <div class="highlight-title">奇跡の井戸発見</div>
+                                    <div style="color: #8B7355; line-height: 1.8;">
+                                        運転手李江（リージャン）が古代井戸を発見。ロープにブリキのバケツ、新しいタイヤ痕、近くの金鉱採掘跡。全員の絶望感が一変し、頭をシャンプーし髭を剃る余裕も生まれた。<strong>成田氏の進路決定が調査隊全員の命を救った。</strong>
+                                    </div>
+                                </div>
+
+                                <p class="section-text"><strong>継続的信頼関係</strong>：この命がけの体験を共にした現地ガイドたちは、この時以来2004年まで11年間、一貫して成田氏の冒険をサポートし続けることになる。</p>
+
+                                <p class="section-text"><strong>英国隊との関係</strong>：9月、成田氏のチームメンバーが参加した英国隊がタクラマカン砂漠をラクダで縦断（史上初）。エリザベス女王2世からの祝電と記念切手発行。成田氏は交友関係により記録書類・記念品を入手。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="accordion-title">1997年：国際探検と羌塘高原制覇</div>
+                            <div class="accordion-icon">▼</div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <img class="article-image" src="./final/medium/049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg" alt="1997年崑崙成功栄誉" onclick="openModal('./final/large/049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg', '1997年崑崙山脈・羌塘高原制覇成功栄誉', '049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg')" style="width: 300px; height: auto; margin: 10px 0; border-radius: 8px; cursor: pointer;">
+                                <p style="text-align: center; font-size: 0.9em; color: #666; margin-bottom: 15px;">1997年崑崙山脈・羌塘高原制覇 - 成功を讃える栄誉記録</p>
+
+                                <p class="section-text"><strong>4月</strong>：北京でフランス人・カナダ人との合同記者発表会。中国全土のテレビ放映のための旅番組制作として企画。</p>
+                                
+                                <p class="section-text"><strong>6月</strong>：羌塘高原縦走。ウルムチを出発し、サニルチェン大橋より崑崙山脈の川底を登り、カラミランサンコウを西から回り、羌塘高原を縦走してザンゼルガン峰の横を通りソウチュン村の国道に抜けてラサ〜敦煌〜ウルムチを縦走。</p>
+
+                                <div class="highlight-box">
+                                    <div class="highlight-title">本格探検の装備</div>
+                                    <div style="color: #8B7355; line-height: 1.8;">
+                                        <strong>専門スタッフ</strong>：ウイグル大学外科医師王龍文氏、地質学者で探検家趙子允氏同行<br><br>
+                                        <strong>高山病対策</strong>：中国軍使用の高原1号（利尿剤）、ダイアモックス、ラシックス、ガモフバッグをレンタル<br><br>
+                                        <strong>車両装備</strong>：ランドクルーザー3台、北京ジープ1台、四輪駆動4トントラック2台、四輪駆動4トンタンクローリー1台
+                                    </div>
+                                </div>
+
+                                <p class="section-text">誰もが初めての地形である未知の地域。苦労の末やっとチベットのラサまで到達し、羌塘高原制覇という偉業を達成した。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="accordion-title">2004年：15年間冒険の集大成</div>
+                            <div class="accordion-icon">▼</div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <img class="article-image" src="./final/medium/040_expedition_048_2002_taklamakan_memoir_A4V_L.jpg" alt="2002年タクラマカン回想録" onclick="openModal('./final/large/040_expedition_048_2002_taklamakan_memoir_A4V_L.jpg', '2002年タクラマカン砂漠探検回想録', '040_expedition_048_2002_taklamakan_memoir_A4V_L.jpg')" style="width: 300px; height: auto; margin: 10px 0; border-radius: 8px; cursor: pointer;">
+                                <p style="text-align: center; font-size: 0.9em; color: #666; margin-bottom: 15px;">タクラマカン砂漠探検回想録 - 15年間の冒険を振り返る貴重な記録</p>
+
+                                <p class="section-text">北緯39度線タクラマカン砂漠完全縦断。当初はカシュガルより北18kmを出発予定だったが、口蹄疫により和田のラクダが移動禁止となり、出発地点を変更。</p>
+
+                                <div class="highlight-box">
+                                    <div class="highlight-title">完全縦断の詳細</div>
+                                    <div style="color: #8B7355; line-height: 1.8;">
+                                        <strong>期間</strong>：73日間<br>
+                                        <strong>距離</strong>：1,200km<br>
+                                        <strong>補給</strong>：5回補給・1回デポジット<br>
+                                        <strong>水容器</strong>：40リットル入24個＝960kg<br>
+                                        <strong>食料</strong>：ウイグルのラクダ使いの主食ナン1,000枚<br>
+                                        <strong>ラクダ食料</strong>：圧縮藁と乾燥トウモロコシ（1.2m×0.4m×0.4m）
+                                    </div>
+                                </div>
+
+                                <p class="section-text">麻札塔格山（マザターグ）でNHKディレクターが肺炎で離脱するトラブルもあったが、里雅布衣村（タリヤブイ）→塔中（ターチョン）→若羌（チャリクリク）のルートで見事に完全縦断を達成。15年間のタクラマカン砂漠冒険の集大成となった。</p>
+
+                                <img class="article-image" src="./final/medium/043_expedition_051_2002_taklamakan_route_map_A4H_L.jpg" alt="2002年タクラマカンルート地図" onclick="openModal('./final/large/043_expedition_051_2002_taklamakan_route_map_A4H_L.jpg', '2002年タクラマカン砂漠冒険ルート詳細地図', '043_expedition_051_2002_taklamakan_route_map_A4H_L.jpg')" style="width: 300px; height: auto; margin: 10px 0; border-radius: 8px; cursor: pointer;">
+                                <p style="text-align: center; font-size: 0.9em; color: #666; margin-bottom: 15px;">タクラマカン砂漠冒険ルート詳細地図 - 完全縦断への道のり</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -773,7 +908,97 @@
                     <p class="section-subtitle">1990-2004年 時系列記録</p>
                 </div>
                 <div class="section-content">
-                    <p class="section-text">1990年の記念すべき第1回冒険から2004年の北緯39度線完全横断まで、15年間の軌跡を時系列で記録。各年の主要な冒険内容、移動手段、成果を詳細に保存しています。</p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1990年</div>
+                            <div class="timeline-title">記念すべき第1回冒険</div>
+                            <div class="timeline-desc">男女14人でタクラマカン砂漠一周。ムスターグアタ山5,000m到達、ラクダで250km砂漠横断。成田氏は副隊長として参加。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1990年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1991年</div>
+                            <div class="timeline-title">冒険休止年</div>
+                            <div class="timeline-desc">この年は冒険を休む。</div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1992年</div>
+                            <div class="timeline-title">大興安嶺山脈越え</div>
+                            <div class="timeline-desc">親子連れ30人で満州里から大興安嶺山脈を越えて丹東まで自転車2,000km走破。夏にアラレが降る楽しい旅。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1992年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item highlight">
+                            <div class="timeline-year">1993年 ⭐</div>
+                            <div class="timeline-title">命がけの調査と奇跡の生還</div>
+                            <div class="timeline-desc">タクラマカン砂漠初のラリー構想で調査実施。残燃料1日分で彭加木石碑にて死を覚悟も、古代井戸発見で全員生還。成田氏の進路決定が調査隊の命を救う。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1993年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1994年</div>
+                            <div class="timeline-title">天山山脈・タクラマカン探検</div>
+                            <div class="timeline-desc">天山山脈の河床をロバ案内人と下る。タクラマカン砂漠走行、米蘭からアルティン山脈を一睡もせずに敦煌へ。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1994年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1995年</div>
+                            <div class="timeline-title">阪神大震災で中断</div>
+                            <div class="timeline-desc">淡路阪神大震災で家半壊により冒険活動休止。</div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1996年</div>
+                            <div class="timeline-title">和田河床・クムタグ砂漠</div>
+                            <div class="timeline-desc">和田河床をアクス市からホータン市まで走破。クムタグ砂漠でミーランからハミまで。砂漠で車が沈み、ウインチで脱出。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1996年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1997年</div>
+                            <div class="timeline-title">国際探検・羌塘高原制覇</div>
+                            <div class="timeline-desc">フランス・カナダとの合同探検。羌塘高原縦走でザンゼルガン峰横断。外科医師・地質学者同行の本格探検。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1997年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1998年</div>
+                            <div class="timeline-title">ロプノール探検</div>
+                            <div class="timeline-desc">ディカール村からロプノール南岸まで。塩皮殻で走行困難も、石油探査隊の道を発見して突破。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1998年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1999年</div>
+                            <div class="timeline-title">玄奘三蔵の足跡</div>
+                            <div class="timeline-desc">クムタグ砂漠で案内を務める。板東氏ら13人をガイド。カナス湖旅行も実施。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('1999年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2000年</div>
+                            <div class="timeline-title">シルクロードラリー</div>
+                            <div class="timeline-desc">ラリー用ポイントマーク杭打ち。第1回シルクロードラリー実行で最後尾から救出担当。</div>
+                            <img style="width: 200px; height: auto; margin: 10px 0; border-radius: 8px; cursor: pointer;" src="./final/medium/038_expedition_046_2000_asahi_silkroad_rally_A4V_L.jpg" alt="2000年朝日シルクロードラリー" onclick="openModal('./final/large/038_expedition_046_2000_asahi_silkroad_rally_A4V_L.jpg', '2000年朝日新聞 シルクロードラリー報道', '038_expedition_046_2000_asahi_silkroad_rally_A4V_L.jpg')">
+                            <a href="#" class="detail-link" onclick="showDetailModal('2000年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2002年</div>
+                            <div class="timeline-title">タクラマカン本格冒険</div>
+                            <div class="timeline-desc">タリム大橋南側より砂漠230km、国道90km徒歩で阿拉干村到達。新聞もテレビもない静寂の中での真の砂漠冒険。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('2002年')">詳細を見る</a>
+                        </div>
+
+                        <div class="timeline-item highlight">
+                            <div class="timeline-year">2004年 ⭐</div>
+                            <div class="timeline-title">北緯39度線完全縦断成功</div>
+                            <div class="timeline-desc">北緯39度線タクラマカン砂漠完全縦断。73日間1,200km、5回補給・1回デポジット。15年間冒険の集大成。</div>
+                            <a href="#" class="detail-link" onclick="showDetailModal('2004年')">詳細を見る</a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -1160,6 +1385,31 @@
             modal.classList.remove('active');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+
+        // アコーディオン機能
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '▼';
+            } else {
+                document.querySelectorAll('.accordion-content.active').forEach(item => {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.accordion-icon').textContent = '▼';
+                });
+                
+                content.classList.add('active');
+                icon.textContent = '▲';
+            }
+        }
+
+        // 詳細モーダル（年表用）
+        function showDetailModal(year) {
+            alert(`${year}の詳細記録は主要冒険記録タブでご覧ください。`);
+            showTab('records');
         }
 
         // スクロール指示
