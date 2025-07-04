@@ -576,6 +576,18 @@
                 transform: translateX(-50%) translateY(-5px);
             }
         }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -643,7 +655,39 @@
                                  alt="バウアー文書 - 冒険の原点" 
                                  style="width: 100%; border-radius: 10px; cursor: pointer; box-shadow: var(--shadow-medium);"
                                  onclick="openModal('./final/large/053_origin_001_silk_road_bower_docu.jpg', 'バウアー文書 - 成田氏冒険の原点となった歴史的文献', '053_origin_001_silk_road_bower_docu.jpg')">
-                            <p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: var(--primary-color); font-weight: bold;">バウアー文書<br>（冒険の原点）</p>
+                            <div style="
+                                text-align: center; 
+                                margin-top: 15px; 
+                                padding: 12px 8px; 
+                                background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); 
+                                border-radius: 8px; 
+                                border: 2px solid var(--primary-color);
+                                box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+                                position: relative;
+                                overflow: hidden;
+                            ">
+                                <div style="
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+                                    animation: shine 3s infinite;
+                                "></div>
+                                <div style="
+                                    position: relative;
+                                    z-index: 2;
+                                    font-size: 1.1em; 
+                                    color: var(--primary-color); 
+                                    font-weight: bold; 
+                                    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+                                    letter-spacing: 1px;
+                                ">
+                                    🏺 バウアー文書<br>
+                                    <span style="font-size: 0.9em; color: #8B4513;">（冒険の原点）</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
