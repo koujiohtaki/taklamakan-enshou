@@ -413,27 +413,33 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
-        /* A4縦表示 */
+        /* A4縦表示 - 大幅改良版 */
         .modal-content.a4-portrait {
-            max-width: 95vh;
-            max-height: 95vh;
+            max-width: 98%;
+            max-height: 98%;
+            width: auto;
+            height: auto;
         }
 
         .modal-image.a4-portrait {
-            max-width: 95vh;
-            max-height: 95vh;
+            width: auto;
+            height: 95vh;
+            max-width: 95vw;
             object-fit: contain;
         }
 
-        /* A4横表示 */
+        /* A4横表示 - 大幅改良版 */
         .modal-content.a4-landscape {
-            max-width: 95%;
-            max-height: 75vh;
+            max-width: 98%;
+            max-height: 98%;
+            width: auto;
+            height: auto;
         }
 
         .modal-image.a4-landscape {
-            width: 85vw;
-            height: 65vh;
+            width: 95vw;
+            height: auto;
+            max-height: 95vh;
             object-fit: contain;
         }
 
@@ -485,6 +491,75 @@
             border-radius: 15px;
             font-size: 0.8em;
             z-index: 3;
+        }
+
+        /* 全画面表示専用CSS */
+        .modal-content.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            max-width: 100vw;
+            max-height: 100vh;
+            background: #000;
+            z-index: 20000;
+        }
+
+        .modal-image.fullscreen {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .fullscreen-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 20001;
+            display: flex;
+            gap: 10px;
+        }
+
+        .fullscreen-btn, .exit-fullscreen-btn {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fullscreen-btn:hover, .exit-fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.05);
+        }
+
+        /* A4表示時の全画面オプション */
+        .a4-fullscreen-option {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
         }
 
         /* 強調ボックス */
@@ -561,13 +636,25 @@
             }
 
             .modal-content.a4-landscape {
-                max-width: 95% !important;
-                max-height: 70vh !important;
+                max-width: 98% !important;
+                max-height: 98% !important;
             }
 
             .modal-image.a4-landscape {
-                max-width: 90vw !important;
-                max-height: 60vh !important;
+                width: 95vw !important;
+                height: auto !important;
+                max-height: 90vh !important;
+            }
+
+            .modal-content.a4-portrait {
+                max-width: 98% !important;
+                max-height: 98% !important;
+            }
+
+            .modal-image.a4-portrait {
+                width: auto !important;
+                height: 90vh !important;
+                max-width: 95vw !important;
             }
         }
 
@@ -755,9 +842,25 @@
     <div class="modal" id="imageModal">
         <button class="modal-close" onclick="closeModal()">&times;</button>
         <div class="display-indicator" id="displayIndicator">🖼️ 通常表示</div>
+        
+        <!-- 全画面コントロール -->
+        <div class="fullscreen-controls" id="fullscreenControls" style="display: none;">
+            <button class="fullscreen-btn" onclick="enterFullscreen()" id="fullscreenBtn">
+                📺 全画面表示
+            </button>
+            <button class="exit-fullscreen-btn" onclick="exitFullscreen()" id="exitFullscreenBtn" style="display: none;">
+                🔙 通常表示に戻る
+            </button>
+        </div>
+        
         <div class="modal-content" id="modalContent">
             <img class="modal-image" id="modalImage" src="" alt="">
             <div class="modal-caption" id="modalCaption"></div>
+            
+            <!-- A4表示時のヒント -->
+            <div class="a4-fullscreen-option" id="a4Hint" style="display: none;">
+                💡 右上の「📺 全画面表示」ボタンで更に読みやすく
+            </div>
         </div>
     </div>
 
@@ -815,8 +918,8 @@
           { id: "049", filename: "049_expedition_057_1997_kunlun_success_honor_A4H_L.jpg", category: "expedition", displayType: "A4横", caption: "1997年崑崙成功栄誉賞", year: 1997 },
           { id: "050", filename: "050_expedition_058_1956_school_entrance_A4H_L.jpg", category: "expedition", displayType: "A4横", caption: "1956年学校入学記録", year: 2000 },
           { id: "051", filename: "051_expedition_059_kunlun_chantan_expedition_16x9_L.jpg", category: "expedition", displayType: "16:9", caption: "崑崙探検（背景画像候補！）", year: 2000 },
-          { id: "052", filename: "052_news_001_japan_times_2002_A4V_L", category: "origin", displayType: "A4縦", caption: "ジャパンタイムス", year: 2002 },
-          { id: "053", filename: "053_origin_001_silk_road_bower_document", category: "origin", displayType: "A4縦", caption: "バウアー文書（真の原点！）", year: 2000 },
+          { id: "052", filename: "052_news_001_japan_times_2002_A4V_L.jpg", category: "origin", displayType: "A4縦", caption: "ジャパンタイムス", year: 2002 },
+          { id: "053", filename: "053_origin_001_silk_road_bower_document.jpg", category: "origin", displayType: "A4縦", caption: "バウアー文書（真の原点！）", year: 2000 },
           { id: "054", filename: "054_origin_002_karabran_book_cover.jpg", category: "origin", displayType: "A4縦", caption: "カラブラン本表紙", year: 2000 },
           { id: "055", filename: "055_origin_003_karabran_pages_16_17.jpg", category: "origin", displayType: "A4縦", caption: "カラブラン本16-17頁", year: 2000 },
           { id: "056", filename: "056_origin_004_karabran_pages_14_15.jpg", category: "origin", displayType: "A4縦", caption: "カラブラン本14-15頁", year: 2000 },
@@ -839,57 +942,57 @@
           { id: "073", filename: "073_plans_jc_010_blank_schedule_calendar.jpg", category: "plans", displayType: "A4縦", caption: "完走旅程表完走距離", year: 2000 },
           { id: "074", filename: "074_plans_jc_011_expedition_summary_1993.jpg", category: "plans", displayType: "A4横", caption: "1993年英国隊記録", year: 1993 },
           { id: "075", filename: "075_plans_jc_012_expedition_route_map.jpg", category: "news", displayType: "A4縦", caption: "1993ラリー調査ルート", year: 2000 },
-          { id: "076", filename: "2004栄誉証書", category: "award", displayType: "A4横", caption: "2004年タクラマカン横断栄誉証書", year: 2004 },
-          { id: "077", filename: "2004計画前", category: "award", displayType: "A4横", caption: "2004年中国関係者", year: 2004 },
-          { id: "078", filename: "Scan2025-06-30_094428", category: "expedition", displayType: "16:9", caption: "砂漠横断トップ写真", year: 2000 },
-          { id: "079", filename: "Scan2025-06-30_135930_000", category: "plans", displayType: "A4縦", caption: "1993年新疆維吾爾自治区人民政府", year: 2000 },
-          { id: "080", filename: "Scan2025-06-30_135930_001", category: "plans", displayType: "A4縦", caption: "1993年若人民政府", year: 2000 },
-          { id: "081", filename: "Scan2025-06-30_135930_002", category: "plans", displayType: "A4縦", caption: "1993年宿成功", year: 2000 },
-          { id: "082", filename: "Scan2025-06-30_135930_003", category: "plans", displayType: "A4縦", caption: "1994年車の許可書？", year: 2000 },
-          { id: "083", filename: "Scan2025-06-30_135930_004", category: "plans", displayType: "A4縦", caption: "1996年新疆維吾爾旅行局", year: 2000 },
-          { id: "084", filename: "Scan2025-06-30_135930_005", category: "plans", displayType: "A4縦", caption: "甘粛省敦煌許可書", year: 2000 },
-          { id: "085", filename: "Scan2025-06-30_135930_006", category: "plans", displayType: "A4縦", caption: "99年9月完成", year: 2000 },
-          { id: "086", filename: "Scan2025-06-30_135930_007", category: "plans", displayType: "A4縦", caption: "99年哈密", year: 2000 },
-          { id: "087", filename: "Scan2025-06-30_135930_008", category: "award", displayType: "A4横", caption: "2003栄誉証書新疆西域旅行社", year: 2000 },
-          { id: "088", filename: "Scan2025-06-30_135930_009", category: "award", displayType: "A4横", caption: "2002年新疆栄誉証書", year: 2000 },
-          { id: "089", filename: "Scan2025-06-30_135930_010", category: "award", displayType: "A4横", caption: "2000年ラリー栄誉証書盾", year: 2000 },
-          { id: "090", filename: "Scan2025-06-30_135930_011", category: "plans", displayType: "A4縦", caption: "2000年ラリー表紙", year: 2000 },
-          { id: "091", filename: "Scan2025-06-30_135930_012", category: "news", displayType: "A4横", caption: "1997年産経新聞ジープ走行", year: 2000 },
-          { id: "092", filename: "Scan2025-06-30_135930_013", category: "plans", displayType: "A4縦", caption: "2000年西蔵旅行許可書", year: 2000 },
-          { id: "093", filename: "Scan2025-06-30_135930_014", category: "plans", displayType: "A4縦", caption: "2003年崑崙探検名前マスク", year: 2000 },
-          { id: "094", filename: "Scan2025-06-30_135930_015", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検4／28まで", year: 2000 },
-          { id: "095", filename: "Scan2025-06-30_135930_016", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／3まで", year: 2000 },
-          { id: "096", filename: "Scan2025-06-30_135930_017", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／13まで", year: 2000 },
-          { id: "097", filename: "Scan2025-06-30_135930_018", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／19まで", year: 2000 },
-          { id: "098", filename: "Scan2025-06-30_135930_019", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／30まで", year: 2000 },
-          { id: "099", filename: "Scan2025-06-30_135930_020", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、6／3終了略図", year: 2000 },
-          { id: "100", filename: "Scan2025-06-30_135930_021", category: "maps", displayType: "A4縦", caption: "？年西蔵、略図", year: 2000 },
-          { id: "101", filename: "Scan2025-06-30_135930_022", category: "expedition", displayType: "通常", caption: "メンバー全員", year: 2000 },
-          { id: "102", filename: "Scan2025-06-30_135930_023", category: "expedition", displayType: "通常", caption: "2004年メンバー全員", year: 2000 },
-          { id: "103", filename: "Scan2025-06-30_135930_024", category: "expedition", displayType: "通常", caption: "？年砂漠で出会った人と", year: 2000 },
-          { id: "104", filename: "Scan2025-06-30_135930_025", category: "expedition", displayType: "通常", caption: "砂漠で応急手術", year: 2000 },
-          { id: "105", filename: "Scan2025-06-30_135930_026", category: "expedition", displayType: "通常", caption: "？年北京ジープ", year: 2000 },
-          { id: "106", filename: "Scan2025-06-30_135930_027", category: "expedition", displayType: "通常", caption: "西蔵ラサ", year: 2000 },
-          { id: "107", filename: "Scan2025-06-30_135930_028", category: "expedition", displayType: "通常", caption: "野生のヤクの死骸", year: 2000 },
-          { id: "108", filename: "Scan2025-06-30_135930_029", category: "expedition", displayType: "通常", caption: "車輌キャラバン", year: 2000 },
-          { id: "109", filename: "Scan2025-06-30_135930_030", category: "expedition", displayType: "通常", caption: "車輌キャラバン", year: 2000 },
-          { id: "110", filename: "Scan2025-06-30_135930_031", category: "expedition", displayType: "通常", caption: "砂漠の土質：塩皮殻", year: 2000 },
-          { id: "111", filename: "Scan2025-06-30_135930_032", category: "expedition", displayType: "通常", caption: "？湖標識", year: 2000 },
-          { id: "112", filename: "Scan2025-06-30_135930_033", category: "expedition", displayType: "通常", caption: "砂漠の夜空とGPS", year: 2000 },
-          { id: "113", filename: "Scan2025-06-30_135930_034", category: "expedition", displayType: "通常", caption: "砂漠", year: 2000 },
-          { id: "114", filename: "Scan2025-06-30_135930_035", category: "expedition", displayType: "16:9", caption: "砂漠トップ画像候補", year: 2000 },
-          { id: "115", filename: "Scan2025-06-30_135930_036", category: "expedition", displayType: "16:10", caption: "砂漠トップ画像候補", year: 2000 },
-          { id: "116", filename: "Scan2025-06-30_135930_037", category: "plans", displayType: "A4縦", caption: "砂漠移動日程1／24～2／25", year: 2000 },
-          { id: "117", filename: "Scan2025-06-30_135930_038", category: "plans", displayType: "A4縦", caption: "砂漠移動日程2／26～3／27", year: 2000 },
-          { id: "118", filename: "Scan2025-06-30_135930_039", category: "plans", displayType: "A4縦", caption: "砂漠移動日程3／28～4／5", year: 2000 },
-          { id: "119", filename: "Scan2025-06-30_135930_040", category: "plans", displayType: "A4縦", caption: "北緯39度線タクラマカン砂漠横断記録", year: 2000 },
-          { id: "120", filename: "Scan2025-06-30_135930_041", category: "plans", displayType: "A4縦", caption: "北緯39度線記録", year: 2000 },
-          { id: "121", filename: "Scan2025-06-30_135930_042", category: "plans", displayType: "A4縦", caption: "北緯39度線受付所名前マスク", year: 2000 },
-          { id: "122", filename: "Scan2025-07-01_182310_000", category: "maps", displayType: "A4横", caption: "1990年横断地図", year: 2000 },
-          { id: "123", filename: "Scan2025-07-01_182310_001", category: "maps", displayType: "A4横", caption: "1993年地図", year: 2000 },
-          { id: "124", filename: "Scan2025-07-01_182310_002", category: "maps", displayType: "A4縦", caption: "1997年地図", year: 2000 },
-          { id: "125", filename: "Scan2025-07-01_182310_003", category: "maps", displayType: "A4横", caption: "1999年薬師寺依頼", year: 2000 },
-          { id: "126", filename: "Scan2025-07-01_182310_004", category: "maps", displayType: "A4横", caption: "1999年6月行程略図", year: 2000 }
+          { id: "076", filename: "2004栄誉証書.jpg", category: "award", displayType: "A4横", caption: "2004年タクラマカン横断栄誉証書", year: 2004 },
+          { id: "077", filename: "2004計画前.jpg", category: "award", displayType: "A4横", caption: "2004年中国関係者", year: 2004 },
+          { id: "078", filename: "Scan2025-06-30_094428.jpg", category: "expedition", displayType: "16:9", caption: "砂漠横断トップ写真", year: 2000 },
+          { id: "079", filename: "Scan2025-06-30_135930_000.jpg", category: "plans", displayType: "A4縦", caption: "1993年新疆維吾爾自治区人民政府", year: 2000 },
+          { id: "080", filename: "Scan2025-06-30_135930_001.jpg", category: "plans", displayType: "A4縦", caption: "1993年若人民政府", year: 2000 },
+          { id: "081", filename: "Scan2025-06-30_135930_002.jpg", category: "plans", displayType: "A4縦", caption: "1993年宿成功", year: 2000 },
+          { id: "082", filename: "Scan2025-06-30_135930_003.jpg", category: "plans", displayType: "A4縦", caption: "1994年車の許可書？", year: 2000 },
+          { id: "083", filename: "Scan2025-06-30_135930_004.jpg", category: "plans", displayType: "A4縦", caption: "1996年新疆維吾爾旅行局", year: 2000 },
+          { id: "084", filename: "Scan2025-06-30_135930_005.jpg", category: "plans", displayType: "A4縦", caption: "甘粛省敦煌許可書", year: 2000 },
+          { id: "085", filename: "Scan2025-06-30_135930_006.jpg", category: "plans", displayType: "A4縦", caption: "99年9月完成", year: 2000 },
+          { id: "086", filename: "Scan2025-06-30_135930_007.jpg", category: "plans", displayType: "A4縦", caption: "99年哈密", year: 2000 },
+          { id: "087", filename: "Scan2025-06-30_135930_008.jpg", category: "award", displayType: "A4横", caption: "2003栄誉証書新疆西域旅行社", year: 2000 },
+          { id: "088", filename: "Scan2025-06-30_135930_009.jpg", category: "award", displayType: "A4横", caption: "2002年新疆栄誉証書", year: 2000 },
+          { id: "089", filename: "Scan2025-06-30_135930_010.jpg", category: "award", displayType: "A4横", caption: "2000年ラリー栄誉証書盾", year: 2000 },
+          { id: "090", filename: "Scan2025-06-30_135930_011.jpg", category: "plans", displayType: "A4縦", caption: "2000年ラリー表紙", year: 2000 },
+          { id: "091", filename: "Scan2025-06-30_135930_012.jpg", category: "news", displayType: "A4横", caption: "1997年産経新聞ジープ走行", year: 2000 },
+          { id: "092", filename: "Scan2025-06-30_135930_013.jpg", category: "plans", displayType: "A4縦", caption: "2000年西蔵旅行許可書", year: 2000 },
+          { id: "093", filename: "Scan2025-06-30_135930_014.jpg", category: "plans", displayType: "A4縦", caption: "2003年崑崙探検名前マスク", year: 2000 },
+          { id: "094", filename: "Scan2025-06-30_135930_015.jpg", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検4／28まで", year: 2000 },
+          { id: "095", filename: "Scan2025-06-30_135930_016.jpg", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／3まで", year: 2000 },
+          { id: "096", filename: "Scan2025-06-30_135930_017.jpg", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／13まで", year: 2000 },
+          { id: "097", filename: "Scan2025-06-30_135930_018.jpg", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／19まで", year: 2000 },
+          { id: "098", filename: "Scan2025-06-30_135930_019.jpg", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、5／30まで", year: 2000 },
+          { id: "099", filename: "Scan2025-06-30_135930_020.jpg", category: "plans", displayType: "A4縦", caption: "？年ウルムチ探検No.2、6／3終了略図", year: 2000 },
+          { id: "100", filename: "Scan2025-06-30_135930_021.jpg", category: "maps", displayType: "A4縦", caption: "？年西蔵、略図", year: 2000 },
+          { id: "101", filename: "Scan2025-06-30_135930_022.jpg", category: "expedition", displayType: "通常", caption: "メンバー全員", year: 2000 },
+          { id: "102", filename: "Scan2025-06-30_135930_023.jpg", category: "expedition", displayType: "通常", caption: "2004年メンバー全員", year: 2000 },
+          { id: "103", filename: "Scan2025-06-30_135930_024.jpg", category: "expedition", displayType: "通常", caption: "？年砂漠で出会った人と", year: 2000 },
+          { id: "104", filename: "Scan2025-06-30_135930_025.jpg", category: "expedition", displayType: "通常", caption: "砂漠で応急手術", year: 2000 },
+          { id: "105", filename: "Scan2025-06-30_135930_026.jpg", category: "expedition", displayType: "通常", caption: "？年北京ジープ", year: 2000 },
+          { id: "106", filename: "Scan2025-06-30_135930_027.jpg", category: "expedition", displayType: "通常", caption: "西蔵ラサ", year: 2000 },
+          { id: "107", filename: "Scan2025-06-30_135930_028.jpg", category: "expedition", displayType: "通常", caption: "野生のヤクの死骸", year: 2000 },
+          { id: "108", filename: "Scan2025-06-30_135930_029.jpg", category: "expedition", displayType: "通常", caption: "車輌キャラバン", year: 2000 },
+          { id: "109", filename: "Scan2025-06-30_135930_030.jpg", category: "expedition", displayType: "通常", caption: "車輌キャラバン", year: 2000 },
+          { id: "110", filename: "Scan2025-06-30_135930_031.jpg", category: "expedition", displayType: "通常", caption: "砂漠の土質：塩皮殻", year: 2000 },
+          { id: "111", filename: "Scan2025-06-30_135930_032.jpg", category: "expedition", displayType: "通常", caption: "？湖標識", year: 2000 },
+          { id: "112", filename: "Scan2025-06-30_135930_033.jpg", category: "expedition", displayType: "通常", caption: "砂漠の夜空とGPS", year: 2000 },
+          { id: "113", filename: "Scan2025-06-30_135930_034.jpg", category: "expedition", displayType: "通常", caption: "砂漠", year: 2000 },
+          { id: "114", filename: "Scan2025-06-30_135930_035.jpg", category: "expedition", displayType: "16:9", caption: "砂漠トップ画像候補", year: 2000 },
+          { id: "115", filename: "Scan2025-06-30_135930_036.jpg", category: "expedition", displayType: "16:10", caption: "砂漠トップ画像候補", year: 2000 },
+          { id: "116", filename: "Scan2025-06-30_135930_037.jpg", category: "plans", displayType: "A4縦", caption: "砂漠移動日程1／24～2／25", year: 2000 },
+          { id: "117", filename: "Scan2025-06-30_135930_038.jpg", category: "plans", displayType: "A4縦", caption: "砂漠移動日程2／26～3／27", year: 2000 },
+          { id: "118", filename: "Scan2025-06-30_135930_039.jpg", category: "plans", displayType: "A4縦", caption: "砂漠移動日程3／28～4／5", year: 2000 },
+          { id: "119", filename: "Scan2025-06-30_135930_040.jpg", category: "plans", displayType: "A4縦", caption: "北緯39度線タクラマカン砂漠横断記録", year: 2000 },
+          { id: "120", filename: "Scan2025-06-30_135930_041.jpg", category: "plans", displayType: "A4縦", caption: "北緯39度線記録", year: 2000 },
+          { id: "121", filename: "Scan2025-06-30_135930_042.jpg", category: "plans", displayType: "A4縦", caption: "北緯39度線受付所名前マスク", year: 2000 },
+          { id: "122", filename: "Scan2025-07-01_182310_000.jpg", category: "maps", displayType: "A4横", caption: "1990年横断地図", year: 2000 },
+          { id: "123", filename: "Scan2025-07-01_182310_001.jpg", category: "maps", displayType: "A4横", caption: "1993年地図", year: 2000 },
+          { id: "124", filename: "Scan2025-07-01_182310_002.jpg", category: "maps", displayType: "A4縦", caption: "1997年地図", year: 2000 },
+          { id: "125", filename: "Scan2025-07-01_182310_003.jpg", category: "maps", displayType: "A4横", caption: "1999年薬師寺依頼", year: 2000 },
+          { id: "126", filename: "Scan2025-07-01_182310_004.jpg", category: "maps", displayType: "A4横", caption: "1999年6月行程略図", year: 2000 }
         ];
 
         // 126枚診断システム
@@ -1065,17 +1168,22 @@
             });
         }
 
-        // モーダル機能（A4表示対応）
+        // モーダル機能（A4表示対応 + 全画面表示機能）
         function openModal(imageSrc, caption, displayType) {
             const modal = document.getElementById('imageModal');
             const modalContent = document.getElementById('modalContent');
             const modalImage = document.getElementById('modalImage');
             const modalCaption = document.getElementById('modalCaption');
             const displayIndicator = document.getElementById('displayIndicator');
+            const fullscreenControls = document.getElementById('fullscreenControls');
+            const a4Hint = document.getElementById('a4Hint');
             
             // 既存のクラスをクリア
-            modalContent.classList.remove('a4-portrait', 'a4-landscape');
-            modalImage.classList.remove('a4-portrait', 'a4-landscape');
+            modalContent.classList.remove('a4-portrait', 'a4-landscape', 'fullscreen');
+            modalImage.classList.remove('a4-portrait', 'a4-landscape', 'fullscreen');
+            
+            // A4表示判定
+            const isA4 = displayType === 'A4縦' || displayType === 'A4横';
             
             // 表示タイプに応じてクラス追加
             if (displayType === 'A4縦') {
@@ -1090,6 +1198,19 @@
                 displayIndicator.textContent = '🖼️ 通常表示';
             }
             
+            // A4表示時のみ全画面コントロールとヒント表示
+            if (isA4) {
+                fullscreenControls.style.display = 'flex';
+                a4Hint.style.display = 'block';
+                // 3秒後にヒントを非表示
+                setTimeout(() => {
+                    if (a4Hint) a4Hint.style.display = 'none';
+                }, 3000);
+            } else {
+                fullscreenControls.style.display = 'none';
+                a4Hint.style.display = 'none';
+            }
+            
             modal.style.display = 'flex';
             modal.classList.add('active');
             modalImage.src = imageSrc;
@@ -1097,11 +1218,84 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // 全画面表示機能
+        function enterFullscreen() {
+            const modalContent = document.getElementById('modalContent');
+            const modalImage = document.getElementById('modalImage');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            const exitFullscreenBtn = document.getElementById('exitFullscreenBtn');
+            const displayIndicator = document.getElementById('displayIndicator');
+            
+            // フルスクリーンクラス追加
+            modalContent.classList.add('fullscreen');
+            modalImage.classList.add('fullscreen');
+            
+            // ボタン切り替え
+            fullscreenBtn.style.display = 'none';
+            exitFullscreenBtn.style.display = 'flex';
+            
+            // 表示インジケータ更新
+            const currentType = displayIndicator.textContent;
+            displayIndicator.textContent = currentType + ' (全画面)';
+            
+            // ブラウザの全画面API試行（対応している場合）
+            if (modalContent.requestFullscreen) {
+                modalContent.requestFullscreen().catch(err => {
+                    console.log('フルスクリーンAPI未対応:', err);
+                });
+            }
+            
+            console.log('📺 全画面表示モードに切り替えました');
+        }
+
+        // 全画面表示終了
+        function exitFullscreen() {
+            const modalContent = document.getElementById('modalContent');
+            const modalImage = document.getElementById('modalImage');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            const exitFullscreenBtn = document.getElementById('exitFullscreenBtn');
+            const displayIndicator = document.getElementById('displayIndicator');
+            
+            // フルスクリーンクラス削除
+            modalContent.classList.remove('fullscreen');
+            modalImage.classList.remove('fullscreen');
+            
+            // ボタン切り替え
+            fullscreenBtn.style.display = 'flex';
+            exitFullscreenBtn.style.display = 'none';
+            
+            // 表示インジケータ更新
+            const currentType = displayIndicator.textContent.replace(' (全画面)', '');
+            displayIndicator.textContent = currentType;
+            
+            // ブラウザの全画面API終了
+            if (document.exitFullscreen) {
+                document.exitFullscreen().catch(err => {
+                    console.log('フルスクリーン終了:', err);
+                });
+            }
+            
+            console.log('🔙 通常表示に戻りました');
+        }
+
         function closeModal() {
             const modal = document.getElementById('imageModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalImage = document.getElementById('modalImage');
+            
+            // 全画面状態をリセット
+            modalContent.classList.remove('fullscreen');
+            modalImage.classList.remove('fullscreen');
+            
+            // モーダル閉じる
             modal.classList.remove('active');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+            
+            // 全画面API終了（念のため）
+            if (document.exitFullscreen) {
+                document.exitFullscreen().catch(() => {});
+            }
         }
 
         // 初期化
@@ -1117,10 +1311,32 @@
             }
         });
 
-        // ESCキーでモーダルを閉じる
+        // ESCキーでモーダル・全画面を閉じる
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                closeModal();
+                const modalContent = document.getElementById('modalContent');
+                
+                // 全画面状態の場合は全画面終了
+                if (modalContent && modalContent.classList.contains('fullscreen')) {
+                    exitFullscreen();
+                } else {
+                    // 通常状態の場合はモーダル閉じる
+                    closeModal();
+                }
+            }
+        });
+
+        // ブラウザの全画面状態変更を監視
+        document.addEventListener('fullscreenchange', function() {
+            const modalContent = document.getElementById('modalContent');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            const exitFullscreenBtn = document.getElementById('exitFullscreenBtn');
+            
+            // ブラウザの全画面が終了した場合
+            if (!document.fullscreenElement && modalContent) {
+                if (modalContent.classList.contains('fullscreen')) {
+                    exitFullscreen();
+                }
             }
         });
 
